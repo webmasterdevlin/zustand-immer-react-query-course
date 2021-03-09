@@ -52,6 +52,13 @@
       "knownAs": "Flash"
     },
     {
+      "id": "1ggew732dw",
+      "firstName": "Scott",
+      "lastName": "Summer",
+      "house": "Marvel",
+      "knownAs": "Cyclopes"
+    },
+    {
       "id": "dfw7g2",
       "firstName": "Peter",
       "lastName": "Parker",
@@ -59,11 +66,25 @@
       "knownAs": "Spiderman"
     },
     {
+      "id": "9gfw9gde",
+      "firstName": "Bruce",
+      "lastName": "Wayne",
+      "house": "DC",
+      "knownAs": "Batman"
+    },
+    {
       "firstName": "Devlin",
       "lastName": "D.",
       "house": "Starks",
       "knownAs": "Wolf",
       "id": "gjcM7z8"
+    },
+    {
+      "firstName": "John",
+      "lastName": "Wick",
+      "house": "League of assassins ",
+      "knownAs": "Mr. Wick",
+      "id": "IE_sLcI"
     }
   ],
   "villains": [
