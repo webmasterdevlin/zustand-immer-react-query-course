@@ -20,9 +20,9 @@ export default function useRemoveHero() {
 
         // Optimistically update by removing the hero
         if (backup) {
-          queryClient.setQueryData<HeroModel[]>("heroes", [
-            ...backup.data.filter((h) => h.id !== heroId),
-          ]);
+          queryClient.setQueryData<{ data: HeroModel[] }>("heroes", {
+            data: [...backup.data.filter((h) => h.id !== heroId)],
+          });
         }
 
         return { backup };
