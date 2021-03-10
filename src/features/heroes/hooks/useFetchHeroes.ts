@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
-import { api, EndPoints } from "../axios/api-config";
-import { HeroModel } from "../models/hero";
+import { api, EndPoints } from "../../../axios/api-config";
+import { HeroModel } from "../hero";
 
 export default function useFetchHeroes() {
   return useQuery("heroes", () => api.get<HeroModel[]>(EndPoints.heroes));

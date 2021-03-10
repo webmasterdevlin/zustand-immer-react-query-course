@@ -7,29 +7,47 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+
 import TitleBar from "../components/TitleBar";
 import UpdateUiLabel from "../components/UpdateUiLabel";
 import FormSubmission from "../components/FormSubmission";
+import useFetchAntiHeroes from "../features/anti-heroes/hooks/useFetchAntiHeroes";
+import useRemoveAntiHero from "../features/anti-heroes/hooks/useRemoveAntiHero";
+import useAddAntiHero from "../features/anti-heroes/hooks/useAddAntiHero";
+import { queryClient } from "../App";
+import { AntiHeroModel } from "../features/anti-heroes/antiHero";
 
 const AntiHeroesPage = () => {
-  const [antiHeroes, setAntiHeroes] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
+  const { data, status } = useFetchAntiHeroes();
+  const { mutate: removeAntiHero } = useRemoveAntiHero();
+  const { mutate: addAntiHero } = useAddAntiHero();
+  /*local state*/
+  const [counter, setCounter] = useState("0");
+
   const smallScreen = useMediaQuery("(max-width:600px)");
   const classes = useStyles();
 
-  /*local state*/
-  const [counter, setCounter] = useState("0");
+  const handleSoftDelete = (id: string) => {
+    queryClient.setQueryData<{ data: AntiHeroModel[] }>(
+      "antiHeroes",
+      (input) => ({
+        data: input?.data?.filter((ah) => ah.id !== id) as any,
+      })
+    );
+  };
+
+  if (status === "error") return <p>Error :(</p>;
 
   return (
     <div>
       <TitleBar title={"Anti HeroesPage"} />
-
+      <FormSubmission handleMutate={addAntiHero} />
       <UpdateUiLabel />
       <>
-        {loading ? (
+        {status === "loading" ? (
           <Typography variant={"h2"}>Loading.. Please wait..</Typography>
         ) : (
-          antiHeroes.map((ah) => (
+          data?.data?.map((ah) => (
             <Box
               mb={2}
               role={"card"}
@@ -72,7 +90,7 @@ const AntiHeroesPage = () => {
           ))
         )}
       </>
-      {antiHeroes.length === 0 && !loading && (
+      {data?.data?.length === 0 && status === "loading" && (
         <Button
           className={classes.button}
           variant={"contained"}

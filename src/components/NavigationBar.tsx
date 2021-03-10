@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { AppBar, Box, Button, createStyles, Toolbar } from "@material-ui/core";
 import TotalOfCharacters from "./TotalOfCharacters";
 import { makeStyles } from "@material-ui/styles";
+import { queryClient } from "../App";
+import { HeroModel } from "../features/heroes/hero";
 
 const NavigationBar = () => {
   const history = useHistory();
   const classes = useStyles();
+
+  useEffect(() => {}, []);
+
   return (
     <AppBar position="static" style={{ marginBottom: "2rem" }}>
       <Toolbar>
@@ -41,10 +46,13 @@ const NavigationBar = () => {
           >
             Heroes
           </Button>
-          {/*<TotalOfCharacters*/}
-          {/*  collection={store.hero.heroes}*/}
-          {/*  role={"total-heroes"}*/}
-          {/*/>*/}
+
+          <pre>
+            {
+              queryClient.getQueryState<{ data: HeroModel[] }>("heroes")?.data
+                ?.data?.length
+            }
+          </pre>
         </Box>
         <Box>
           <Button
@@ -55,7 +63,7 @@ const NavigationBar = () => {
             Villains
           </Button>
           {/*<TotalOfCharacters*/}
-          {/*  collection={store.villain.villains}*/}
+          {/*  collection={queryClient.getQueryData(["heroes"]) as any[]}*/}
           {/*  role={"total-villains"}*/}
           {/*/>*/}
         </Box>

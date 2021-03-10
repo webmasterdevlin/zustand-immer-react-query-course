@@ -10,26 +10,35 @@ import { makeStyles } from "@material-ui/styles";
 
 import TitleBar from "../components/TitleBar";
 import UpdateUiLabel from "../components/UpdateUiLabel";
-import useFetchHeroes from "../hooks/useFetchHeroes";
+import useFetchHeroes from "../features/heroes/hooks/useFetchHeroes";
 import FormSubmission from "../components/FormSubmission";
-import useRemoveHero from "../hooks/useRemoveHero";
+import useRemoveHero from "../features/heroes/hooks/useRemoveHero";
+import useAddHero from "../features/heroes/hooks/useAddHero";
+import { queryClient } from "../App";
+import { HeroModel } from "../features/heroes/hero";
 
 const HeroesPage = () => {
   const { data, status } = useFetchHeroes();
-  const { mutate } = useRemoveHero();
+  const { mutate: removeHero } = useRemoveHero();
+  const { mutate: addHero } = useAddHero();
+  /*local state*/
+  const [counter, setCounter] = useState("0");
 
   const smallScreen = useMediaQuery("(max-width:600px)");
   const classes = useStyles();
 
-  /*local state*/
-  const [counter, setCounter] = useState("0");
+  const handleSoftDelete = (id: string) => {
+    queryClient.setQueryData<{ data: HeroModel[] }>("heroes", (input) => ({
+      data: input?.data?.filter((h) => h.id !== id) as any,
+    }));
+  };
 
   if (status === "error") return <p>Error :(</p>;
 
   return (
     <div>
       <TitleBar title={"Super HeroesPage"} />
-      {/*<FormSubmission handleCreateAction={postHeroAction} />*/}
+      <FormSubmission handleMutate={addHero} />
       <UpdateUiLabel />
       <>
         {status === "loading" ? (
@@ -61,6 +70,7 @@ const HeroesPage = () => {
                   className={classes.button}
                   variant={"contained"}
                   color={"secondary"}
+                  onClick={() => handleSoftDelete(h.id)}
                 >
                   Remove
                 </Button>{" "}
@@ -68,7 +78,7 @@ const HeroesPage = () => {
                   className={classes.button}
                   variant={"outlined"}
                   color={"secondary"}
-                  onClick={() => mutate(h.id)}
+                  onClick={() => removeHero(h.id)}
                 >
                   DELETE in DB
                 </Button>
@@ -82,6 +92,7 @@ const HeroesPage = () => {
           className={classes.button}
           variant={"contained"}
           color={"primary"}
+          onClick={() => queryClient.invalidateQueries("heroes")}
         >
           Re-fetch
         </Button>

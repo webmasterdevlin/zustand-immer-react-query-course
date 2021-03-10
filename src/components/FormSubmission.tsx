@@ -5,10 +5,10 @@ import * as yup from "yup";
 import SharedForm from "../components/SharedForm";
 
 type Props = {
-  handleCreateAction: (values: any) => void;
+  handleMutate: (values: any) => void;
 };
 
-const FormSubmission = ({ handleCreateAction }: Props) => {
+const FormSubmission = ({ handleMutate }: Props) => {
   return (
     <Formik
       initialValues={{
@@ -25,6 +25,7 @@ const FormSubmission = ({ handleCreateAction }: Props) => {
         knownAs: yup.string().label("Known as").required(),
       })}
       onSubmit={(values, actions) => {
+        handleMutate(values);
         actions.resetForm();
       }}
     >

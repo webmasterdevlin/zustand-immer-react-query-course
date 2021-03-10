@@ -11,27 +11,40 @@ import { makeStyles } from "@material-ui/styles";
 import TitleBar from "../components/TitleBar";
 import UpdateUiLabel from "../components/UpdateUiLabel";
 import FormSubmission from "../components/FormSubmission";
+import useFetchVillains from "../features/villains/hooks/useFetchVillains";
+import useRemoveVillain from "../features/villains/hooks/useRemoveVillain";
+import useAddVillain from "../features/villains/hooks/useAddVillain";
+import { queryClient } from "../App";
+import { VillainModel } from "../features/villains/villain";
 
 const VillainsPage = () => {
-  const [villains, setVillains] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
+  const { data, status } = useFetchVillains();
+  const { mutate: removeVillain } = useRemoveVillain();
+  const { mutate: addVillain } = useAddVillain();
+  /*local state*/
+  const [counter, setCounter] = useState("0");
 
   const classes = useStyles();
   const smallScreen = useMediaQuery("(max-width:600px)");
 
-  /*local state*/
-  const [counter, setCounter] = useState("0");
+  const handleSoftDelete = (id: string) => {
+    queryClient.setQueryData<{ data: VillainModel[] }>("villains", (input) => ({
+      data: input?.data?.filter((v) => v.id !== id) as any,
+    }));
+  };
+
+  if (status === "error") return <p>Error :(</p>;
 
   return (
     <div>
       <TitleBar title={"Super VillainsPage"} />
-
+      <FormSubmission handleMutate={addVillain} />
       <UpdateUiLabel />
       <>
-        {loading ? (
+        {status === "loading" ? (
           <Typography variant={"h2"}>Loading.. Please wait..</Typography>
         ) : (
-          villains.map((v) => (
+          data?.data?.map((v) => (
             <Box
               key={v.id}
               role={"card"}
@@ -72,7 +85,7 @@ const VillainsPage = () => {
           ))
         )}
       </>
-      {villains.length === 0 && !loading && (
+      {data?.data?.length === 0 && status === "loading" && (
         <Button
           className={classes.button}
           variant={"contained"}
