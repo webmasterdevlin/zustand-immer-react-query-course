@@ -1,8 +1,7 @@
 import React from "react";
-
 import { Formik } from "formik";
 import * as yup from "yup";
-import SharedForm from "../components/SharedForm";
+import SharedForm from "components/SharedForm";
 
 type Props = {
   handleMutate: (values: any) => void;

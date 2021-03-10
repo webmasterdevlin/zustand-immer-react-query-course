@@ -15,20 +15,6 @@ let data = [
     knownAs: "Magneto",
     id: "6r8finlfy",
   },
-  {
-    firstName: "Darkseid",
-    lastName: "none",
-    house: "DC",
-    knownAs: "The ruler of Apokolops",
-    id: "87rfyvivlf78",
-  },
-  {
-    firstName: "Victor",
-    lastName: "Von Doom",
-    house: "Marvel",
-    knownAs: "Doctor Doom",
-    id: "97fyiyif",
-  },
 ];
 
 export const villainHandler = [

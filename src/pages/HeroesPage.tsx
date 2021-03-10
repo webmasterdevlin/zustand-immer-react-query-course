@@ -18,7 +18,7 @@ import { queryClient } from "../App";
 import { HeroModel } from "../features/heroes/hero";
 
 const HeroesPage = () => {
-  const { data, status } = useFetchHeroes();
+  const { data: response, status } = useFetchHeroes();
   const { mutate: removeHero } = useRemoveHero();
   const { mutate: addHero } = useAddHero();
   /*local state*/
@@ -44,7 +44,7 @@ const HeroesPage = () => {
         {status === "loading" ? (
           <Typography variant={"h2"}>Loading.. Please wait..</Typography>
         ) : (
-          data?.data?.map((h) => (
+          response?.data?.map((h) => (
             <Box
               key={h.id}
               role={"card"}
@@ -87,7 +87,7 @@ const HeroesPage = () => {
           ))
         )}
       </>
-      {data?.data?.length === 0 && status !== "loading" && (
+      {response?.data?.length === 0 && status !== "loading" && (
         <Button
           className={classes.button}
           variant={"contained"}

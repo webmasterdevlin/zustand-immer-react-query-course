@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  collection: any[];
+  collection: any[] | undefined;
   role: string;
 };
 

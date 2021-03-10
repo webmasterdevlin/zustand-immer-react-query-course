@@ -1,6 +1,6 @@
 import { useMutation } from "react-query";
-import { api, EndPoints } from "../../../axios/api-config";
-import { queryClient } from "../../../App";
+import { api, EndPoints } from "axios/api-config";
+import { queryClient } from "App";
 import { HeroModel } from "../hero";
 
 export default function useUpdateHero() {

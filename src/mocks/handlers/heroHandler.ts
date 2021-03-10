@@ -15,27 +15,6 @@ let data = [
     house: "Marvel",
     knownAs: "Cyclopes",
   },
-  {
-    id: "dfw7g2",
-    firstName: "Peter",
-    lastName: "Parker",
-    house: "Marvel",
-    knownAs: "Spiderman",
-  },
-  {
-    id: "9gfw9gde",
-    firstName: "Bruce",
-    lastName: "Wayne",
-    house: "DC",
-    knownAs: "Batman",
-  },
-  {
-    firstName: "Devlin",
-    lastName: "D.",
-    house: "Starks",
-    knownAs: "Wolf",
-    id: "gjcM7z8",
-  },
 ];
 
 export const heroHandler = [

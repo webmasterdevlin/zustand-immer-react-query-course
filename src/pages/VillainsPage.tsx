@@ -18,7 +18,7 @@ import { queryClient } from "../App";
 import { VillainModel } from "../features/villains/villain";
 
 const VillainsPage = () => {
-  const { data, status } = useFetchVillains();
+  const { data: response, status } = useFetchVillains();
   const { mutate: removeVillain } = useRemoveVillain();
   const { mutate: addVillain } = useAddVillain();
   /*local state*/
@@ -44,7 +44,7 @@ const VillainsPage = () => {
         {status === "loading" ? (
           <Typography variant={"h2"}>Loading.. Please wait..</Typography>
         ) : (
-          data?.data?.map((v) => (
+          response?.data?.map((v) => (
             <Box
               key={v.id}
               role={"card"}
@@ -70,6 +70,7 @@ const VillainsPage = () => {
                   className={classes.button}
                   variant={"contained"}
                   color={"secondary"}
+                  onClick={() => handleSoftDelete(v.id)}
                 >
                   Remove
                 </Button>{" "}
@@ -77,6 +78,7 @@ const VillainsPage = () => {
                   className={classes.button}
                   variant={"outlined"}
                   color={"secondary"}
+                  onClick={() => removeVillain(v.id)}
                 >
                   DELETE in DB
                 </Button>
@@ -85,7 +87,7 @@ const VillainsPage = () => {
           ))
         )}
       </>
-      {data?.data?.length === 0 && status === "loading" && (
+      {response?.data?.length === 0 && status !== "loading" && (
         <Button
           className={classes.button}
           variant={"contained"}

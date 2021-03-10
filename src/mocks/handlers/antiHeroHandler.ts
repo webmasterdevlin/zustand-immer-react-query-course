@@ -15,34 +15,6 @@ let data = [
     house: "Marvel",
     knownAs: "Deadpool",
   },
-  {
-    id: "89g6d5i6e45ud",
-    firstName: "Jason",
-    lastName: "Blood",
-    house: "DC",
-    knownAs: "Etrigan",
-  },
-  {
-    id: "hvhj89gg8pt67",
-    firstName: "Harley",
-    lastName: "Quinn",
-    house: "DC",
-    knownAs: "Harley",
-  },
-  {
-    id: "v7xSZAV",
-    firstName: "Selina",
-    lastName: "Kyle",
-    house: "DC",
-    knownAs: "Catwoman",
-  },
-  {
-    id: "Nmla4EH",
-    firstName: "Max",
-    lastName: "Eisenhardt",
-    house: "Marvel",
-    knownAs: "Magneto",
-  },
 ];
 
 export const antiHeroHandler = [

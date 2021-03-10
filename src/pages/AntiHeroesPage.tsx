@@ -18,7 +18,7 @@ import { queryClient } from "../App";
 import { AntiHeroModel } from "../features/anti-heroes/antiHero";
 
 const AntiHeroesPage = () => {
-  const { data, status } = useFetchAntiHeroes();
+  const { data: response, status } = useFetchAntiHeroes();
   const { mutate: removeAntiHero } = useRemoveAntiHero();
   const { mutate: addAntiHero } = useAddAntiHero();
   /*local state*/
@@ -47,7 +47,7 @@ const AntiHeroesPage = () => {
         {status === "loading" ? (
           <Typography variant={"h2"}>Loading.. Please wait..</Typography>
         ) : (
-          data?.data?.map((ah) => (
+          response?.data?.map((ah) => (
             <Box
               mb={2}
               role={"card"}
@@ -92,7 +92,7 @@ const AntiHeroesPage = () => {
           ))
         )}
       </>
-      {data?.data?.length === 0 && status === "loading" && (
+      {response?.data?.length === 0 && status !== "loading" && (
         <Button
           className={classes.button}
           variant={"contained"}

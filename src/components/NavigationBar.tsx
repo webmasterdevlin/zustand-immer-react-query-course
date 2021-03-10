@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-
 import { AppBar, Box, Button, createStyles, Toolbar } from "@material-ui/core";
 import TotalOfCharacters from "./TotalOfCharacters";
 import { makeStyles } from "@material-ui/styles";
-import { queryClient } from "../App";
-import { HeroModel } from "../features/heroes/hero";
+import useFetchHeroes from "features/heroes/hooks/useFetchHeroes";
+import useFetchAntiHeroes from "features/anti-heroes/hooks/useFetchAntiHeroes";
+import useFetchVillains from "features/villains/hooks/useFetchVillains";
 
 const NavigationBar = () => {
+  const { data: antiHeroes } = useFetchAntiHeroes();
+  const { data: heroes } = useFetchHeroes();
+  const { data: villains } = useFetchVillains();
   const history = useHistory();
   const classes = useStyles();
 
@@ -33,10 +36,10 @@ const NavigationBar = () => {
           >
             Anti Heroes
           </Button>
-          {/*<TotalOfCharacters*/}
-          {/*  collection={store.antiHero.antiHeroes}*/}
-          {/*  role={"total-anti-heroes"}*/}
-          {/*/>*/}
+          <TotalOfCharacters
+            collection={antiHeroes?.data}
+            role={"total-anti-heroes"}
+          />
         </Box>
         <Box>
           <Button
@@ -46,13 +49,7 @@ const NavigationBar = () => {
           >
             Heroes
           </Button>
-
-          <pre>
-            {
-              queryClient.getQueryState<{ data: HeroModel[] }>("heroes")?.data
-                ?.data?.length
-            }
-          </pre>
+          <TotalOfCharacters collection={heroes?.data} role={"total-heroes"} />
         </Box>
         <Box>
           <Button
@@ -62,10 +59,10 @@ const NavigationBar = () => {
           >
             Villains
           </Button>
-          {/*<TotalOfCharacters*/}
-          {/*  collection={queryClient.getQueryData(["heroes"]) as any[]}*/}
-          {/*  role={"total-villains"}*/}
-          {/*/>*/}
+          <TotalOfCharacters
+            collection={villains?.data}
+            role={"total-villains"}
+          />
         </Box>
       </Toolbar>
     </AppBar>
