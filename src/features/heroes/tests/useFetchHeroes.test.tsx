@@ -1,13 +1,14 @@
 import { renderHook } from "@testing-library/react-hooks";
 import { wrapper } from "test-utils/testing-library-utils";
-
 import useFetchHeroes from "../hooks/useFetchHeroes";
 
-it("should fire useFetchHeroes", async () => {
-  const { result, waitFor } = renderHook(() => useFetchHeroes(), {
-    wrapper,
-  });
+describe("Heroes hooks", () => {
+  it("should fire useFetchHeroes", async () => {
+    const { result, waitFor } = renderHook(() => useFetchHeroes(), {
+      wrapper,
+    });
 
-  await waitFor(() => result.current.isSuccess);
-  expect(result.current.data.data).toHaveLength(2);
+    await waitFor(() => result.current.isSuccess);
+    expect(result.current.data.data).toHaveLength(2);
+  });
 });

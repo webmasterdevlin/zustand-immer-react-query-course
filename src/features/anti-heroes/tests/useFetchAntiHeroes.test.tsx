@@ -3,11 +3,13 @@ import { wrapper } from "test-utils/testing-library-utils";
 
 import useFetchAntiHeroes from "../hooks/useFetchAntiHeroes";
 
-it("should fire useFetchAntiHeroes", async () => {
-  const { result, waitFor } = renderHook(() => useFetchAntiHeroes(), {
-    wrapper,
-  });
+describe("Anti Heroes hooks", () => {
+  it("should fire useFetchAntiHeroes", async () => {
+    const { result, waitFor } = renderHook(() => useFetchAntiHeroes(), {
+      wrapper,
+    });
 
-  await waitFor(() => result.current.isSuccess);
-  expect(result.current.data.data).toHaveLength(2);
+    await waitFor(() => result.current.isSuccess);
+    expect(result.current.data.data).toHaveLength(2);
+  });
 });
