@@ -1,4 +1,4 @@
-import { render, screen } from "test-utils/testing-library-utils";
+import { render, screen, waitFor } from "test-utils/testing-library-utils";
 
 import AntiHeroesPage from "../AntiHeroesPage";
 
@@ -11,5 +11,14 @@ describe("AntiHeroesPage", () => {
     });
 
     expect(title).toBeInTheDocument();
+  });
+
+  it("should show exact number of anti heroes in main content and navigation bar", async () => {
+    render(<AntiHeroesPage />);
+
+    await waitFor(() => {
+      expect(screen.queryAllByRole("card")).toHaveLength(2);
+      expect(screen.queryByRole("total-anti-heroes")).toHaveTextContent("2");
+    });
   });
 });

@@ -1,4 +1,4 @@
-import { render, screen } from "test-utils/testing-library-utils";
+import { render, screen, waitFor } from "test-utils/testing-library-utils";
 
 import HeroesPage from "../HeroesPage";
 
@@ -11,5 +11,14 @@ describe("HeroesPage", () => {
     });
 
     expect(title).toBeInTheDocument();
+  });
+
+  it("should show exact number of heroes in main content and navigation bar", async () => {
+    render(<HeroesPage />);
+
+    await waitFor(() => {
+      expect(screen.queryAllByRole("card")).toHaveLength(2);
+      expect(screen.queryByRole("total-heroes")).toHaveTextContent("2");
+    });
   });
 });
