@@ -75,6 +75,7 @@ const AntiHeroesPage = () => {
                   className={classes.button}
                   variant={"contained"}
                   color={"secondary"}
+                  onClick={() => handleSoftDelete(ah.id)}
                 >
                   Remove
                 </Button>{" "}
@@ -82,6 +83,7 @@ const AntiHeroesPage = () => {
                   className={classes.button}
                   variant={"outlined"}
                   color={"secondary"}
+                  onClick={() => removeAntiHero(ah.id)}
                 >
                   DELETE in DB
                 </Button>
@@ -95,6 +97,7 @@ const AntiHeroesPage = () => {
           className={classes.button}
           variant={"contained"}
           color={"primary"}
+          onClick={() => queryClient.invalidateQueries("antiHeroes")}
         >
           Re-fetch
         </Button>

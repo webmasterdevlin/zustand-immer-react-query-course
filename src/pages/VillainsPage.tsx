@@ -90,6 +90,7 @@ const VillainsPage = () => {
           className={classes.button}
           variant={"contained"}
           color={"primary"}
+          onClick={() => queryClient.invalidateQueries("villains")}
         >
           Re-fetch
         </Button>
