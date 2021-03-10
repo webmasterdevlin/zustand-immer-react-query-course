@@ -1,6 +1,5 @@
 import { render, screen, waitFor } from "test-utils/testing-library-utils";
-
-import AntiHeroesPage from "../AntiHeroesPage";
+import AntiHeroesPage from "pages/AntiHeroesPage";
 
 describe("AntiHeroesPage", () => {
   it("should render AntiHeroesPage's title", async () => {
@@ -11,6 +10,24 @@ describe("AntiHeroesPage", () => {
     });
 
     expect(title).toBeInTheDocument();
+  });
+
+  it("should render loading message", async () => {
+    render(<AntiHeroesPage />);
+
+    const loading = await screen.findByRole("heading", {
+      name: "Loading.. Please wait..",
+    });
+    expect(loading).toHaveTextContent("Loading.. Please wait..");
+  });
+
+  it("should save character button be in disabled", async () => {
+    render(<AntiHeroesPage />);
+
+    const saveCharacterButton = await screen.findByRole("button", {
+      name: "Save Character",
+    });
+    expect(saveCharacterButton).toBeDisabled();
   });
 
   it("should show exact number of anti heroes in main content and navigation bar", async () => {
