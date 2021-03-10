@@ -9,8 +9,12 @@ import Container from "@material-ui/core/Container";
 import NavigationBar from "../components/NavigationBar";
 import { queryClient } from "../App";
 
+let wrapper = ({ children }) => (
+  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+);
+
 const render = (ui, { store = new QueryClient(), ...renderOptions } = {}) => {
-  const wrapper = ({ children }) => (
+  wrapper = ({ children }) => (
     <QueryClientProvider client={queryClient}>
       <CssBaseline>
         <BrowserRouter>
@@ -30,4 +34,4 @@ const render = (ui, { store = new QueryClient(), ...renderOptions } = {}) => {
 // re-export everything
 export * from "@testing-library/react";
 // override render method
-export { render };
+export { render, wrapper };

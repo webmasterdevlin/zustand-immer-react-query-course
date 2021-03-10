@@ -1,10 +1,10 @@
 import { renderHook } from "@testing-library/react-hooks";
 import { wrapper } from "test-utils/testing-library-utils";
 
-import useFetchHeroes from "../hooks/useFetchHeroes";
+import useFetchVillains from "../hooks/useFetchVillains";
 
-it("should fire useFetchHeroes", async () => {
-  const { result, waitFor } = renderHook(() => useFetchHeroes(), {
+it("should fire useFetchVillains", async () => {
+  const { result, waitFor } = renderHook(() => useFetchVillains(), {
     wrapper,
   });
 
