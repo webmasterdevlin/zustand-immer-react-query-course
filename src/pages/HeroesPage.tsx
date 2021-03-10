@@ -7,15 +7,14 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-
-import TitleBar from "../components/TitleBar";
-import UpdateUiLabel from "../components/UpdateUiLabel";
-import useFetchHeroes from "../features/heroes/hooks/useFetchHeroes";
-import FormSubmission from "../components/FormSubmission";
-import useRemoveHero from "../features/heroes/hooks/useRemoveHero";
-import useAddHero from "../features/heroes/hooks/useAddHero";
-import { queryClient } from "../App";
-import { HeroModel } from "../features/heroes/hero";
+import { queryClient } from "App";
+import TitleBar from "components/TitleBar";
+import UpdateUiLabel from "components/UpdateUiLabel";
+import FormSubmission from "components/FormSubmission";
+import useFetchHeroes from "features/heroes/hooks/useFetchHeroes";
+import useRemoveHero from "features/heroes/hooks/useRemoveHero";
+import useAddHero from "features/heroes/hooks/useAddHero";
+import { HeroModel } from "features/heroes/hero";
 
 const HeroesPage = () => {
   const { data: response, status } = useFetchHeroes();

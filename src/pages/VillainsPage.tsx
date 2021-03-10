@@ -7,15 +7,14 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-
-import TitleBar from "../components/TitleBar";
-import UpdateUiLabel from "../components/UpdateUiLabel";
-import FormSubmission from "../components/FormSubmission";
-import useFetchVillains from "../features/villains/hooks/useFetchVillains";
-import useRemoveVillain from "../features/villains/hooks/useRemoveVillain";
-import useAddVillain from "../features/villains/hooks/useAddVillain";
-import { queryClient } from "../App";
-import { VillainModel } from "../features/villains/villain";
+import { queryClient } from "App";
+import TitleBar from "components/TitleBar";
+import UpdateUiLabel from "components/UpdateUiLabel";
+import FormSubmission from "components/FormSubmission";
+import useFetchVillains from "features/villains/hooks/useFetchVillains";
+import useRemoveVillain from "features/villains/hooks/useRemoveVillain";
+import useAddVillain from "features/villains/hooks/useAddVillain";
+import { VillainModel } from "features/villains/villain";
 
 const VillainsPage = () => {
   const { data: response, status } = useFetchVillains();
