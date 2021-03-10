@@ -1,4 +1,5 @@
 import { render, screen } from "test-utils/testing-library-utils";
+
 import HeroesPage from "../HeroesPage";
 
 describe("HeroesPage", () => {
@@ -6,7 +7,7 @@ describe("HeroesPage", () => {
     render(<HeroesPage />);
 
     const title = await screen.findByRole("heading", {
-      name: "Super HeroesPage",
+      name: "Super Heroes Page",
     });
 
     expect(title).toBeInTheDocument();

@@ -7,15 +7,14 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-
-import TitleBar from "../components/TitleBar";
-import UpdateUiLabel from "../components/UpdateUiLabel";
-import FormSubmission from "../components/FormSubmission";
-import useFetchAntiHeroes from "../features/anti-heroes/hooks/useFetchAntiHeroes";
-import useRemoveAntiHero from "../features/anti-heroes/hooks/useRemoveAntiHero";
-import useAddAntiHero from "../features/anti-heroes/hooks/useAddAntiHero";
-import { queryClient } from "../App";
-import { AntiHeroModel } from "../features/anti-heroes/antiHero";
+import { queryClient } from "App";
+import TitleBar from "components/TitleBar";
+import UpdateUiLabel from "components/UpdateUiLabel";
+import FormSubmission from "components/FormSubmission";
+import useFetchAntiHeroes from "features/anti-heroes/hooks/useFetchAntiHeroes";
+import useRemoveAntiHero from "features/anti-heroes/hooks/useRemoveAntiHero";
+import useAddAntiHero from "features/anti-heroes/hooks/useAddAntiHero";
+import { AntiHeroModel } from "features/anti-heroes/antiHero";
 
 const AntiHeroesPage = () => {
   const { data: response, status } = useFetchAntiHeroes();
@@ -40,7 +39,7 @@ const AntiHeroesPage = () => {
 
   return (
     <div>
-      <TitleBar title={"Anti HeroesPage"} />
+      <TitleBar title={"Anti Heroes Page"} />
       <FormSubmission handleMutate={addAntiHero} />
       <UpdateUiLabel />
       <>

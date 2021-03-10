@@ -37,7 +37,7 @@ const HeroesPage = () => {
 
   return (
     <div>
-      <TitleBar title={"Super HeroesPage"} />
+      <TitleBar title={"Super Heroes Page"} />
       <FormSubmission handleMutate={addHero} />
       <UpdateUiLabel />
       <>

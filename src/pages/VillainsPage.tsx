@@ -37,7 +37,7 @@ const VillainsPage = () => {
 
   return (
     <div>
-      <TitleBar title={"Super VillainsPage"} />
+      <TitleBar title={"Super Villains Page"} />
       <FormSubmission handleMutate={addVillain} />
       <UpdateUiLabel />
       <>
