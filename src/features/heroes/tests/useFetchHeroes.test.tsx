@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react-hooks";
-import { wrapper } from "test-utils/testing-library-utils";
 import useFetchHeroes from "../hooks/useFetchHeroes";
+import { wrapper } from "test-utils/testing-library-utils";
 
 describe("Heroes hooks", () => {
   it("should fire useFetchHeroes", async () => {
