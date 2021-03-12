@@ -11,10 +11,10 @@ const SharedForm = () => {
       <Paper>
         <Form style={{ padding: "1rem" }}>
           <div>
-            <SharedInput id={"firstName"} />
-            <SharedInput id={"lastName"} />
-            <SharedInput id={"house"} />
-            <SharedInput id={"knownAs"} />
+            <SharedInput id={"firstName"} label={"First Name"} />
+            <SharedInput id={"lastName"} label={"Last Name"} />
+            <SharedInput id={"house"} label={"House"} />
+            <SharedInput id={"knownAs"} label={"Known As"} />
           </div>
 
           <Button

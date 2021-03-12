@@ -43,22 +43,22 @@ describe("AntiHeroesPage", () => {
   it("should add new anti hero", async () => {
     const { rerender } = render(<AntiHeroesPage />);
 
-    const firstNameTextInput = await screen.findByLabelText("firstName");
+    const firstNameTextInput = await screen.findByLabelText("First Name");
     expect(firstNameTextInput).toBeInTheDocument();
     userEvent.type(firstNameTextInput, "Devlin");
     expect(firstNameTextInput).toHaveValue("Devlin");
 
-    const lastNameTextInput = await screen.findByLabelText("lastName");
+    const lastNameTextInput = await screen.findByLabelText("Last Name");
     expect(lastNameTextInput).toBeInTheDocument();
     userEvent.type(lastNameTextInput, "Duldulao");
     expect(lastNameTextInput).toHaveValue("Duldulao");
 
-    const houseTextInput = await screen.findByLabelText("house");
+    const houseTextInput = await screen.findByLabelText("House");
     expect(houseTextInput).toBeInTheDocument();
     userEvent.type(houseTextInput, "Marvel");
     expect(houseTextInput).toHaveValue("Marvel");
 
-    const knownAsTextInput = await screen.findByLabelText("knownAs");
+    const knownAsTextInput = await screen.findByLabelText("Known As");
     expect(knownAsTextInput).toBeInTheDocument();
     userEvent.type(knownAsTextInput, "React Man");
     expect(knownAsTextInput).toHaveValue("React Man");

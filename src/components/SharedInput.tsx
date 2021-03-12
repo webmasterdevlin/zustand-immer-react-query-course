@@ -5,16 +5,17 @@ import { makeStyles } from "@material-ui/styles";
 
 type Props = {
   id: string;
+  label: string;
 };
 
-const SharedInput = ({ id }: Props) => {
+const SharedInput = ({ id, label }: Props) => {
   const classes = useStyles();
   const formik = useFormikContext<any>();
 
   return (
     <Box mb={2}>
       <Field
-        label={id}
+        label={label}
         id={id}
         className={classes.field}
         type={"text"}
