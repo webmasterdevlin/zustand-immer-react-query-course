@@ -6,7 +6,7 @@
     "start": "react-scripts start",
     "backend": "json-server --watch db.json --port 5000 --delay=1000",
     "start:fullstack": "concurrently \"npm run backend\" \"npm run start\"",
-    "build": "npm run checkTs && react-scripts build",
+    "build": "npm run checkTs && react-scripts test -- --watch=false && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "checkTs": "tsc --noEmit"
