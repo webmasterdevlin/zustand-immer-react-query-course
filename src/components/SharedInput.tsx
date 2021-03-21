@@ -6,9 +6,10 @@ import { makeStyles } from "@material-ui/styles";
 type Props = {
   id: string;
   label: string;
+  dataTestId?: string;
 };
 
-const SharedInput = ({ id, label }: Props) => {
+const SharedInput = ({ id, label, dataTestId }: Props) => {
   const classes = useStyles();
   const formik = useFormikContext<any>();
 
@@ -17,6 +18,7 @@ const SharedInput = ({ id, label }: Props) => {
       <Field
         label={label}
         id={id}
+        data-testid={dataTestId}
         className={classes.field}
         type={"text"}
         name={id}

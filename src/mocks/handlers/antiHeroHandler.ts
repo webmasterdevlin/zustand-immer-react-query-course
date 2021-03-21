@@ -1,6 +1,8 @@
 import { rest } from "msw";
 
-let data = [
+const baseUrl = "http://localhost:5000";
+
+export const ANTI_HEROES = [
   {
     id: "4893hfwuig",
     firstName: "Eddy",
@@ -18,23 +20,23 @@ let data = [
 ];
 
 export const antiHeroHandler = [
-  rest.get("http://localhost:5000/anti-heroes", (req, res, ctx) => {
-    return res(ctx.json(data));
+  rest.get(`${baseUrl}/anti-heroes`, (req, res, ctx) => {
+    return res(ctx.json(ANTI_HEROES));
   }),
 
-  rest.delete("http://localhost:5000/anti-heroes/:id", (req, res, ctx) => {
-    const antiHeroExist = data.find((ah) => ah.id === req.params.id);
+  rest.delete(`${baseUrl}/anti-heroes/:id`, (req, res, ctx) => {
+    const antiHeroExist = ANTI_HEROES.find((ah) => ah.id === req.params.id);
     return antiHeroExist ? res(ctx.status(200)) : res(ctx.status(404));
   }),
 
-  rest.post("http://localhost:5000/anti-heroes", (req, res, ctx) => {
+  rest.post(`${baseUrl}/anti-heroes`, (req, res, ctx) => {
     return res(ctx.json(req.body));
   }),
 
-  rest.put("http://localhost:5000/anti-heroes/:id", (req, res, ctx) => {
+  rest.put(`${baseUrl}/anti-heroes/:id`, (req, res, ctx) => {
     console.log("ID:", req.params.id);
 
-    return data.find((ah) => ah.id === req.params.id)
+    return ANTI_HEROES.find((ah) => ah.id === req.params.id)
       ? res(ctx.status(200))
       : res(ctx.status(404));
   }),

@@ -41,7 +41,9 @@ const HeroesPage = () => {
       <UpdateUiLabel />
       <>
         {status === "loading" ? (
-          <Typography variant={"h2"}>Loading.. Please wait..</Typography>
+          <Typography data-testid={"loading"} variant={"h2"}>
+            Loading.. Please wait..
+          </Typography>
         ) : (
           response?.data?.map((h) => (
             <Box
@@ -51,6 +53,7 @@ const HeroesPage = () => {
               display={"flex"}
               flexDirection={smallScreen ? "column" : "row"}
               justifyContent={"space-between"}
+              data-testid={"card"}
             >
               <Typography>
                 <span>{`${h.firstName} ${h.lastName} is ${h.knownAs}`}</span>
@@ -62,6 +65,7 @@ const HeroesPage = () => {
                   onClick={() => setCounter(h.id)}
                   variant={"contained"}
                   color={"default"}
+                  data-testid={"mark-button"}
                 >
                   Mark
                 </Button>{" "}
@@ -70,6 +74,7 @@ const HeroesPage = () => {
                   variant={"contained"}
                   color={"secondary"}
                   onClick={() => handleSoftDelete(h.id)}
+                  data-testid={"remove-button"}
                 >
                   Remove
                 </Button>{" "}
@@ -78,6 +83,7 @@ const HeroesPage = () => {
                   variant={"outlined"}
                   color={"secondary"}
                   onClick={() => removeHero(h.id)}
+                  data-testid={"delete-button"}
                 >
                   DELETE in DB
                 </Button>

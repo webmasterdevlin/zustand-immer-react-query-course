@@ -26,6 +26,16 @@ https://kentcdodds.com/blog/common-mistakes-with-react-testing-library
 - don't use userEvent inside the callback of waitFor
 
 
+### Cypress' best practices in writing tests
+
+https://docs.cypress.io/guides/references/best-practices.html
+
+### Application's styles
+
+- The application is using test ID instead of role when querying dom elements
+- Test IDs are simple and isolated
+
+
 #### React Query persist cache between tests
 - the beforeEach does not work
 ```ts

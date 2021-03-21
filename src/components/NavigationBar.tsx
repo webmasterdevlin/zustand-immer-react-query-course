@@ -33,12 +33,13 @@ const NavigationBar = () => {
             className={classes.button}
             onClick={() => history.push("/anti-heroes")}
             color="inherit"
+            data-testid="nav-anti-heroes"
           >
             Anti Heroes
           </Button>
           <TotalOfCharacters
             collection={antiHeroes?.data}
-            role={"total-anti-heroes"}
+            dataTestId={"total-anti-heroes"}
           />
         </Box>
         <Box>
@@ -46,22 +47,27 @@ const NavigationBar = () => {
             className={classes.button}
             onClick={() => history.push("/heroes")}
             color="inherit"
+            data-testid="nav-heroes"
           >
             Heroes
           </Button>
-          <TotalOfCharacters collection={heroes?.data} role={"total-heroes"} />
+          <TotalOfCharacters
+            collection={heroes?.data}
+            dataTestId={"total-heroes"}
+          />
         </Box>
         <Box>
           <Button
             className={classes.button}
             onClick={() => history.push("/villains")}
             color="inherit"
+            data-testid="nav-villains"
           >
             Villains
           </Button>
           <TotalOfCharacters
             collection={villains?.data}
-            role={"total-villains"}
+            dataTestId={"total-villains"}
           />
         </Box>
       </Toolbar>

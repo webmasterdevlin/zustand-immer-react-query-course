@@ -44,7 +44,9 @@ const AntiHeroesPage = () => {
       <UpdateUiLabel />
       <>
         {status === "loading" ? (
-          <Typography variant={"h2"}>Loading.. Please wait..</Typography>
+          <Typography data-testid="loading" variant={"h2"}>
+            Loading.. Please wait..
+          </Typography>
         ) : (
           response?.data?.map((ah) => (
             <Box
@@ -54,6 +56,7 @@ const AntiHeroesPage = () => {
               display={"flex"}
               flexDirection={smallScreen ? "column" : "row"}
               justifyContent={"space-between"}
+              data-testid={"card"}
             >
               <div>
                 <Typography>
@@ -67,6 +70,7 @@ const AntiHeroesPage = () => {
                   onClick={() => setCounter(ah.id)}
                   variant={"contained"}
                   color={"default"}
+                  data-testid={"mark-button"}
                 >
                   Mark
                 </Button>{" "}
@@ -75,6 +79,7 @@ const AntiHeroesPage = () => {
                   variant={"contained"}
                   color={"secondary"}
                   onClick={() => handleSoftDelete(ah.id)}
+                  data-testid={"remove-button"}
                 >
                   Remove
                 </Button>{" "}
@@ -83,6 +88,7 @@ const AntiHeroesPage = () => {
                   variant={"outlined"}
                   color={"secondary"}
                   onClick={() => removeAntiHero(ah.id)}
+                  data-testid={"delete-button"}
                 >
                   DELETE in DB
                 </Button>

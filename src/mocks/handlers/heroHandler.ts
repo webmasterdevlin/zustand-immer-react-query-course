@@ -1,6 +1,8 @@
 import { rest } from "msw";
 
-let data = [
+const baseUrl = "http://localhost:5000";
+
+export const HEROES = [
   {
     id: "7ggew732dw",
     firstName: "Barry",
@@ -18,22 +20,22 @@ let data = [
 ];
 
 export const heroHandler = [
-  rest.get("http://localhost:5000/heroes", (req, res, ctx) => {
-    return res(ctx.json(data));
+  rest.get(`${baseUrl}/heroes`, (req, res, ctx) => {
+    return res(ctx.json(HEROES));
   }),
 
-  rest.delete("http://localhost:5000/heroes/:id", (req, res, ctx) => {
-    return data.find((h) => h.id === req.params.id)
+  rest.delete(`${baseUrl}/heroes/:id`, (req, res, ctx) => {
+    return HEROES.find((h) => h.id === req.params.id)
       ? res(ctx.status(200))
       : res(ctx.status(404));
   }),
 
-  rest.post("http://localhost:5000/heroes", (req, res, ctx) => {
+  rest.post(`${baseUrl}/heroes`, (req, res, ctx) => {
     return res(ctx.json(req.body));
   }),
 
-  rest.put("http://localhost:5000/heroes/:id", (req, res, ctx) => {
-    return data.find((h) => h.id === req.params.id)
+  rest.put(`${baseUrl}/heroes/:id`, (req, res, ctx) => {
+    return HEROES.find((h) => h.id === req.params.id)
       ? res(ctx.status(200))
       : res(ctx.status(404));
   }),

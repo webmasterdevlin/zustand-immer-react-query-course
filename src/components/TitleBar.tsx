@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box } from '@material-ui/core';
+import React from "react";
+import { Box } from "@material-ui/core";
 
 type Props = {
   title: string;
@@ -7,7 +7,7 @@ type Props = {
 
 const TitleBar = ({ title }: Props) => (
   <Box mb={5}>
-    <h1>{title}</h1>
+    <h1 data-testid="title-page">{title}</h1>
   </Box>
 );
 

@@ -41,7 +41,9 @@ const VillainsPage = () => {
       <UpdateUiLabel />
       <>
         {status === "loading" ? (
-          <Typography variant={"h2"}>Loading.. Please wait..</Typography>
+          <Typography data-testid={"loading"} variant={"h2"}>
+            Loading.. Please wait..
+          </Typography>
         ) : (
           response?.data?.map((v) => (
             <Box
@@ -51,6 +53,7 @@ const VillainsPage = () => {
               display={"flex"}
               flexDirection={smallScreen ? "column" : "row"}
               justifyContent={"space-between"}
+              data-testid={"card"}
             >
               <Typography>
                 <span>{`${v.firstName} ${v.lastName} is ${v.knownAs}`}</span>
@@ -62,6 +65,7 @@ const VillainsPage = () => {
                   onClick={() => setCounter(v.id)}
                   variant={"contained"}
                   color={"default"}
+                  data-testid={"mark-button"}
                 >
                   Mark
                 </Button>{" "}
@@ -70,6 +74,7 @@ const VillainsPage = () => {
                   variant={"contained"}
                   color={"secondary"}
                   onClick={() => handleSoftDelete(v.id)}
+                  data-testid={"remove-button"}
                 >
                   Remove
                 </Button>{" "}
@@ -78,6 +83,7 @@ const VillainsPage = () => {
                   variant={"outlined"}
                   color={"secondary"}
                   onClick={() => removeVillain(v.id)}
+                  data-testid={"delete-button"}
                 >
                   DELETE in DB
                 </Button>

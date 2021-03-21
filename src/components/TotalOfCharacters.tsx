@@ -2,11 +2,11 @@ import React from "react";
 
 type Props = {
   collection: any[] | undefined;
-  role: string;
+  dataTestId: string;
 };
 
-const TotalOfCharacters = ({ collection, role }: Props) => (
-  <span role={role} style={{ color: "cyan", margin: "0 1rem" }}>
+const TotalOfCharacters = ({ collection, dataTestId }: Props) => (
+  <span data-testid={dataTestId} style={{ color: "cyan", margin: "0 1rem" }}>
     {collection?.length}
   </span>
 );
