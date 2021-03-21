@@ -1,8 +1,13 @@
 import { render, screen, waitFor } from "test-utils/testing-library-utils";
 import VillainsPage from "pages/VillainsPage";
 import userEvent from "@testing-library/user-event";
+import { queryClient } from "App";
 
 describe("Villains Page", () => {
+  beforeEach(() => {
+    queryClient.clear();
+  });
+
   it("should render title", () => {
     render(<VillainsPage />);
 
@@ -76,6 +81,7 @@ describe("Villains Page", () => {
     const buttons = await screen.findAllByTestId("mark-button");
     expect(buttons).toHaveLength(2);
     userEvent.click(buttons[0]);
+
     const cards = await screen.findAllByTestId("card");
     expect(cards[0]).toHaveTextContent("marked");
   });
@@ -83,22 +89,21 @@ describe("Villains Page", () => {
   it("should remove a villain from the store", async () => {
     render(<VillainsPage />);
 
-    const buttons = await screen.findAllByRole("button", {
-      name: "Remove",
-    });
+    const buttons = await screen.findAllByTestId("remove-button");
+
     userEvent.click(buttons[0]);
-    expect(screen.getByTestId("card")).toBeInTheDocument();
-    expect(screen.getByTestId("total-villains")).toHaveTextContent("1");
+
+    expect(await screen.findByTestId("card")).toBeInTheDocument();
+    expect(await screen.findByTestId("total-villains")).toHaveTextContent("1");
   });
 
   it("should delete a villain from the database", async () => {
     render(<VillainsPage />);
 
-    const buttons = await screen.findAllByRole("button", {
-      name: "DELETE in DB",
-    });
+    const buttons = await screen.findAllByTestId("delete-button");
     userEvent.click(buttons[0]);
-    expect(screen.getByTestId("card")).toBeInTheDocument();
-    expect(screen.getByTestId("total-villains")).toHaveTextContent("1");
+
+    expect(await screen.findByTestId("card")).toBeInTheDocument();
+    expect(await screen.findByTestId("total-villains")).toHaveTextContent("1");
   });
 });

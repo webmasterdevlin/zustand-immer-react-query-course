@@ -1,8 +1,13 @@
 import { render, screen, waitFor } from "test-utils/testing-library-utils";
 import AntiHeroesPage from "pages/AntiHeroesPage";
 import userEvent from "@testing-library/user-event";
+import { queryClient } from "App";
 
 describe("Anti Heroes Page", () => {
+  beforeEach(() => {
+    queryClient.clear();
+  });
+
   it("should render title", () => {
     render(<AntiHeroesPage />);
 
@@ -76,6 +81,7 @@ describe("Anti Heroes Page", () => {
     const buttons = await screen.findAllByTestId("mark-button");
     expect(buttons).toHaveLength(2);
     userEvent.click(buttons[0]);
+
     const cards = await screen.findAllByTestId("card");
     expect(cards[0]).toHaveTextContent("marked");
   });
@@ -83,22 +89,25 @@ describe("Anti Heroes Page", () => {
   it("should remove an anti hero from the store", async () => {
     render(<AntiHeroesPage />);
 
-    const buttons = await screen.findAllByRole("button", {
-      name: "Remove",
-    });
+    const buttons = await screen.findAllByTestId("remove-button");
+
     userEvent.click(buttons[0]);
-    expect(screen.getByTestId("card")).toBeInTheDocument();
-    expect(screen.getByTestId("total-anti-heroes")).toHaveTextContent("1");
+
+    expect(await screen.findByTestId("card")).toBeInTheDocument();
+    expect(await screen.findByTestId("total-anti-heroes")).toHaveTextContent(
+      "1"
+    );
   });
 
   it("should delete a hero from the database", async () => {
     render(<AntiHeroesPage />);
 
-    const buttons = await screen.findAllByRole("button", {
-      name: "DELETE in DB",
-    });
+    const buttons = await screen.findAllByTestId("delete-button");
     userEvent.click(buttons[0]);
-    expect(screen.getByTestId("card")).toBeInTheDocument();
-    expect(screen.getByTestId("total-anti-heroes")).toHaveTextContent("1");
+
+    expect(await screen.findByTestId("card")).toBeInTheDocument();
+    expect(await screen.findByTestId("total-anti-heroes")).toHaveTextContent(
+      "1"
+    );
   });
 });
