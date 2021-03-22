@@ -33,8 +33,8 @@ describe("Anti-Heroes Page", () => {
     });
   });
 
-  context("Save Button", async () => {
-    it("should add a new anti hero", async () => {
+  context("Save Button", () => {
+    it("should add a new anti hero", () => {
       const firstName = "Bucky";
       const lastName = "Barnes";
       const house = "Marvel";

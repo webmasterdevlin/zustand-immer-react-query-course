@@ -33,8 +33,8 @@ describe("Heroes Page", () => {
     });
   });
 
-  context("Save Button", async () => {
-    it("should add a new hero", async () => {
+  context("Save Button", () => {
+    it("should add a new hero", () => {
       const firstName = "Bruce";
       const lastName = "Wayne";
       const house = "DC";

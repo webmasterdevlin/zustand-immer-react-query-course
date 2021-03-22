@@ -33,8 +33,8 @@ describe("Villains Page", () => {
     });
   });
 
-  context("Save Button", async () => {
-    it("should add a new villain", async () => {
+  context("Save Button", () => {
+    it("should add a new villain", () => {
       const firstName = "Victor";
       const lastName = "Von Doom";
       const house = "Marvel";
