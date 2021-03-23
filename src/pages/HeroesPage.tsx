@@ -94,6 +94,7 @@ const HeroesPage = () => {
       </>
       {response?.data?.length === 0 && status !== "loading" && (
         <Button
+          data-testid={"refetch-button"}
           className={classes.button}
           variant={"contained"}
           color={"primary"}

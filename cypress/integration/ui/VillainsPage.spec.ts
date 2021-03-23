@@ -1,12 +1,18 @@
 /// <reference types="cypress"/>
 
 import { VILLAINS } from "../../../src/mocks/handlers/villainHandler";
+import { ANTI_HEROES } from "../../../src/mocks/handlers/antiHeroHandler";
+import { HEROES } from "../../../src/mocks/handlers/heroHandler";
 
-describe("Villains Page", () => {
+describe.skip("Villains Page", () => {
   beforeEach(() => {
     /* Custom commands. Please see support/commands.ts
      * and the global.d.ts for intellisense */
+    cy.getCommand("/anti-heroes", ANTI_HEROES);
+    cy.getCommand("/heroes", HEROES);
     cy.getCommand("/villains", VILLAINS);
+    cy.deleteCommand("/anti-heroes/*");
+    cy.deleteCommand("/heroes/*");
     cy.deleteCommand("/villains/*");
     cy.NavigateByTestIdCommand("nav-villains");
     cy.SetupInputFieldsCommand();
@@ -60,6 +66,24 @@ describe("Villains Page", () => {
 
       cy.findAllByTestId("card").should("have.length", VILLAINS.length + 1);
       cy.findByTestId("total-villains").contains(VILLAINS.length + 1);
+    });
+  });
+
+  context("Refetch", () => {
+    it("should refetch all villains after soft deleting all villains", () => {
+      cy.get("[data-testid=remove-button]").each(($el) => cy.wrap($el).click());
+      cy.get("[data-testid=card]").should("not.exist");
+      cy.get("[data-testid=refetch-button]").click();
+      cy.get("[data-testid=card]").should("have.length", VILLAINS.length);
+      cy.get("[data-testid=total-villains]").contains(VILLAINS.length);
+    });
+
+    it("should refetch all villains after deleting all villains", () => {
+      cy.get("[data-testid=delete-button]").each(($el) => cy.wrap($el).click());
+      cy.get("[data-testid=card]").should("not.exist");
+      cy.get("[data-testid=refetch-button]").click();
+      cy.get("[data-testid=card]").should("have.length", VILLAINS.length);
+      cy.get("[data-testid=total-villains]").contains(VILLAINS.length);
     });
   });
 });
