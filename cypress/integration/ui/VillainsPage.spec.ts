@@ -19,17 +19,21 @@ describe("Villains Page", () => {
   context("Buttons inside a card", () => {
     // using cypress testing library utilities demo
     it("should marked a villain after clicking a mark button", () => {
-      cy.findAllByTestId("mark-button").eq(1).click();
+      const index = 1;
+      cy.findAllByTestId("mark-button").eq(index).click();
       cy.findAllByTestId("card").should("contain", "- marked");
     });
 
     it("should remove a villain from the store after clicking a remove button", () => {
-      cy.get("[data-testid=remove-button]").eq(1).click();
-      cy.get("[data-testid=card]").should("have.length", 1);
+      const index = 1;
+      cy.get("[data-testid=remove-button]").eq(index).click();
+      cy.get("[data-testid=card]").should("have.length", VILLAINS.length - 1);
     });
 
     it("should delete a villain from the database after clicking a delete-from-db button", () => {
-      cy.get("[data-testid=delete-button]").eq(1).click();
+      const index = 1;
+      cy.get("[data-testid=delete-button]").eq(index).click();
+      cy.get("[data-testid=card]").should("have.length", VILLAINS.length - 1);
     });
   });
 
