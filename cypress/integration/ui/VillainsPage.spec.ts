@@ -4,16 +4,13 @@ import { VILLAINS } from "../../../src/mocks/handlers/villainHandler";
 import { ANTI_HEROES } from "../../../src/mocks/handlers/antiHeroHandler";
 import { HEROES } from "../../../src/mocks/handlers/heroHandler";
 
-describe.skip("Villains Page", () => {
+describe("Villains Page", () => {
   beforeEach(() => {
     /* Custom commands. Please see support/commands.ts
      * and the global.d.ts for intellisense */
     cy.getCommand("/anti-heroes", ANTI_HEROES);
     cy.getCommand("/heroes", HEROES);
     cy.getCommand("/villains", VILLAINS);
-    cy.deleteCommand("/anti-heroes/*");
-    cy.deleteCommand("/heroes/*");
-    cy.deleteCommand("/villains/*");
     cy.NavigateByTestIdCommand("nav-villains");
     cy.SetupInputFieldsCommand();
   });
@@ -33,12 +30,6 @@ describe.skip("Villains Page", () => {
     it("should remove a villain from the store after clicking a remove button", () => {
       const index = 1;
       cy.get("[data-testid=remove-button]").eq(index).click();
-      cy.get("[data-testid=card]").should("have.length", VILLAINS.length - 1);
-    });
-
-    it("should delete a villain from the database after clicking a delete-from-db button", () => {
-      const index = 1;
-      cy.get("[data-testid=delete-button]").eq(index).click();
       cy.get("[data-testid=card]").should("have.length", VILLAINS.length - 1);
     });
   });

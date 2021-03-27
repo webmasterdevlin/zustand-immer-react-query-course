@@ -14,11 +14,15 @@ Cypress.Commands.add("getCommand", (url: string, responseBody: Array<any>) => {
   });
 });
 
-Cypress.Commands.add("deleteCommand", (url: string) => {
-  cy.intercept("DELETE", url, {
-    statusCode: 200,
-  });
-});
+Cypress.Commands.add(
+  "deleteCommand",
+  (url: string, responseBody: Array<any>, index: number) => {
+    cy.intercept("DELETE", url, {
+      statusCode: 200,
+      body: responseBody.splice(index, 1),
+    });
+  }
+);
 
 Cypress.Commands.add("postCommand", (url: string, requestBody: any) => {
   requestBody.id = uuidv4();

@@ -11,9 +11,6 @@ describe("Anti-Heroes Page", () => {
     cy.getCommand("/anti-heroes", ANTI_HEROES);
     cy.getCommand("/heroes", HEROES);
     cy.getCommand("/villains", VILLAINS);
-    cy.deleteCommand("/anti-heroes/*");
-    cy.deleteCommand("/heroes/*");
-    cy.deleteCommand("/villains/*");
     cy.NavigateByTestIdCommand("nav-anti-heroes");
     cy.SetupInputFieldsCommand();
   });
@@ -33,15 +30,6 @@ describe("Anti-Heroes Page", () => {
     it("should remove an anti hero from the store after clicking a remove button", () => {
       const index = 1;
       cy.get("[data-testid=remove-button]").eq(index).click();
-      cy.get("[data-testid=card]").should(
-        "have.length",
-        ANTI_HEROES.length - 1
-      );
-    });
-
-    it("should delete an anti hero from the database after clicking a delete-from-db button", () => {
-      const index = 1;
-      cy.get("[data-testid=delete-button]").eq(index).click();
       cy.get("[data-testid=card]").should(
         "have.length",
         ANTI_HEROES.length - 1
