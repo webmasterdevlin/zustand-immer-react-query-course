@@ -26,15 +26,6 @@ describe("Anti-Heroes Page", () => {
       cy.findAllByTestId("mark-button").eq(index).click();
       cy.findAllByTestId("card").should("contain", "- marked");
     });
-
-    it("should remove an anti hero from the store after clicking a remove button", () => {
-      const index = 1;
-      cy.get("[data-testid=remove-button]").eq(index).click();
-      cy.get("[data-testid=card]").should(
-        "have.length",
-        ANTI_HEROES.length - 1
-      );
-    });
   });
 
   context("Save Button", () => {
