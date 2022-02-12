@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  createStyles,
-  Typography,
-  useMediaQuery,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { Box, Button, Typography, useMediaQuery } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { queryClient } from "App";
 import TitleBar from "components/TitleBar";
 import UpdateUiLabel from "components/UpdateUiLabel";
@@ -64,7 +58,6 @@ const VillainsPage = () => {
                   className={classes.button}
                   onClick={() => setCounter(v.id)}
                   variant={"contained"}
-                  color={"default"}
                   data-testid={"mark-button"}
                 >
                   Mark

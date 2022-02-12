@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { AppBar, Box, Button, createStyles, Toolbar } from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
+import { AppBar, Box, Button, Toolbar } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import TotalOfCharacters from "./TotalOfCharacters";
-import { makeStyles } from "@material-ui/styles";
 import useFetchHeroes from "features/heroes/hooks/useFetchHeroes";
 import useFetchAntiHeroes from "features/anti-heroes/hooks/useFetchAntiHeroes";
 import useFetchVillains from "features/villains/hooks/useFetchVillains";
 
 const NavigationBar = () => {
+  const navigate = useNavigate();
   const { data: antiHeroes } = useFetchAntiHeroes();
   const { data: heroes } = useFetchHeroes();
   const { data: villains } = useFetchVillains();
-  const history = useHistory();
   const classes = useStyles();
 
   useEffect(() => {}, []);
@@ -22,7 +22,7 @@ const NavigationBar = () => {
         <Box>
           <Button
             className={classes.button}
-            onClick={() => history.push("/")}
+            onClick={() => navigate("/")}
             color="inherit"
           >
             Home
@@ -31,7 +31,7 @@ const NavigationBar = () => {
         <Box>
           <Button
             className={classes.button}
-            onClick={() => history.push("/anti-heroes")}
+            onClick={() => navigate("/anti-heroes")}
             color="inherit"
             data-testid="nav-anti-heroes"
           >
@@ -45,7 +45,7 @@ const NavigationBar = () => {
         <Box>
           <Button
             className={classes.button}
-            onClick={() => history.push("/heroes")}
+            onClick={() => navigate("/heroes")}
             color="inherit"
             data-testid="nav-heroes"
           >
@@ -59,7 +59,7 @@ const NavigationBar = () => {
         <Box>
           <Button
             className={classes.button}
-            onClick={() => history.push("/villains")}
+            onClick={() => navigate("/villains")}
             color="inherit"
             data-testid="nav-villains"
           >

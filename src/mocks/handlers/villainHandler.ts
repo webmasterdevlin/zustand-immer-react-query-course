@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-const baseUrl = "http://localhost:5000";
+const baseUrl = "http://localhost/api";
 
 export const VILLAINS = [
   {

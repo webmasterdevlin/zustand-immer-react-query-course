@@ -1,69 +1,54 @@
-import React, { Fragment, lazy, Suspense } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { ElementType, lazy, Suspense } from "react";
+import { RouteObject, useRoutes } from "react-router";
 
-import HomePage from "./pages/HomePage";
+const Loadable = (Component: ElementType) => (props: any) =>
+  (
+    <Suspense fallback={<h1>Loading</h1>}>
+      <Component {...props} />
+    </Suspense>
+  );
 
-type Routes = {
-  exact?: boolean;
-  path?: string | string[];
-  guard?: any;
-  layout?: any;
-  component?: any;
-  routes?: Routes;
-}[];
+const HomePage = Loadable(lazy(() => import("./pages/HomePage")));
+const HeroesPage = Loadable(lazy(() => import("./pages/HeroesPage")));
+const AntiHeroesPage = Loadable(lazy(() => import("./pages/AntiHeroesPage")));
+const VillainsPage = Loadable(lazy(() => import("./pages/VillainsPage")));
 
-export const renderRoutes = (routes: Routes = []) => (
-  <Suspense fallback={<h2>Loading</h2>}>
-    <Switch>
-      {routes.map((route, i) => {
-        const Guard = route.guard || Fragment;
-        const Layout = route.layout || Fragment;
-        const Component = route.component;
+type Paths = {
+  home: string;
+  heroes: string;
+  antiHeroes: string;
+  villains: string;
+};
 
-        return (
-          <Route
-            key={i}
-            path={route.path}
-            exact={route.exact}
-            render={(props) => (
-              <Guard>
-                <Layout>
-                  {route.routes ? (
-                    renderRoutes(route.routes)
-                  ) : (
-                    <Component {...props} />
-                  )}
-                </Layout>
-              </Guard>
-            )}
-          />
-        );
-      })}
-    </Switch>
-  </Suspense>
-);
+export const pathNames: Paths = {
+  home: "/",
+  heroes: "/heroes",
+  antiHeroes: "/anti-heroes",
+  villains: "/villains",
+};
 
-const routes: Routes = [
+const lazyRoutes: RouteObject[] = [
   {
-    exact: true,
-    path: "/",
-    component: HomePage,
+    path: pathNames.home,
+    element: <HomePage />,
   },
   {
-    exact: true,
-    path: "/anti-heroes",
-    component: lazy(() => import("./pages/AntiHeroesPage")),
+    path: pathNames.heroes,
+    element: <HeroesPage />,
   },
   {
-    exact: true,
-    path: "/villains",
-    component: lazy(() => import("./pages/VillainsPage")),
+    path: pathNames.antiHeroes,
+    element: <AntiHeroesPage />,
   },
   {
-    exact: true,
-    path: "/heroes",
-    component: lazy(() => import("./pages/HeroesPage")),
+    path: pathNames.villains,
+    element: <VillainsPage />,
   },
 ];
 
-export default routes;
+const LazyRoutes = () => {
+  const contents = useRoutes(lazyRoutes);
+  return <>{contents}</>;
+};
+
+export default LazyRoutes;

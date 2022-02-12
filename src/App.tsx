@@ -1,13 +1,12 @@
 import React from "react";
 import "./App.css";
+import { Container, CssBaseline } from "@mui/material";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { BrowserRouter } from "react-router-dom";
-import { CssBaseline } from "@material-ui/core";
-import Container from "@material-ui/core/Container";
 
 import NavigationBar from "./components/NavigationBar";
-import routes, { renderRoutes } from "./Routes";
+import Routes from "./Routes";
 
 export const queryClient = new QueryClient();
 
@@ -18,7 +17,9 @@ function App() {
         <BrowserRouter>
           <>
             <NavigationBar />
-            <Container>{renderRoutes(routes)}</Container>
+            <Container>
+              <Routes />
+            </Container>
             <ReactQueryDevtools initialIsOpen />
           </>
         </BrowserRouter>

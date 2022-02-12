@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, useFormikContext } from "formik";
-import { Box, createStyles, TextField } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { Box, TextField } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 
 type Props = {
   id: string;

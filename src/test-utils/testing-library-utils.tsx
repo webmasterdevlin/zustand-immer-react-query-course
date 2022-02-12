@@ -4,8 +4,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { render as rtlRender } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
+import { Container, CssBaseline } from "@mui/material";
 import NavigationBar from "../components/NavigationBar";
 import { queryClient } from "../App";
 
