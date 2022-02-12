@@ -13,11 +13,10 @@ export default function useUpdateVillain() {
         await queryClient.cancelQueries("villains");
 
         // Snapshot the previous value
-        const backup = queryClient.getQueryData<{ data: VillainModel[] }>(
-          "villains"
-        );
+        const backup =
+          queryClient.getQueryData<{ data: VillainModel[] }>("villains");
 
-        // Optimistically update by removing the villain
+        // Optimistically update by updating the villain
         if (backup)
           queryClient.setQueryData<{ data: VillainModel[] }>("villains", {
             data: [

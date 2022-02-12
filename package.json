@@ -9,11 +9,7 @@
     "start:fullstack": "concurrently \"npm run backend\" \"npm run start\"",
     "build": "tsc --noEmit && npm run test -- --watchAll=false && CI= react-scripts build NODE_ENV=production",
     "eject": "react-scripts eject",
-    "test": "react-scripts test",
-    "test:cypress": "npx cypress run",
-    "test:cypress-open": "npx cypress open --browser edge",
-    "test:cypress-headed": "npx cypress --headed",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "test": "react-scripts test"
   },
   "dependencies": {
     "@emotion/react": "^11.6.0",

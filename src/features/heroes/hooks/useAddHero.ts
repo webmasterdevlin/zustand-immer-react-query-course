@@ -12,7 +12,7 @@ export default function useAddHero() {
       // Snapshot the previous value
       const backup = queryClient.getQueryData<{ data: HeroModel[] }>("heroes");
 
-      // Optimistically update by removing the hero
+      // Optimistically update by adding the hero
       if (backup)
         queryClient.setQueryData<{ data: HeroModel[] }>("heroes", {
           data: [...backup.data, hero],

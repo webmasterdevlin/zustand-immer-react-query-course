@@ -12,11 +12,10 @@ export default function useAddAntiHero() {
         await queryClient.cancelQueries("antiHeroes");
 
         // Snapshot the previous value
-        const backup = queryClient.getQueryData<{ data: AntiHeroModel[] }>(
-          "antiHeroes"
-        );
+        const backup =
+          queryClient.getQueryData<{ data: AntiHeroModel[] }>("antiHeroes");
 
-        // Optimistically update by removing the antiHero
+        // Optimistically update by adding the antiHero
         if (backup)
           queryClient.setQueryData<{ data: AntiHeroModel[] }>("antiHeroes", {
             data: [...backup.data, antiHero],
