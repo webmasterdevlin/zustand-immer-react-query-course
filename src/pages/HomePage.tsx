@@ -14,7 +14,7 @@ const HomePage = () => {
         alignItems={"center"}
       >
         <Typography variant={"h2"}>
-          Welcome to React Query Course 🧑‍🏫 💻
+          Welcome to Zustand, Immer, and React Query Course 🧑‍🏫 💻
         </Typography>
       </Box>
       <ReactQueryDevtools initialIsOpen />

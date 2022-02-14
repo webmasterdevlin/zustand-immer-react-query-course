@@ -1,29 +1,45 @@
 import React from "react";
 import "./App.css";
-import { Container, CssBaseline } from "@mui/material";
+import {
+  Container,
+  createTheme,
+  CssBaseline,
+  ThemeProvider,
+} from "@mui/material";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { BrowserRouter } from "react-router-dom";
 
 import NavigationBar from "./components/NavigationBar";
 import Routes from "./Routes";
+import { useThemeStore } from "./store/themeStore";
 
 export const queryClient = new QueryClient();
 
 function App() {
+  const theme = useThemeStore((state) => state.theme);
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: theme.isDark ? "dark" : "light",
+    },
+  });
+
   return (
     <QueryClientProvider client={queryClient}>
-      <CssBaseline>
-        <BrowserRouter>
-          <>
-            <NavigationBar />
-            <Container>
-              <Routes />
-            </Container>
-            <ReactQueryDevtools initialIsOpen />
-          </>
-        </BrowserRouter>
-      </CssBaseline>
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline>
+          <BrowserRouter>
+            <>
+              <NavigationBar />
+              <Container>
+                <Routes />
+              </Container>
+              <ReactQueryDevtools initialIsOpen />
+            </>
+          </BrowserRouter>
+        </CssBaseline>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }
