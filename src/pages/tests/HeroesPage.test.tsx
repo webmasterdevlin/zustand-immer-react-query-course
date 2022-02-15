@@ -2,7 +2,7 @@ import {
   render,
   screen,
   waitFor,
-} from '/src/test-utils/testing-library-utils';
+} from '../../test-utils/testing-library-utils';
 import HeroesPage from '../../pages/HeroesPage';
 import userEvent from '@testing-library/user-event';
 import { queryClient } from '/src/App';

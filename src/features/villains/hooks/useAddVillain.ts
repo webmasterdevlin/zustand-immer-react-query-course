@@ -1,6 +1,6 @@
 import { useMutation } from 'react-query';
-import { api, EndPoints } from '/src/axios/api-config';
-import { queryClient } from '/src/App';
+import { api, EndPoints } from '../../../axios/api-config';
+import { queryClient } from '../../../../src/App';
 import { VillainModel } from '../villain';
 
 export default function useAddVillain() {
