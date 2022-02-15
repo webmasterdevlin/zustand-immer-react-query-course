@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type Props = {
   collection: any[] | undefined;
@@ -6,7 +6,7 @@ type Props = {
 };
 
 const TotalOfCharacters = ({ collection, dataTestId }: Props) => (
-  <span data-testid={dataTestId} style={{ color: "cyan" }}>
+  <span data-testid={dataTestId} style={{ color: 'cyan' }}>
     {collection?.length}
   </span>
 );

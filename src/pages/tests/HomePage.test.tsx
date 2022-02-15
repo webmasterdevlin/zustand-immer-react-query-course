@@ -1,12 +1,12 @@
-import { render, screen } from "test-utils/testing-library-utils";
-import HomePage from "pages/HomePage";
+import { render, screen } from '/src/test-utils/testing-library-utils';
+import HomePage from '../../pages/HomePage';
 
-describe("Home Page", () => {
-  it("should welcome message is visible", async () => {
+describe('Home Page', () => {
+  it('should welcome message is visible', async () => {
     render(<HomePage />);
 
-    const title = await screen.findByRole("heading", {
-      name: "Welcome to React Query Course 🧑‍🏫 💻",
+    const title = await screen.findByRole('heading', {
+      name: 'Welcome to React Query Course 🧑‍🏫 💻',
     });
 
     expect(title).toBeInTheDocument();

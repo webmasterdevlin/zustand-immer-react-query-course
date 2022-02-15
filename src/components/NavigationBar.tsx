@@ -1,20 +1,21 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { AppBar, Box, Button, FormControlLabel, Toolbar } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
-import TotalOfCharacters from "./TotalOfCharacters";
-import useFetchHeroes from "features/heroes/hooks/useFetchHeroes";
-import useFetchAntiHeroes from "features/anti-heroes/hooks/useFetchAntiHeroes";
-import useFetchVillains from "features/villains/hooks/useFetchVillains";
-import Switch from "@mui/material/Switch";
-import { useThemeStore } from "../store/themeStore";
-import { pathNames } from "../Routes";
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AppBar, Box, Button, FormControlLabel, Toolbar } from '@mui/material';
+import { createStyles, makeStyles } from '@mui/styles';
+import Switch from '@mui/material/Switch';
 
-const label = { inputProps: { "aria-label": "Switch demo" } };
+import TotalOfCharacters from './TotalOfCharacters';
+import useFetchHeroes from '../features/heroes/hooks/useFetchHeroes';
+import useFetchAntiHeroes from '../features/anti-heroes/hooks/useFetchAntiHeroes';
+import useFetchVillains from '../features/villains/hooks/useFetchVillains';
+import { useThemeStore } from '../store/themeStore';
+import { pathNames } from '../Routes';
+
+const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 const NavigationBar = () => {
   const { setDarkTheme, setLightTheme } = useThemeStore();
-  const theme = useThemeStore((state) => state.theme);
+  const theme = useThemeStore(state => state.theme);
 
   const navigate = useNavigate();
   const { data: antiHeroes } = useFetchAntiHeroes();
@@ -24,7 +25,7 @@ const NavigationBar = () => {
 
   useEffect(() => {}, []);
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     if (event.target.checked) {
       setDarkTheme();
     } else {
@@ -32,12 +33,12 @@ const NavigationBar = () => {
     }
   };
   return (
-    <AppBar position="static" style={{ marginBottom: "2rem" }}>
+    <AppBar position="static" style={{ marginBottom: '2rem' }}>
       <Toolbar>
         <Box mr={4}>
           <Button
             className={classes.button}
-            onClick={() => navigate("/")}
+            onClick={() => navigate('/')}
             color="inherit"
           >
             Home
@@ -54,7 +55,7 @@ const NavigationBar = () => {
           </Button>
           <TotalOfCharacters
             collection={antiHeroes?.data}
-            dataTestId={"total-anti-heroes"}
+            dataTestId={'total-anti-heroes'}
           />
         </Box>
         <Box mr={4}>
@@ -68,7 +69,7 @@ const NavigationBar = () => {
           </Button>
           <TotalOfCharacters
             collection={heroes?.data}
-            dataTestId={"total-heroes"}
+            dataTestId={'total-heroes'}
           />
         </Box>
         <Box mr={4}>
@@ -82,7 +83,7 @@ const NavigationBar = () => {
           </Button>
           <TotalOfCharacters
             collection={villains?.data}
-            dataTestId={"total-villains"}
+            dataTestId={'total-villains'}
           />
         </Box>
         <Box mr={4}>
@@ -116,10 +117,10 @@ export default NavigationBar;
 const useStyles = makeStyles(() =>
   createStyles({
     button: {
-      margin: "0 0.5rem",
-      "&:focus": {
-        outline: "none",
+      margin: '0 0.5rem',
+      '&:focus': {
+        outline: 'none',
       },
     },
-  })
+  }),
 );

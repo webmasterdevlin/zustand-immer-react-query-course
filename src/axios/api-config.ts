@@ -1,11 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: "/api/",
+  baseURL: '/api/',
 });
 
 export const EndPoints = {
-  heroes: "heroes",
-  antiHeroes: "anti-heroes",
-  villains: "villains",
+  heroes: 'heroes',
+  antiHeroes: 'anti-heroes',
+  villains: 'villains',
 };

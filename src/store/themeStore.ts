@@ -1,7 +1,7 @@
-import create from "zustand";
-import produce, { Draft } from "immer";
-import { configurePersist } from "zustand-persist";
-import { mountStoreDevtool } from "simple-zustand-devtools";
+import create from 'zustand';
+import produce, { Draft } from 'immer';
+import { configurePersist } from 'zustand-persist';
+import { mountStoreDevtool } from 'simple-zustand-devtools';
 
 const { persist, purge } = configurePersist({
   storage: localStorage,
@@ -20,7 +20,7 @@ export type ThemeStoreType = {
 export const useThemeStore = create<ThemeStoreType>(
   persist(
     {
-      key: "themeStore",
+      key: 'themeStore',
     },
     (set): ThemeStoreType => ({
       theme: {
@@ -30,16 +30,16 @@ export const useThemeStore = create<ThemeStoreType>(
         set(
           produce((draft: Draft<ThemeStoreType>) => {
             draft.theme.isDark = true;
-          })
+          }),
         ),
       setLightTheme: () =>
         set(
           produce((draft: Draft<ThemeStoreType>) => {
             draft.theme.isDark = false;
-          })
+          }),
         ),
-    })
-  )
+    }),
+  ),
 );
 
-mountStoreDevtool("themeStore", useThemeStore as any);
+mountStoreDevtool('themeStore', useThemeStore as any);

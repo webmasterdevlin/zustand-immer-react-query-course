@@ -1,7 +1,7 @@
-import React from "react";
-import { Form, useFormikContext } from "formik";
-import SharedInput from "./SharedInput";
-import { Box, Paper, Button } from "@mui/material";
+import React from 'react';
+import { Form, useFormikContext } from 'formik';
+import SharedInput from './SharedInput';
+import { Box, Paper, Button } from '@mui/material';
 
 const SharedForm = () => {
   const formik = useFormikContext<any>();
@@ -9,32 +9,32 @@ const SharedForm = () => {
   return (
     <Box mb={4}>
       <Paper>
-        <Form style={{ padding: "1rem" }}>
+        <Form style={{ padding: '1rem' }}>
           <div>
             <SharedInput
-              id={"firstName"}
-              dataTestId={"firstName"}
-              label={"First Name"}
+              id={'firstName'}
+              dataTestId={'firstName'}
+              label={'First Name'}
             />
             <SharedInput
-              id={"lastName"}
-              dataTestId={"lastName"}
-              label={"Last Name"}
+              id={'lastName'}
+              dataTestId={'lastName'}
+              label={'Last Name'}
             />
-            <SharedInput id={"house"} dataTestId={"house"} label={"House"} />
+            <SharedInput id={'house'} dataTestId={'house'} label={'House'} />
             <SharedInput
-              id={"knownAs"}
-              dataTestId={"knownAs"}
-              label={"Known As"}
+              id={'knownAs'}
+              dataTestId={'knownAs'}
+              label={'Known As'}
             />
           </div>
 
           <Button
             disabled={!formik.dirty || !formik.isValid}
             type="submit"
-            color={"primary"}
-            variant={"outlined"}
-            data-testid={"save-character"}
+            color={'primary'}
+            variant={'outlined'}
+            data-testid={'save-character'}
           >
             Save Character
           </Button>

@@ -1,5 +1,5 @@
-import React, { ElementType, lazy, Suspense } from "react";
-import { RouteObject, useRoutes } from "react-router";
+import React, { ElementType, lazy, Suspense } from 'react';
+import { RouteObject, useRoutes } from 'react-router';
 
 const Loadable = (Component: ElementType) => (props: any) =>
   (
@@ -8,11 +8,11 @@ const Loadable = (Component: ElementType) => (props: any) =>
     </Suspense>
   );
 
-const HomePage = Loadable(lazy(() => import("./pages/HomePage")));
-const HeroesPage = Loadable(lazy(() => import("./pages/HeroesPage")));
-const AntiHeroesPage = Loadable(lazy(() => import("./pages/AntiHeroesPage")));
-const VillainsPage = Loadable(lazy(() => import("./pages/VillainsPage")));
-const TablePage = Loadable(lazy(() => import("./pages/TablePage")));
+const HomePage = Loadable(lazy(() => import('./pages/HomePage')));
+const HeroesPage = Loadable(lazy(() => import('./pages/HeroesPage')));
+const AntiHeroesPage = Loadable(lazy(() => import('./pages/AntiHeroesPage')));
+const VillainsPage = Loadable(lazy(() => import('./pages/VillainsPage')));
+const TablePage = Loadable(lazy(() => import('./pages/TablePage')));
 
 type Paths = {
   home: string;
@@ -23,11 +23,11 @@ type Paths = {
 };
 
 export const pathNames: Paths = {
-  home: "/",
-  heroes: "/heroes",
-  antiHeroes: "/anti-heroes",
-  villains: "/villains",
-  table: "/table",
+  home: '/',
+  heroes: '/heroes',
+  antiHeroes: '/anti-heroes',
+  villains: '/villains',
+  table: '/table',
 };
 
 const lazyRoutes: RouteObject[] = [

@@ -1,9 +1,9 @@
-import { renderHook } from "@testing-library/react-hooks";
-import useFetchVillains from "../hooks/useFetchVillains";
-import { wrapper } from "test-utils/testing-library-utils";
+import { renderHook } from '@testing-library/react-hooks';
+import useFetchVillains from '../hooks/useFetchVillains';
+import { wrapper } from '/src/test-utils/testing-library-utils';
 
-describe("Villains hooks", () => {
-  it("should fire useFetchVillains", async () => {
+describe('Villains hooks', () => {
+  it('should fire useFetchVillains', async () => {
     const { result, waitFor } = renderHook(() => useFetchVillains(), {
       wrapper,
     });

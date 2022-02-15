@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+dist
+build
+.parcel-cache
+node_modules
+yarn.lock
+package-locak.json
+yarn-error.log
+*.log

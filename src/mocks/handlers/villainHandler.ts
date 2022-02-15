@@ -1,21 +1,21 @@
-import { rest } from "msw";
+import { rest } from 'msw';
 
-const baseUrl = "http://localhost/api";
+const baseUrl = 'http://localhost/api';
 
 export const VILLAINS = [
   {
-    firstName: "Lex",
-    lastName: "Luther",
-    house: "DC",
-    knownAs: "Lex",
-    id: "3290fhe",
+    firstName: 'Lex',
+    lastName: 'Luther',
+    house: 'DC',
+    knownAs: 'Lex',
+    id: '3290fhe',
   },
   {
-    firstName: "Max",
-    lastName: "Eisenhardt",
-    house: "Marvel",
-    knownAs: "Magneto",
-    id: "6r8finlfy",
+    firstName: 'Max',
+    lastName: 'Eisenhardt',
+    house: 'Marvel',
+    knownAs: 'Magneto',
+    id: '6r8finlfy',
   },
 ];
 
@@ -25,7 +25,7 @@ export const villainHandler = [
   }),
 
   rest.delete(`${baseUrl}/villains/:id`, (req, res, ctx) => {
-    return VILLAINS.find((v) => v.id === req.params.id)
+    return VILLAINS.find(v => v.id === req.params.id)
       ? res(ctx.status(200))
       : res(ctx.status(404));
   }),
@@ -35,7 +35,7 @@ export const villainHandler = [
   }),
 
   rest.put(`${baseUrl}/villains/:id`, (req, res, ctx) => {
-    return VILLAINS.find((v) => v.id === req.params.id)
+    return VILLAINS.find(v => v.id === req.params.id)
       ? res(ctx.status(200))
       : res(ctx.status(404));
   }),
