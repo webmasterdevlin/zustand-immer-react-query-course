@@ -1,9 +1,9 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/39148865-a987-40c6-adfa-db2fb25ca284/deploy-status)](https://app.netlify.com/sites/xenodochial-wing-f97dd4/deploys)
-## Redux Query Course
+## Redux Query Course with Zustand, Immer, and React Table
 
 ```sh
-$ git clone https://github.com/webmasterdevlin/redux-query-course.git
-$ cd redux-query-course
+$ git clone https://github.com/webmasterdevlin/zustand-immer-react-query-course.git
+$ cd zustand-immer-react-query-course
 $ npm install
 $ npm run start:fullstack
 ```
