@@ -9,7 +9,7 @@ describe('Home Page', () => {
     render(<HomePage />);
 
     const title = await screen.findByRole('heading', {
-      name: 'Welcome to React Query Course 🧑‍🏫 💻',
+      name: 'Welcome to Zustand, Immer, and React Query Course 🧑‍🏫 💻',
     });
 
     expect(title).toBeInTheDocument();
