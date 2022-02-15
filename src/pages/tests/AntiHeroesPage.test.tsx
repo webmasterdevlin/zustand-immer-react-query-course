@@ -5,7 +5,7 @@ import {
 } from '../../test-utils/testing-library-utils';
 import AntiHeroesPage from '../../pages/AntiHeroesPage';
 import userEvent from '@testing-library/user-event';
-import { queryClient } from '/src/App';
+import { queryClient } from '../../App';
 
 describe('Anti Heroes Page', () => {
   beforeEach(() => {

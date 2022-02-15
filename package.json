@@ -5,7 +5,7 @@
   "proxy": "http://localhost:5000",
   "scripts": {
     "start": "parcel serve ./src/index.html",
-    "backend": "json-server --watch  --delay=1000 db.json",
+    "backend": "json-server --watch --delay=1000 db.json",
     "start:fullstack": "concurrently \"yarn backend\" \"yarn start\"",
     "build": "parcel build ./src/index.html --no-source-maps",
     "eject": "react-scripts eject",

@@ -6,23 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useAddAntiHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useAddAntiHero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useRemoveAntiHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useRemoveAntiHero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useUpdateAntiHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useUpdateAntiHero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/tests/useFetchAntiHeroes.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/tests/useFetchAntiHeroes.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/hooks/useAddHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/hooks/useAddHero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/hooks/useFetchHeroes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/hooks/useFetchHeroes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/hooks/useRemoveHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/hooks/useRemoveHero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/hooks/useUpdateHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/hooks/useUpdateHero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/tests/useFetchHeroes.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/tests/useFetchHeroes.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useAddVillain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/hooks/useAddVillain.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useFetchVillains.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/hooks/useFetchVillains.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useRemoveVillain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/hooks/useRemoveVillain.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useUpdateVillain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/hooks/useUpdateVillain.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/villains/tests/useFetchVillains.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/tests/useFetchVillains.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/tests/AntiHeroesPage.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tests/AntiHeroesPage.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/tests/HeroesPage.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tests/HeroesPage.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/tests/HomePage.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tests/HomePage.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/tests/VillainsPage.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tests/VillainsPage.test.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +79,7 @@
       <workItem from="1644943097967" duration="1975000" />
       <workItem from="1644945080315" duration="1061000" />
       <workItem from="1644949879483" duration="4164000" />
-      <workItem from="1644955323906" duration="3353000" />
+      <workItem from="1644955323906" duration="3611000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1644671503056</created>
@@ -144,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644958851123</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update">
+      <created>1644959320363</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1644959320363</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -5,7 +5,7 @@ import {
 } from '../../test-utils/testing-library-utils';
 import VillainsPage from '../../pages/VillainsPage';
 import userEvent from '@testing-library/user-event';
-import { queryClient } from '/src/App';
+import { queryClient } from '../../App';
 
 describe('Villains Page', () => {
   beforeEach(() => {
