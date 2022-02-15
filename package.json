@@ -7,7 +7,7 @@
     "start": "parcel serve ./src/index.html",
     "backend": "json-server --watch  --delay=1000 db.json",
     "start:fullstack": "concurrently \"yarn backend\" \"yarn start\"",
-    "build": "parcel build ./src/index.html --out-dir ./dist --no-source-maps",
+    "build": "parcel build ./src/index.html --no-source-maps",
     "eject": "react-scripts eject",
     "test": "react-scripts test",
     "eslint": "eslint --ext js,ts,tsx",
