@@ -6,7 +6,7 @@ type Props = {
 };
 
 const TotalOfCharacters = ({ collection, dataTestId }: Props) => (
-  <span data-testid={dataTestId} style={{ color: "cyan", margin: "0 1rem" }}>
+  <span data-testid={dataTestId} style={{ color: "cyan" }}>
     {collection?.length}
   </span>
 );

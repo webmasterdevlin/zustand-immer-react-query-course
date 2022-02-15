@@ -8,6 +8,7 @@ import useFetchAntiHeroes from "features/anti-heroes/hooks/useFetchAntiHeroes";
 import useFetchVillains from "features/villains/hooks/useFetchVillains";
 import Switch from "@mui/material/Switch";
 import { useThemeStore } from "../store/themeStore";
+import { pathNames } from "../Routes";
 
 const label = { inputProps: { "aria-label": "Switch demo" } };
 
@@ -33,7 +34,7 @@ const NavigationBar = () => {
   return (
     <AppBar position="static" style={{ marginBottom: "2rem" }}>
       <Toolbar>
-        <Box>
+        <Box mr={4}>
           <Button
             className={classes.button}
             onClick={() => navigate("/")}
@@ -42,10 +43,10 @@ const NavigationBar = () => {
             Home
           </Button>
         </Box>
-        <Box>
+        <Box mr={4}>
           <Button
             className={classes.button}
-            onClick={() => navigate("/anti-heroes")}
+            onClick={() => navigate(pathNames.antiHeroes)}
             color="inherit"
             data-testid="nav-anti-heroes"
           >
@@ -56,10 +57,10 @@ const NavigationBar = () => {
             dataTestId={"total-anti-heroes"}
           />
         </Box>
-        <Box>
+        <Box mr={4}>
           <Button
             className={classes.button}
-            onClick={() => navigate("/heroes")}
+            onClick={() => navigate(pathNames.heroes)}
             color="inherit"
             data-testid="nav-heroes"
           >
@@ -70,10 +71,10 @@ const NavigationBar = () => {
             dataTestId={"total-heroes"}
           />
         </Box>
-        <Box>
+        <Box mr={4}>
           <Button
             className={classes.button}
-            onClick={() => navigate("/villains")}
+            onClick={() => navigate(pathNames.villains)}
             color="inherit"
             data-testid="nav-villains"
           >
@@ -83,6 +84,15 @@ const NavigationBar = () => {
             collection={villains?.data}
             dataTestId={"total-villains"}
           />
+        </Box>
+        <Box mr={4}>
+          <Button
+            className={classes.button}
+            onClick={() => navigate(pathNames.table)}
+            color="inherit"
+          >
+            Table
+          </Button>
         </Box>
         <Box>
           <FormControlLabel
