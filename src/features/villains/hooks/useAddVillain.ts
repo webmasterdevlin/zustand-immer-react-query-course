@@ -2,6 +2,7 @@ import { useMutation } from 'react-query';
 import { api, EndPoints } from '../../../axios/api-config';
 import { queryClient } from '../../../../src/App';
 import { VillainModel } from '../villain';
+import { keys } from '../../keyNames';
 
 export default function useAddVillain() {
   return useMutation(
@@ -9,15 +10,16 @@ export default function useAddVillain() {
     {
       onMutate: async (villain: VillainModel) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
-        await queryClient.cancelQueries('villains');
+        await queryClient.cancelQueries([keys.villains]);
 
         // Snapshot the previous value
-        const backup =
-          queryClient.getQueryData<{ data: VillainModel[] }>('villains');
+        const backup = queryClient.getQueryData<{ data: VillainModel[] }>([
+          keys.villains,
+        ]);
 
         // Optimistically update by adding the villain
         if (backup)
-          queryClient.setQueryData<{ data: VillainModel[] }>('villains', {
+          queryClient.setQueryData<{ data: VillainModel[] }>([keys.villains], {
             data: [...backup.data, villain],
           });
 
@@ -28,12 +30,12 @@ export default function useAddVillain() {
       onError: (err, variables, context) => {
         if (context?.backup)
           queryClient.setQueryData<VillainModel[]>(
-            'villains',
+            [keys.villains],
             context.backup.data,
           );
       },
       // Always refetch after error or success:
-      onSettled: () => queryClient.invalidateQueries('villains'),
+      onSettled: () => queryClient.invalidateQueries([keys.villains]),
     },
   );
 }
