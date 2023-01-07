@@ -4,6 +4,15 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 import { server } from './mocks/server';
+import { fetch } from 'cross-fetch';
+import { expect } from 'vitest';
+import matchers from '@testing-library/jest-dom/matchers';
+
+// replace fetch with cross-fetch
+global.fetch = fetch;
+
+// extends Vitest's expect method with methods from react-testing-library
+expect.extend(matchers);
 
 // Establish API mocking before all tests.
 beforeAll(() => server.listen());

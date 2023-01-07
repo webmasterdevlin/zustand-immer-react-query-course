@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import {
-  Container,
-  createTheme,
-  CssBaseline,
-  ThemeProvider,
-} from '@mui/material';
+  AppShell,
+  Navbar,
+  Header,
+  MantineProvider,
+  MantineTheme,
+} from '@mantine/core';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter } from 'react-router-dom';
@@ -13,33 +14,35 @@ import { BrowserRouter } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar';
 import Routes from './Routes';
 import { useThemeStore } from './store/themeStore';
+import { useThemeUtils } from './themes/useThemeUtils';
 
 export const queryClient = new QueryClient();
 
 function App() {
-  const theme = useThemeStore(state => state.theme);
-
-  const darkTheme = createTheme({
-    palette: {
-      mode: theme.isDark ? 'dark' : 'light',
-    },
-  });
-
+  const { getBgColor, getFontColor } = useThemeUtils();
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={darkTheme}>
-        <CssBaseline>
-          <BrowserRouter>
-            <>
-              <NavigationBar />
-              <Container>
-                <Routes />
-              </Container>
-              <ReactQueryDevtools initialIsOpen />
-            </>
-          </BrowserRouter>
-        </CssBaseline>
-      </ThemeProvider>
+      <MantineProvider withGlobalStyles withNormalizeCSS>
+        <BrowserRouter>
+          <AppShell
+            padding="md"
+            header={
+              <Header height={60} p="xs">
+                <NavigationBar />
+              </Header>
+            }
+            styles={theme => ({
+              main: {
+                backgroundColor: getBgColor(theme),
+                color: getFontColor(theme),
+              },
+            })}
+          >
+            <Routes />
+            <ReactQueryDevtools initialIsOpen />
+          </AppShell>
+        </BrowserRouter>
+      </MantineProvider>
     </QueryClientProvider>
   );
 }

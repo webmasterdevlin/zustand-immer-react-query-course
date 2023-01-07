@@ -14,16 +14,16 @@ export default function useUpdateVillain() {
         await queryClient.cancelQueries([keys.villains]);
 
         // Snapshot the previous value
-        const backup =
-          queryClient.getQueryData<{ data: VillainModel[] }>([keys.villains]);
+        const backup = queryClient.getQueryData<{ data: VillainModel[] }>([
+          keys.villains,
+        ]);
 
         // Optimistically update by updating the villain
-        if (backup)
-          queryClient.setQueryData<{ data: VillainModel[] }>([keys.villains] {
-            data: [
-              ...backup.data.map(v => (v.id === villain.id ? villain : v)),
-            ],
-          });
+        // if (backup)
+        //   queryClient.setQueryData<{ data: VillainModel[] }>([keys.villains] {
+        //     data: [
+        //       ...backup.data.map(v => (v.id === villain.id ? villain : v)),
+        //     ]});
 
         return { backup };
       },

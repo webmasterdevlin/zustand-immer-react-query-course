@@ -1,14 +1,16 @@
 import React from 'react';
+import { Text } from '@mantine/core';
 
 type Props = {
+  label?: string;
   collection: any[] | undefined;
-  dataTestId: string;
+  dataTestId?: string;
 };
 
-const TotalOfCharacters = ({ collection, dataTestId }: Props) => (
-  <span data-testid={dataTestId} style={{ color: 'cyan' }}>
-    {collection?.length}
-  </span>
+const TotalOfCharacters = ({ label, collection, dataTestId }: Props) => (
+  <Text style={{ color: 'crimson', marginRight: '2rem' }}>
+    {label} has {collection?.length}
+  </Text>
 );
 
 export default TotalOfCharacters;

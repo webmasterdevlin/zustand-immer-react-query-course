@@ -13,16 +13,16 @@ export type ThemeModel = {
 
 export type ThemeStoreType = {
   theme: ThemeModel;
-  setDarkTheme: () => void;
+  setDarkTheme: () => any;
   setLightTheme: () => void;
 };
 
-export const useThemeStore = create<ThemeStoreType>(
+export const useThemeStore = create<any>(
   persist(
     {
       key: 'themeStore',
     },
-    (set): ThemeStoreType => ({
+    (set: any): any => ({
       theme: {
         isDark: false,
       },

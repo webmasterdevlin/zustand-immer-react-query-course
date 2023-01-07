@@ -1,15 +1,10 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Flex } from '@mantine/core';
 
 const UpdateUiLabel = () => (
-  <Box
-    mb={1}
-    display={'flex'}
-    flexDirection={'row'}
-    justifyContent={'flex-end'}
-  >
+  <Flex mb={1} display={'flex'} justify={'flex-end'}>
     <div>local-state updates, non-async actions, async actions</div>
-  </Box>
+  </Flex>
 );
 
 export default UpdateUiLabel;

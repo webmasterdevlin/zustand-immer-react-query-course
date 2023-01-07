@@ -1,12 +1,27 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/39148865-a987-40c6-adfa-db2fb25ca284/deploy-status)](https://app.netlify.com/sites/xenodochial-wing-f97dd4/deploys)
 ## Redux Query Course with Zustand, Immer, and React Table
+
+#### Tech tools
+- https://pnpm.io
+- https://vitejs.dev
+- https://react-hook-form.com
+- https://zod.dev
+- https://mantine.dev
+- https://vitest.dev
+- https://playwright.dev
 
 ```sh
 $ git clone https://github.com/webmasterdevlin/zustand-immer-react-query-course.git
 $ cd zustand-immer-react-query-course
-$ npm install
-$ npm run start:fullstack
+$ pnpm install
+$ pnpm run start:fullstack
 ```
+
+#### E2e testing
+```sh
+$ npx playwright install
+$ pnpm run test:e2e
+```
+
 
 The React app, and the fake web service will run concurrently.
 

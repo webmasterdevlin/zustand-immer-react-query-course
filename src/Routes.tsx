@@ -12,6 +12,7 @@ const HomePage = Loadable(lazy(() => import('./pages/HomePage')));
 const HeroesPage = Loadable(lazy(() => import('./pages/HeroesPage')));
 const AntiHeroesPage = Loadable(lazy(() => import('./pages/AntiHeroesPage')));
 const VillainsPage = Loadable(lazy(() => import('./pages/VillainsPage')));
+
 const TablePage = Loadable(lazy(() => import('./pages/TablePage')));
 
 type Paths = {
@@ -50,6 +51,10 @@ const lazyRoutes: RouteObject[] = [
   {
     path: pathNames.table,
     element: <TablePage />,
+  },
+  {
+    path: '*',
+    element: <HomePage />,
   },
 ];
 
