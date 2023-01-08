@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "start": "parcel serve ./src/index.html",
+    "start": "parcel serve index.html",
     "backend": "json-server --watch json-server/db.json --delay=1000 --routes json-server/routes.json",
     "start:fullstack": "concurrently \"pnpm backend\" \"pnpm dev\"",
-    "build": "parcel build ./src/index.html --no-source-maps",
+    "build": "parcel build index.html --no-source-maps",
     "build:vite": "vite build",
     "eject": "react-scripts eject",
     "test:rtl": "react-scripts test",

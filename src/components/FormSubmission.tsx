@@ -27,12 +27,7 @@ const FormSubmission = ({ handleMutate }: Props) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Flex justify={'center'} align="center">
         <Paper mb={40} shadow="xs" p="xl" w={500}>
-          <InputBox
-            label={'firstName'}
-            type="text"
-            errors={errors}
-            {...register('firstName')}
-          />
+          <Input id={'firstName'} {...register('firstName')} />
           <Box mb={20}>
             <Input id={'lastName'} {...register('lastName')} />
             {errors.lastName && (
