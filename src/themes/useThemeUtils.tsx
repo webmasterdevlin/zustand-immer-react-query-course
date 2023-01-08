@@ -1,9 +1,9 @@
 import { MantineTheme } from '@mantine/core';
-import { useThemeStore } from '../store/themeStore';
+import { ThemeStoreType, useThemeStore } from '../store/themeStore';
 
 // below is a custom hook
 export function useThemeUtils() {
-  const themeStore = useThemeStore(state => state.theme);
+  const themeStore = useThemeStore((state: ThemeStoreType) => state.theme);
 
   const getBgColor = (theme: MantineTheme) => {
     return themeStore.isDark ? theme.colors.dark[8] : theme.colors.gray[0];

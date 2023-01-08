@@ -6,7 +6,7 @@ import { render, screen } from '@testing-library/react';
 
 describe('Heroes hooks', () => {
   it('should fire useFetchHeroes', async () => {
-    const { result, waitFor } = renderHook(() => useFetchHeroes());
+    const { result, waitFor } = renderHook<any, any>(() => useFetchHeroes());
 
     expect(result.current.data.data).toHaveLength(2);
   });

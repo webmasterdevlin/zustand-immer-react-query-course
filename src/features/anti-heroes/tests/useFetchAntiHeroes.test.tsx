@@ -5,9 +5,12 @@ import { describe, it, test, expect } from 'vitest';
 
 describe.skip('Anti Heroes hooks', () => {
   it('should fire useFetchAntiHeroes', async () => {
-    const { result, waitFor } = renderHook(() => useFetchAntiHeroes(), {
-      wrapper,
-    });
+    const { result, waitFor } = renderHook<any, any>(
+      () => useFetchAntiHeroes(),
+      {
+        wrapper,
+      },
+    );
 
     await waitFor(() => result.current.isSuccess);
     expect(result.current.data.data).toHaveLength(2);

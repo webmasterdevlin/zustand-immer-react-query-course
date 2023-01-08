@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useFetchHeroes from '../features/heroes/hooks/useFetchHeroes';
 import useFetchAntiHeroes from '../features/anti-heroes/hooks/useFetchAntiHeroes';
 import useFetchVillains from '../features/villains/hooks/useFetchVillains';
-import { useThemeStore } from '../store/themeStore';
+import { ThemeStoreType, useThemeStore } from '../store/themeStore';
 import { pathNames } from '../Routes';
 import { Button, Switch, Flex } from '@mantine/core';
 import { IconBrightnessHalf } from '@tabler/icons';
@@ -11,14 +11,14 @@ import TotalOfCharacters from './TotalOfCharacters';
 
 const NavigationBar = () => {
   const { setDarkTheme, setLightTheme } = useThemeStore();
-  const themeStore = useThemeStore(state => state.theme);
+  const themeStore = useThemeStore((state: ThemeStoreType) => state.theme);
 
   const navigate = useNavigate();
   const { data: antiHeroes } = useFetchAntiHeroes();
   const { data: heroes } = useFetchHeroes();
   const { data: villains } = useFetchVillains();
 
-  const handleChange = event => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
       setDarkTheme();
     } else {

@@ -1,5 +1,6 @@
 import React, { ElementType, lazy, Suspense } from 'react';
 import { RouteObject, useRoutes } from 'react-router';
+import { Keys } from 'react-hook-form/dist/types/path/common';
 
 const Loadable = (Component: ElementType) => (props: any) =>
   (
@@ -23,7 +24,14 @@ type Paths = {
   table: string;
 };
 
-export const pathNames: Paths = {
+type PageNames =
+  | 'home'
+  | 'heroes'
+  | 'antiHeroes'
+  | 'villains'
+  | 'table'
+  | string;
+export const pathNames: Record<PageNames, string> = {
   home: '/',
   heroes: '/heroes',
   antiHeroes: '/anti-heroes',

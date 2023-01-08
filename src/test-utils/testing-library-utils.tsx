@@ -7,12 +7,16 @@ import { BrowserRouter } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
 import { queryClient } from '../App';
 
-let wrapper = ({ children }) => (
+type Props = {
+  children: React.ReactNode;
+};
+
+let wrapper = ({ children }: Props) => (
   <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 );
 
 const render: any = (
-  ui,
+  ui: any,
   { store = new QueryClient(), ...renderOptions } = {},
 ) => {
   wrapper = ({ children }) => (

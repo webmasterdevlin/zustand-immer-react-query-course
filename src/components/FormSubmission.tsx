@@ -1,8 +1,8 @@
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FormSchema, FormSchemaType } from '../validations/hero';
 import { Alert, Box, Button, Flex, Input, Paper } from '@mantine/core';
+import { FormSchema, FormSchemaType } from '../validations/hero';
 import InputBox from './InputBox';
 
 type Props = {
@@ -33,34 +33,20 @@ const FormSubmission = ({ handleMutate }: Props) => {
             errors={errors}
             {...register('firstName')}
           />
-          {/*<Box mb={20}>*/}
-          {/*  <Input*/}
-          {/*    id={'firstName'}*/}
-          {/*    name={'firstName'}*/}
-          {/*    {...register('firstName')}*/}
-          {/*  />*/}
-          {/*  {errors.firstName && (*/}
-          {/*    <Alert color={'red'}>{errors.firstName.message}</Alert>*/}
-          {/*  )}*/}
-          {/*</Box>*/}
           <Box mb={20}>
-            <Input
-              id={'lastName'}
-              name={'lastName'}
-              {...register('lastName')}
-            />
+            <Input id={'lastName'} {...register('lastName')} />
             {errors.lastName && (
               <Alert color={'red'}>{errors.lastName?.message}</Alert>
             )}
           </Box>
           <Box mb={20}>
-            <Input id={'house'} name={'house'} {...register('house')} />
+            <Input id={'house'} {...register('house')} />
             {errors.house && (
               <Alert color={'red'}>{errors.house?.message}</Alert>
             )}
           </Box>
           <Box mb={20}>
-            <Input id={'knownAs'} name={'knownAs'} {...register('knownAs')} />
+            <Input id={'knownAs'} {...register('knownAs')} />
             {errors.knownAs && (
               <Alert color="red">{errors.knownAs?.message}</Alert>
             )}

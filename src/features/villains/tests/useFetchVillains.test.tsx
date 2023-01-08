@@ -5,7 +5,7 @@ import { describe, it, test, expect } from 'vitest';
 
 describe.skip('Villains hooks', () => {
   it('should fire useFetchVillains', async () => {
-    const { result, waitFor } = renderHook(() => useFetchVillains(), {
+    const { result, waitFor } = renderHook<any, any>(() => useFetchVillains(), {
       wrapper,
     });
 
