@@ -39,16 +39,14 @@ const NavigationBar = () => {
         <div>
           {Object.keys(pathNames)?.map((key, index) => {
             return (
-              <>
-                <Button
-                  key={key}
-                  variant="subtle"
-                  uppercase
-                  onClick={() => navigate(pathNames[key])}
-                >
-                  {key}
-                </Button>
-              </>
+              <Button
+                key={index}
+                variant="subtle"
+                uppercase
+                onClick={() => navigate(pathNames[key])}
+              >
+                {key}
+              </Button>
             );
           })}
         </div>

@@ -5,48 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/components/tests/NavigationBar.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/HeroesPage.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/HomePage.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/themes/useThemeUtils.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/validations/hero.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/InputBox.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vite-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.node.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.proxyrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/netlify.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json-server/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/json-server/db.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FormSubmission.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormSubmission.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NavigationBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavigationBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SharedForm.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SharedInput.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TitleBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TitleBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TotalOfCharacters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TotalOfCharacters.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UpdateUiLabel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UpdateUiLabel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/tests/useFetchAntiHeroes.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/tests/useFetchAntiHeroes.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/tests/useFetchHeroes.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/tests/useFetchHeroes.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useUpdateVillain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/hooks/useUpdateVillain.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/villains/tests/useFetchVillains.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/tests/useFetchVillains.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AntiHeroesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AntiHeroesPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/HeroesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HeroesPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/TablePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TablePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/VillainsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/VillainsPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/tests/AntiHeroesPage.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/tests/HeroesPage.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/tests/HomePage.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/tests/VillainsPage.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/themeStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/themeStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-utils/testing-library-utils.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/testing-library-utils.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,24 +51,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/inmetadeveloper/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/inmetadeveloper/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "/Users/inmetadeveloper/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "/Users/inmetadeveloper/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/inmetadeveloper/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/tests" />
       <recent name="$PROJECT_DIR$/src/pages" />
@@ -137,6 +109,8 @@
       <workItem from="1672610970433" duration="12855000" />
       <workItem from="1672767073603" duration="35101000" />
       <workItem from="1672995868248" duration="8760000" />
+      <workItem from="1673123599675" duration="3153000" />
+      <workItem from="1673166766884" duration="602000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1644671503056</created>
