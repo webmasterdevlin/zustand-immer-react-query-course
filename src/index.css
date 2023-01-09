@@ -40,6 +40,9 @@
     .field {
         @apply mr-4 border-0 border-b outline-none text-base text-gray-900 pt-2 pb-2 pr-0 pl-0 bg-white;
     }
+    .card {
+        @apply bg-slate-800 dark:bg-gray-100 text-white dark:text-slate-900 shadow-md rounded px-8 pt-6 pb-8 mb-4;
+    }
 }
 
 @layer utilities {

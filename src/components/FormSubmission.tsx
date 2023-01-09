@@ -24,8 +24,9 @@ const FormSubmission = ({ handleMutate }: Props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={'flex flex-col justify-center items-center'}>
-        <div className={'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'}>
-          <div className={'mb-2'}>
+        <div className={'card'}>
+          <div className={'mb-5 flex flex-col'}>
+            <label htmlFor={'firstName'}>First Name</label>
             <input
               className={'field'}
               id={'firstName'}
@@ -37,7 +38,8 @@ const FormSubmission = ({ handleMutate }: Props) => {
               </p>
             )}
           </div>
-          <div className={'mb-20'}>
+          <div className={'mb-5 flex flex-col'}>
+            <label htmlFor={'lastName'}>Last Name</label>
             <input
               className={'field'}
               id={'lastName'}
@@ -49,7 +51,8 @@ const FormSubmission = ({ handleMutate }: Props) => {
               </p>
             )}
           </div>
-          <div className={'mb-20'}>
+          <div className={'mb-5 flex flex-col'}>
+            <label htmlFor={'house'}>House</label>
             <input className={'field'} id={'house'} {...register('house')} />
             {errors.house && (
               <p className={'text-red-500 text-xs italic'}>
@@ -57,7 +60,8 @@ const FormSubmission = ({ handleMutate }: Props) => {
               </p>
             )}
           </div>
-          <div className={'mb-20'}>
+          <div className={'mb-5 flex flex-col'}>
+            <label htmlFor={'knownAs'}>Known As</label>
             <input
               className={'field'}
               id={'knownAs'}

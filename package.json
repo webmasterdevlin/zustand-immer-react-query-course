@@ -16,11 +16,11 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
-    "@tabler/icons": "^1.119.0",
     "axios": "^1.2.2",
     "immer": "^9.0.17",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-feather": "^2.0.10",
     "react-hook-form": "^7.41.3",
     "react-query": "^3.39.2",
     "react-router": "^6.6.1",

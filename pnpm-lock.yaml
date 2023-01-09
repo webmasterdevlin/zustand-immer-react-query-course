@@ -5,7 +5,6 @@ specifiers:
   '@hookform/resolvers': ^2.9.10
   '@parcel/transformer-react-refresh-wrap': ^2.8.2
   '@playwright/test': ^1.29.2
-  '@tabler/icons': ^1.119.0
   '@testing-library/dom': ^8.19.1
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^13.4.0
@@ -39,6 +38,7 @@ specifiers:
   prettier: ^2.8.2
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-feather: ^2.0.10
   react-hook-form: ^7.41.3
   react-query: ^3.39.2
   react-router: ^6.6.1
@@ -61,11 +61,11 @@ specifiers:
 
 dependencies:
   '@hookform/resolvers': 2.9.10_react-hook-form@7.41.3
-  '@tabler/icons': 1.119.0_biqbaboplfbrettd7655fr4n2y
   axios: 1.2.2
   immer: 9.0.17
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-feather: 2.0.10_react@18.2.0
   react-hook-form: 7.41.3_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   react-router: 6.6.1_react@18.2.0
@@ -3305,21 +3305,6 @@ packages:
     dependencies:
       tslib: 2.4.1
     dev: true
-
-  /@tabler/icons/1.119.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-Fk3Qq4w2SXcTjc/n1cuL5bccPkylrOMo7cYpQIf/yw6zP76LQV9dtLcHQUjFiUnaYuswR645CnURIhlafyAh9g==}
-    peerDependencies:
-      react: ^16.x || 17.x || 18.x
-      react-dom: ^16.x || 17.x || 18.x
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
 
   /@testing-library/dom/8.19.1:
     resolution: {integrity: sha512-P6iIPyYQ+qH8CvGauAqanhVnjrnRe0IZFSYCeGkSRW9q3u8bdVn2NPI+lasFyVsEQn1J/IFmp5Aax41+dAP9wg==}
@@ -10485,6 +10470,15 @@ packages:
   /react-error-overlay/6.0.9:
     resolution: {integrity: sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==}
     dev: true
+
+  /react-feather/2.0.10_react@18.2.0:
+    resolution: {integrity: sha512-BLhukwJ+Z92Nmdcs+EMw6dy1Z/VLiJTzEQACDUEnWMClhYnFykJCGWQx+NmwP/qQHGX/5CzQ+TGi8ofg2+HzVQ==}
+    peerDependencies:
+      react: '>=16.8.6'
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
 
   /react-hook-form/7.41.3_react@18.2.0:
     resolution: {integrity: sha512-5QNTmqJtDb88WV5n41b6+AmcDMVyaJ3tccPgHAgS215w3jZ3bmJhDO27kNTr8u4YHNYXmS7p1/4/KachBAlUtw==}

@@ -5,30 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/postcss.config.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FormSubmission.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormSubmission.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InputBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputBox.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NavigationBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavigationBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TitleBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TitleBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TotalOfCharacters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TotalOfCharacters.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UpdateUiLabel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UpdateUiLabel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tests/NavigationBar.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tests/NavigationBar.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AntiHeroesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AntiHeroesPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/HeroesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HeroesPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/TablePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TablePage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/VillainsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/VillainsPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/react-app-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styled.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/themes/useThemeUtils.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/themes/useThemeUtils.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themes/useThemeUtils.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +150,7 @@
       <workItem from="1673167685315" duration="3405000" />
       <workItem from="1673171236063" duration="4313000" />
       <workItem from="1673253886121" duration="7736000" />
-      <workItem from="1673270626796" duration="5921000" />
+      <workItem from="1673270626796" duration="15077000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1644671503056</created>
@@ -282,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673221966871</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update">
+      <created>1673279589944</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1673279589944</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

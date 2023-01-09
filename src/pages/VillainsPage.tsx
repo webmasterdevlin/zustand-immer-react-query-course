@@ -26,7 +26,7 @@ const VillainsPage = () => {
 
   return (
     <div>
-      <TitleBar title={'Anti-Heroes Page'} />
+      <TitleBar title={'Villains Page'} />
       <FormSubmission handleMutate={addVillain} />
       <UpdateUiLabel />
       {status === 'loading' ? (
