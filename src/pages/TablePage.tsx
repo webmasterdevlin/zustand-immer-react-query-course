@@ -2,7 +2,6 @@ import React, { useEffect, useMemo } from 'react';
 import { Column, useTable } from 'react-table';
 import { v4 as uuidv4 } from 'uuid';
 import { faker } from '@faker-js/faker';
-import { Paper, Table } from '@mantine/core';
 const TablePage = () => {
   const data = useMemo(
     () => [
@@ -74,23 +73,18 @@ const TablePage = () => {
   }, [data]);
 
   return (
-    <Paper shadow="xs" p={'xl'}>
-      <Table
-        striped
-        highlightOnHover
-        withBorder
-        withColumnBorders
-        horizontalSpacing="md"
-        verticalSpacing="md"
-        fontSize="md"
-        {...getTableProps()}
-      >
+    <div className={'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'}>
+      <table className="min-w-full" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
                 <td {...column.getHeaderProps()}>
-                  <Paper p={'lg'}>{column.render('Header')}</Paper>
+                  <p
+                    className={'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'}
+                  >
+                    {column.render('Header')}
+                  </p>
                 </td>
               ))}
             </tr>
@@ -110,8 +104,8 @@ const TablePage = () => {
             );
           })}
         </tbody>
-      </Table>
-    </Paper>
+      </table>
+    </div>
   );
 };
 

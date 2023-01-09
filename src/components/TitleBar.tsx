@@ -1,14 +1,13 @@
 import React from 'react';
-import { Box } from '@mantine/core';
 
 type Props = {
   title: string;
 };
 
 const TitleBar = ({ title }: Props) => (
-  <Box mb={5}>
+  <div className={'mb-10'}>
     <h1 data-testid="title-page">{title}</h1>
-  </Box>
+  </div>
 );
 
 export default TitleBar;

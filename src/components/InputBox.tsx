@@ -1,4 +1,3 @@
-import { Alert, Box, Input } from '@mantine/core';
 import React from 'react';
 
 type Props = {
@@ -10,10 +9,14 @@ type Props = {
 
 const InputBox = ({ label, errors, type = 'text', ...props }: Props) => {
   return (
-    <Box mb={20}>
-      <Input type={type} {...props} />
-      {errors[label] && <Alert color={'red'}>{errors[label]?.message}</Alert>}
-    </Box>
+    <div className={'mb-2'}>
+      <input type={type} {...props} />
+      {errors[label] && (
+        <p className={'text-red-500 text-xs italic'}>
+          {errors[label]?.message}
+        </p>
+      )}
+    </div>
   );
 };
 

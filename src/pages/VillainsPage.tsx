@@ -1,4 +1,3 @@
-import { Button, Flex, Title } from '@mantine/core';
 import { useState } from 'react';
 
 import { queryClient } from '../App';
@@ -27,61 +26,49 @@ const VillainsPage = () => {
 
   return (
     <div>
-      <TitleBar title={'Villains Page'} />
+      <TitleBar title={'Anti-Heroes Page'} />
       <FormSubmission handleMutate={addVillain} />
       <UpdateUiLabel />
       {status === 'loading' ? (
-        <Title order={2}>Loading.. Please wait..</Title>
+        <h2>Loading.. Please wait..</h2>
       ) : (
         response?.data?.map((v, i) => (
-          <Flex
-            key={v.id}
-            display={'flex'}
-            justify={'space-between'}
-            align="center"
-          >
-            <Title>
+          <div key={v.id} className={'flex justify-between items-center'}>
+            <h1>
               <span>{`${v.firstName} ${v.lastName} is ${v.knownAs}`}</span>
               {counter === v.id && <span> - marked</span>}
-            </Title>
+            </h1>
             <div>
-              <Button
-                mx={'0.5rem'}
-                color="indigo"
-                variant="subtle"
+              <button
+                className={'btn btn--primary mx-0.5rem'}
                 onClick={() => setCounter(v.id)}
               >
                 Mark
-              </Button>
-              <Button
-                mx={'0.5rem'}
-                color="pink"
-                variant="filled"
+              </button>
+              <button
+                className={'btn mx-0.5rem'}
                 onClick={() => handleSoftDelete(v.id)}
               >
                 Remove
-              </Button>
-              <Button
-                mx={'0.5rem'}
-                color="pink"
-                variant="outline"
+              </button>
+              <button
+                className={'btn btn--secondary mx-0.5rem'}
                 onClick={() => removeVillain(v.id)}
               >
                 DELETE in DB
-              </Button>
+              </button>
             </div>
-          </Flex>
+          </div>
         ))
       )}
 
       {response?.data?.length === 0 && status !== 'loading' && (
-        <Button
-          color="violet"
-          variant="filled"
+        <button
+          className={'btn btn--primary mx-0.5rem'}
           onClick={() => queryClient.invalidateQueries('villains')}
         >
           Re-Fetch
-        </Button>
+        </button>
       )}
     </div>
   );

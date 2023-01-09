@@ -1,4 +1,3 @@
-import { Button, Flex, Title } from '@mantine/core';
 import { useState } from 'react';
 
 import { queryClient } from '../App';
@@ -34,57 +33,45 @@ const AntiHeroesPage = () => {
       <FormSubmission handleMutate={addAntiHero} />
       <UpdateUiLabel />
       {status === 'loading' ? (
-        <Title order={2}>Loading.. Please wait..</Title>
+        <h2>Loading.. Please wait..</h2>
       ) : (
         response?.data?.map((ah, i) => (
-          <Flex
-            key={ah.id}
-            display={'flex'}
-            justify={'space-between'}
-            align="center"
-          >
-            <Title>
+          <div key={ah.id} className={'flex justify-between items-center'}>
+            <h1>
               <span>{`${ah.firstName} ${ah.lastName} is ${ah.knownAs}`}</span>
               {counter === ah.id && <span> - marked</span>}
-            </Title>
+            </h1>
             <div>
-              <Button
-                mx={'0.5rem'}
-                color="indigo"
-                variant="subtle"
+              <button
+                className={'btn btn--primary mx-0.5rem'}
                 onClick={() => setCounter(ah.id)}
               >
                 Mark
-              </Button>
-              <Button
-                mx={'0.5rem'}
-                color="pink"
-                variant="filled"
+              </button>
+              <button
+                className={'btn mx-0.5rem'}
                 onClick={() => handleSoftDelete(ah.id)}
               >
                 Remove
-              </Button>
-              <Button
-                mx={'0.5rem'}
-                color="pink"
-                variant="outline"
+              </button>
+              <button
+                className={'btn btn--secondary mx-0.5rem'}
                 onClick={() => removeAntiHero(ah.id)}
               >
                 DELETE in DB
-              </Button>
+              </button>
             </div>
-          </Flex>
+          </div>
         ))
       )}
 
       {response?.data?.length === 0 && status !== 'loading' && (
-        <Button
-          color="violet"
-          variant="filled"
+        <button
+          className={'btn btn--primary mx-0.5rem'}
           onClick={() => queryClient.invalidateQueries('antiHeroes')}
         >
           Re-Fetch
-        </Button>
+        </button>
       )}
     </div>
   );

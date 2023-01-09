@@ -1,10 +1,9 @@
 import React from 'react';
-import { Flex } from '@mantine/core';
 
 const UpdateUiLabel = () => (
-  <Flex mb={1} display={'flex'} justify={'flex-end'}>
+  <div className={'mb-2 flex justify-end'}>
     <div>local-state updates, non-async actions, async actions</div>
-  </Flex>
+  </div>
 );
 
 export default UpdateUiLabel;

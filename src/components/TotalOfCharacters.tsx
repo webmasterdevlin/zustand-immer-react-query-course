@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text } from '@mantine/core';
 
 type Props = {
   label?: string;
@@ -8,9 +7,9 @@ type Props = {
 };
 
 const TotalOfCharacters = ({ label, collection, dataTestId }: Props) => (
-  <Text style={{ color: 'crimson', marginRight: '2rem' }}>
+  <p className={'text-red-500 mr-10'}>
     {label} has {collection?.length}
-  </Text>
+  </p>
 );
 
 export default TotalOfCharacters;

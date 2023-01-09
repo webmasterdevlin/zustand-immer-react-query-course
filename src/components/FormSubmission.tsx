@@ -1,7 +1,6 @@
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Alert, Box, Button, Flex, Input, Paper } from '@mantine/core';
 import { FormSchema, FormSchemaType } from '../validations/hero';
 
 type Props = {
@@ -24,37 +23,61 @@ const FormSubmission = ({ handleMutate }: Props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Flex justify={'center'} align="center">
-        <Paper mb={40} shadow="xs" p="xl" w={500}>
-          <Box mb={20}>
-            <Input id={'firstName'} {...register('firstName')} />
+      <div className={'flex flex-col justify-center items-center'}>
+        <div className={'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'}>
+          <div className={'mb-2'}>
+            <input
+              className={'field'}
+              id={'firstName'}
+              {...register('firstName')}
+            />
             {errors.firstName && (
-              <Alert color={'red'}>{errors.firstName?.message}</Alert>
+              <p className={'text-red-500 text-xs italic'}>
+                {errors.firstName?.message}
+              </p>
             )}
-          </Box>
-          <Box mb={20}>
-            <Input id={'lastName'} {...register('lastName')} />
+          </div>
+          <div className={'mb-20'}>
+            <input
+              className={'field'}
+              id={'lastName'}
+              {...register('lastName')}
+            />
             {errors.lastName && (
-              <Alert color={'red'}>{errors.lastName?.message}</Alert>
+              <p className={'text-red-500 text-xs italic'}>
+                {errors.lastName?.message}
+              </p>
             )}
-          </Box>
-          <Box mb={20}>
-            <Input id={'house'} {...register('house')} />
+          </div>
+          <div className={'mb-20'}>
+            <input className={'field'} id={'house'} {...register('house')} />
             {errors.house && (
-              <Alert color={'red'}>{errors.house?.message}</Alert>
+              <p className={'text-red-500 text-xs italic'}>
+                {errors.house?.message}
+              </p>
             )}
-          </Box>
-          <Box mb={20}>
-            <Input id={'knownAs'} {...register('knownAs')} />
+          </div>
+          <div className={'mb-20'}>
+            <input
+              className={'field'}
+              id={'knownAs'}
+              {...register('knownAs')}
+            />
             {errors.knownAs && (
-              <Alert color="red">{errors.knownAs?.message}</Alert>
+              <p className={'text-red-500 text-xs italic'}>
+                {errors.knownAs?.message}
+              </p>
             )}
-          </Box>
-          <Button disabled={!isValid} type="submit" color={'primary'}>
+          </div>
+          <button
+            disabled={!isValid}
+            type="submit"
+            className={'btn btn--primary'}
+          >
             {isSubmitting ? 'submitting..' : 'Save Character'}
-          </Button>
-        </Paper>
-      </Flex>
+          </button>
+        </div>
+      </div>
     </form>
   );
 };

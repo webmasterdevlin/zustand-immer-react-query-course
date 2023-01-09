@@ -5,9 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/postcss.config.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierignore" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormSubmission.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormSubmission.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InputBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputBox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavigationBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavigationBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TitleBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TitleBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TotalOfCharacters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TotalOfCharacters.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UpdateUiLabel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UpdateUiLabel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tests/NavigationBar.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tests/NavigationBar.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AntiHeroesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AntiHeroesPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HeroesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HeroesPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/TablePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TablePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/VillainsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/VillainsPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/react-app-env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styled.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themes/useThemeUtils.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/themes/useThemeUtils.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,10 +45,38 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="vite" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="tailwind-vite" />
+                    <option name="lastUsedInstant" value="1673254413" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="vite" />
+                    <option name="lastUsedInstant" value="1673254412" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="KubernetesApiPersistence">
     <option name="context" value="myCluster" />
@@ -110,7 +159,9 @@
       <workItem from="1673123599675" duration="3153000" />
       <workItem from="1673166766884" duration="912000" />
       <workItem from="1673167685315" duration="3405000" />
-      <workItem from="1673171236063" duration="4068000" />
+      <workItem from="1673171236063" duration="4313000" />
+      <workItem from="1673253886121" duration="7736000" />
+      <workItem from="1673270626796" duration="5921000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1644671503056</created>
@@ -224,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673172363839</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="update">
+      <created>1673221966871</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1673221966871</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
