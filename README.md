@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/39148865-a987-40c6-adfa-db2fb25ca284/deploy-status)](https://app.netlify.com/sites/xenodochial-wing-f97dd4/deploys)
+
 ## Redux Query Course with Zustand, Immer, and React Table
 
 ```sh
@@ -7,6 +7,10 @@ $ cd zustand-immer-react-query-course
 $ npm install
 $ npm run start:fullstack
 ```
+
+### New Stack! 
+- Go to tailwind-vite branch https://github.com/webmasterdevlin/zustand-immer-react-query-course/tree/tailwind-vite
+- It using pnpm (replacing npm), Vite (replacing Webpack), and Tailwind (replacing MUI)
 
 The React app, and the fake web service will run concurrently.
 
