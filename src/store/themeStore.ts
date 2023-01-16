@@ -1,45 +1,46 @@
-import create from 'zustand';
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import produce, { Draft } from 'immer';
-import { configurePersist } from 'zustand-persist';
-import { mountStoreDevtool } from 'simple-zustand-devtools';
-
-const { persist, purge } = configurePersist({
-  storage: localStorage,
-});
 
 export type ThemeModel = {
   isDark: boolean;
+  user: string;
 };
 
 export type ThemeStoreType = {
   theme: ThemeModel;
-  setDarkTheme: () => any;
   setLightTheme: () => void;
+  setDarkTheme: () => void;
 };
 
-export const useThemeStore = create<any>(
+export const useThemeStore = create<ThemeStoreType, any>(
   persist(
-    {
-      key: 'themeStore',
-    },
-    (set: any): any => ({
-      theme: {
+    (set, get) => {
+      const theme = {
         isDark: false,
-      },
-      setDarkTheme: () =>
+        user: 'John Doe',
+      };
+
+      // without immer
+      const setLightTheme = () =>
+        set(state => ({ theme: { isDark: false, user: get().theme.user } }));
+
+      // with immer
+      const setDarkTheme = () =>
         set(
           produce((draft: Draft<ThemeStoreType>) => {
             draft.theme.isDark = true;
           }),
-        ),
-      setLightTheme: () =>
-        set(
-          produce((draft: Draft<ThemeStoreType>) => {
-            draft.theme.isDark = false;
-          }),
-        ),
-    }),
+        );
+
+      return {
+        theme,
+        setDarkTheme,
+        setLightTheme,
+      };
+    },
+    {
+      name: 'themeStore',
+    },
   ),
 );
-
-mountStoreDevtool('themeStore', useThemeStore as any);

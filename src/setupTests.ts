@@ -5,7 +5,7 @@
 import '@testing-library/jest-dom';
 import { server } from './mocks/server';
 import { fetch } from 'cross-fetch';
-import { expect } from 'vitest';
+import { expect, beforeAll, afterEach, afterAll } from 'vitest';
 import matchers from '@testing-library/jest-dom/matchers';
 
 // replace fetch with cross-fetch
