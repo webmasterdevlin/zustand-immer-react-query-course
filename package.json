@@ -11,6 +11,7 @@
     "test:unit": "vitest",
     "test:unit.converage": "vitest run --coverage",
     "test:e2e": "playwright test",
+    "test:e2e.debug": "playwright test --debug",
     "eslint": "eslint --ext js,ts,tsx",
     "checkTs": "tsc --noEmit",
     "prepare": "husky install"
