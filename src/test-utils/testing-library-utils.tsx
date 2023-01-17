@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
 import { queryClient } from '../App';
 
+
 const render: any = (
   ui: any,
   { store = new QueryClient(), ...renderOptions } = {},
