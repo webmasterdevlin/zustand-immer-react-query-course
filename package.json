@@ -9,6 +9,7 @@
     "start": "concurrently \"pnpm backend\" \"pnpm dev\"",
     "build": "vite build",
     "test:unit": "vitest",
+    "test:unit.watch": "vitest watch",
     "test:unit.converage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "test:e2e.debug": "playwright test --debug",
