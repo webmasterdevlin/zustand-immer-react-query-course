@@ -1,21 +1,13 @@
-
 ## Redux Query Course with Zustand, Immer, and React Table
 
-```sh
-$ git clone https://github.com/webmasterdevlin/zustand-immer-react-query-course.git
-$ cd zustand-immer-react-query-course
-$ npm install
-$ npm run start:fullstack
-```
+### New Stack!
 
-### New Stack! 
 - Go to tailwind-vite branch https://github.com/webmasterdevlin/zustand-immer-react-query-course/tree/tailwind-vite
-- It using pnpm (replacing npm), Vite (replacing Webpack), and Tailwind (replacing MUI)
+- It's using pnpm (replacing npm), Vite (replacing Webpack), Tailwind (replacing MUI), Vitest (replacing Jest), and Cypress (replacing React Testing Library)
 
 The React app, and the fake web service will run concurrently.
 
 ![screenshot](./screenshot.png)
-
 
 ### Best practices in writing tests
 
@@ -25,11 +17,10 @@ https://kentcdodds.com/blog/common-mistakes-with-react-testing-library
 - always use screen
 - use screen.getByRole instead of screen.getByTestId
 - use screen.queryByRole only when expecting not.toBeInTheDocument
-- use await screen.find* instead of await waitFor/wait
+- use await screen.find\* instead of await waitFor/wait
 - if necessary, use await waitFor instead of await wait
 - use userEvent instead of fireEvent
 - don't use userEvent inside the callback of waitFor
-
 
 ### Cypress' best practices in writing tests
 
@@ -40,11 +31,12 @@ https://docs.cypress.io/guides/references/best-practices.html
 - The application is using test ID instead of role when querying dom elements
 - Test IDs are simple and isolated
 
-
 #### React Query persist cache between tests
+
 - the beforeEach does not work
+
 ```ts
-    beforeEach(() => {
-    queryClient.clear();
-    });
+beforeEach(() => {
+  queryClient.clear();
+});
 ```
