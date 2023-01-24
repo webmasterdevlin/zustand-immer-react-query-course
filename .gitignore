@@ -37,8 +37,8 @@ yarn-error.log
 /build
 /.svelte-kit
 /package
-.env
-.env.*
+# .env
+# .env.*
 !.env.example
 .vercel
 .output
