@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@babel/core': ^7.0.0
   '@faker-js/faker': 7.6.0
+  '@hookform/error-message': ^2.0.1
   '@hookform/resolvers': ^2.9.10
   '@playwright/test': ^1.29.2
   '@testing-library/dom': ^8.19.1
@@ -57,6 +58,7 @@ specifiers:
 
 dependencies:
   '@babel/core': 7.20.7
+  '@hookform/error-message': 2.0.1_uno7536xd2i6xn2dtvbywz2sva
   '@hookform/resolvers': 2.9.10_react-hook-form@7.42.1
   axios: 1.2.2
   immer: 9.0.18
@@ -552,6 +554,18 @@ packages:
     resolution: {integrity: sha512-XK6BTq1NDMo9Xqw/YkYyGjSsg44fbNwYRx7QK2CuoQgyy+f1rrTDHoExVM5PsyXCtfl2vs2vVJ0MN0yN6LppRw==}
     engines: {node: '>=14.0.0', npm: '>=6.0.0'}
     dev: true
+
+  /@hookform/error-message/2.0.1_uno7536xd2i6xn2dtvbywz2sva:
+    resolution: {integrity: sha512-U410sAr92xgxT1idlu9WWOVjndxLdgPUHEB8Schr27C9eh7/xUnITWpCMF93s+lGiG++D4JnbSnrb5A21AdSNg==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+      react-hook-form: ^7.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-hook-form: 7.42.1_react@18.2.0
+    dev: false
 
   /@hookform/resolvers/2.9.10_react-hook-form@7.42.1:
     resolution: {integrity: sha512-JIL1DgJIlH9yuxcNGtyhsWX/PgNltz+5Gr6+8SX9fhXc/hPbEIk6wPI82nhgvp3uUb6ZfAM5mqg/x7KR7NAb+A==}

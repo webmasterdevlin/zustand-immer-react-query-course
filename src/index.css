@@ -2,54 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-    h1 {
-        @apply text-2xl mb-5;
-    }
-    h2 {
-        @apply text-xl mb-4;
-    }
-    h2 {
-        @apply text-lg mb-3;
-    }
+  h1 {
+    @apply text-2xl mb-5;
+  }
+  h2 {
+    @apply text-xl mb-4;
+  }
+  h2 {
+    @apply text-lg mb-3;
+  }
 }
 
 @layer components {
-    .navbar {
-        @apply bg-gray-100 font-sans w-full m-0;
-    }
-    .btn {
-        @apply text-base font-medium rounded-lg p-3;
-    }
-    .btn--primary {
-        @apply bg-sky-500 text-white;
-    }
-    .btn--secondary {
-        @apply bg-violet-600 text-white;
-    }
-    .active {
-        @apply bg-blue-200;
-    }
-    .not-active {
-        @apply bg-gray-100;
-    }
-    .form {
-        @apply flex flex-row justify-start items-center mb-8;
-    }
-    .field {
-        @apply mr-4 border-0 border-b outline-none text-base text-gray-900 pt-2 pb-2 pr-0 pl-0 bg-white;
-    }
-    .card {
-        @apply bg-slate-800 dark:bg-gray-100 text-white dark:text-slate-900 shadow-md rounded px-8 pt-6 pb-8 mb-4;
-    }
+  .navbar {
+    @apply bg-gray-100 font-sans w-full m-0;
+  }
+  .btn {
+    @apply text-base font-medium rounded-lg p-3;
+  }
+  .btn--primary {
+    @apply bg-sky-500 text-white disabled:bg-sky-300 disabled:text-gray-300;
+  }
+  .btn--secondary {
+    @apply bg-violet-600 text-white disabled:bg-violet-400 disabled:text-gray-300;
+  }
+  .active {
+    @apply bg-blue-200;
+  }
+  .not-active {
+    @apply bg-gray-100;
+  }
+  .form {
+    @apply flex flex-row justify-start items-center mb-8;
+  }
+  .field {
+    @apply mr-4 border-0 border-b outline-none text-base text-gray-900 pt-2 pb-2 pr-0 pl-0 bg-white;
+  }
+  .card {
+    @apply bg-slate-800 dark:bg-gray-100 text-white dark:text-slate-900 shadow-md rounded px-8 pt-6 pb-8 mb-4;
+  }
 }
 
 @layer utilities {
-    .filter-none {
-        filter: none;
-    }
-    .filter-grayscale {
-        filter: grayscale(100%);
-    }
+  .filter-none {
+    filter: none;
+  }
+  .filter-grayscale {
+    filter: grayscale(100%);
+  }
 }

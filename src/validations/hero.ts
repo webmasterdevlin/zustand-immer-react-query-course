@@ -1,10 +1,16 @@
 import { z } from 'zod';
 
-export const FormSchema = z.object({
-  firstName: z.string().min(2).max(20),
-  lastName: z.string().min(2).max(20),
-  house: z.string().min(2).max(20),
-  knownAs: z.string().min(2).max(20),
+export const HeroFormSchema = z.object({
+  firstName: z
+    .string()
+    .min(2, 'First Name must have at least 2 characters')
+    .max(20, 'Too many characters'),
+  lastName: z
+    .string()
+    .min(2, 'Last Name must have at least 2 characters')
+    .max(20, 'Too many characters'),
+  house: z.string().nullable(),
+  knownAs: z.string().nullable(),
 });
 
-export type FormSchemaType = z.infer<typeof FormSchema>;
+export type HeroFormSchemaType = z.infer<typeof HeroFormSchema>;

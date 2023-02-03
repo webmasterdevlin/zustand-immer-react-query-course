@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.0.0",
+    "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^2.9.10",
     "axios": "^1.2.2",
     "immer": "^9.0.18",

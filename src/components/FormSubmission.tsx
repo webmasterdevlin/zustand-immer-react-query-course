@@ -1,24 +1,30 @@
-import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FormSchema, FormSchemaType } from '../validations/hero';
+import { HeroFormSchema, HeroFormSchemaType } from '../validations/hero';
+import { ErrorMessage } from '@hookform/error-message';
 
 type Props = {
-  handleMutate: (values: any) => void;
+  handleMutate: (values: any) => Promise<void>;
 };
 
 const FormSubmission = ({ handleMutate }: Props) => {
   const {
     handleSubmit,
     register,
-    formState: { isDirty, isValid, isSubmitting, errors },
-  } = useForm<FormSchemaType>({
-    resolver: zodResolver(FormSchema),
+    reset,
+    formState: { isValid, isSubmitting, errors },
+  } = useForm<HeroFormSchemaType>({
+    resolver: zodResolver(HeroFormSchema),
     mode: 'all',
   });
 
-  const onSubmit: SubmitHandler<FormSchemaType> = async data => {
-    await handleMutate(data);
+  const onSubmit: SubmitHandler<HeroFormSchemaType> = async data => {
+    try {
+      await handleMutate(data);
+      reset();
+    } catch (e: any) {
+      alert(e.message);
+    }
   };
 
   return (
@@ -32,11 +38,11 @@ const FormSubmission = ({ handleMutate }: Props) => {
               id={'firstName'}
               {...register('firstName')}
             />
-            {errors.firstName && (
-              <p className={'text-red-500 text-xs italic'}>
-                {errors.firstName?.message}
-              </p>
-            )}
+            <ErrorMessage
+              errors={errors}
+              name="firstName"
+              render={({ message }: any) => <p>{message}</p>}
+            />
           </div>
           <div className={'mb-5 flex flex-col'}>
             <label htmlFor={'lastName'}>Last Name</label>
@@ -45,20 +51,20 @@ const FormSubmission = ({ handleMutate }: Props) => {
               id={'lastName'}
               {...register('lastName')}
             />
-            {errors.lastName && (
-              <p className={'text-red-500 text-xs italic'}>
-                {errors.lastName?.message}
-              </p>
-            )}
+            <ErrorMessage
+              errors={errors}
+              name="lastName"
+              render={({ message }: any) => <p>{message}</p>}
+            />
           </div>
           <div className={'mb-5 flex flex-col'}>
             <label htmlFor={'house'}>House</label>
             <input className={'field'} id={'house'} {...register('house')} />
-            {errors.house && (
-              <p className={'text-red-500 text-xs italic'}>
-                {errors.house?.message}
-              </p>
-            )}
+            <ErrorMessage
+              errors={errors}
+              name="house"
+              render={({ message }: any) => <p>{message}</p>}
+            />
           </div>
           <div className={'mb-5 flex flex-col'}>
             <label htmlFor={'knownAs'}>Known As</label>
@@ -67,11 +73,11 @@ const FormSubmission = ({ handleMutate }: Props) => {
               id={'knownAs'}
               {...register('knownAs')}
             />
-            {errors.knownAs && (
-              <p className={'text-red-500 text-xs italic'}>
-                {errors.knownAs?.message}
-              </p>
-            )}
+            <ErrorMessage
+              errors={errors}
+              name="knownAs"
+              render={({ message }: any) => <p>{message}</p>}
+            />
           </div>
           <button
             disabled={!isValid}
