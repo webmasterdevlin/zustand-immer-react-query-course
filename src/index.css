@@ -4,22 +4,22 @@
 
 @layer base {
   h1 {
-    @apply text-2xl mb-5;
+    @apply mb-5 text-2xl;
   }
   h2 {
-    @apply text-xl mb-4;
+    @apply mb-4 text-xl;
   }
   h2 {
-    @apply text-lg mb-3;
+    @apply mb-3 text-lg;
   }
 }
 
 @layer components {
   .navbar {
-    @apply bg-gray-100 font-sans w-full m-0;
+    @apply m-0 w-full bg-gray-100 font-sans;
   }
   .btn {
-    @apply text-base font-medium rounded-lg p-3;
+    @apply rounded-lg p-3 text-base font-medium;
   }
   .btn--primary {
     @apply bg-sky-500 text-white disabled:bg-sky-300 disabled:text-gray-300;
@@ -34,13 +34,13 @@
     @apply bg-gray-100;
   }
   .form {
-    @apply flex flex-row justify-start items-center mb-8;
+    @apply mb-8 flex flex-row items-center justify-start;
   }
   .field {
-    @apply mr-4 border-0 border-b outline-none text-base text-gray-900 pt-2 pb-2 pr-0 pl-0 bg-white;
+    @apply mr-4 border-0 border-b bg-white pt-2 pb-2 pr-0 pl-0 text-base text-gray-900 outline-none;
   }
   .card {
-    @apply bg-slate-800 dark:bg-gray-100 text-white dark:text-slate-900 shadow-md rounded px-8 pt-6 pb-8 mb-4;
+    @apply mb-4 rounded bg-slate-800 px-8 pt-6 pb-8 text-white shadow-md dark:bg-gray-100 dark:text-slate-900;
   }
 }
 
