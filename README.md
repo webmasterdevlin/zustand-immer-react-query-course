@@ -1,6 +1,7 @@
 ## Redux Query Course with Zustand, Immer, and React Table
 
 #### Tech tools
+
 - https://pnpm.io
 - https://vitejs.dev
 - https://react-hook-form.com
@@ -13,49 +14,44 @@
 $ git clone https://github.com/webmasterdevlin/zustand-immer-react-query-course.git
 $ cd zustand-immer-react-query-course
 $ pnpm install
-$ pnpm run start:fullstack
+$ pnpm start
 ```
 
 #### E2e testing
+
 ```sh
 $ npx playwright install
-$ pnpm run test:e2e
+$ pnpm test:e2e
 ```
-
 
 The React app, and the fake web service will run concurrently.
 
 ![screenshot](./screenshot.png)
 
+## Set up React Testing Library and Vitest
 
-### Best practices in writing tests
+- create ./src/test-utils/testing-library-util.tsx that will be a copy of the root component
 
-https://kentcdodds.com/blog/common-mistakes-with-react-testing-library
+## Set up MSW for mocking API calls
 
-- always use eslint-plugin-testing-library and eslint-plugin-jest-dom
-- always use screen
-- use screen.getByRole instead of screen.getByTestId
-- use screen.queryByRole only when expecting not.toBeInTheDocument
-- use await screen.find* instead of await waitFor/wait
-- if necessary, use await waitFor instead of await wait
-- use userEvent instead of fireEvent
-- don't use userEvent inside the callback of waitFor
+- pnpm i -D msw
+- the msw is a mocking library which will intercept the requests and responses in the integration tests
+- create ./src/mocks/handler/todoHandler.ts
+- create ./src/mocks/handler/index.ts
+- create ./src/mocks/server.ts
+- update the ./src/setupTests.ts
 
+## Integration tests
 
-### Cypress' best practices in writing tests
-
-https://docs.cypress.io/guides/references/best-practices.html
-
-### Application's styles
-
-- The application is using test ID instead of role when querying dom elements
-- Test IDs are simple and isolated
-
+- write integration tests for the fetch todos function of WorkTodosPage.tsx by creating ./src/pages/tests/WorkTodosPage.test.ts
+- run the tests, pnpm run test, and see if the todos are rendered
 
 #### React Query persist cache between tests
+
 - the beforeEach does not work
+
 ```ts
-    beforeEach(() => {
-    queryClient.clear();
-    });
+beforeEach(() => {
+  queryClient.clear();
+});
 ```
