@@ -3,10 +3,11 @@ import { api, EndPoints } from '../../../axios/api-config';
 import { queryClient } from '../../../../src/App';
 import { VillainModel } from '../villain';
 import { keys } from '../../keyNames';
+import { deleteAxios } from '../../../axios/generic-api-calls';
 
 export default function useRemoveVillain() {
   return useMutation(
-    villainId => api.delete<void>(`${EndPoints.villains}/${villainId}`),
+    villainId => deleteAxios<void>(EndPoints.villains, villainId),
     {
       onMutate: async (villainId: string) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)

@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
-import { api, EndPoints } from '../../../axios/api-config';
+import { EndPoints } from '../../../axios/api-config';
+import { getAxios } from '../../../axios/generic-api-calls';
 import { AntiHeroModel } from '../antiHero';
 
 /*This function won't send an http request if not necessary.
@@ -7,6 +8,6 @@ import { AntiHeroModel } from '../antiHero';
  * */
 export default function useFetchAntiHeroes() {
   return useQuery('antiHeroes', () =>
-    api.get<AntiHeroModel[]>(EndPoints.antiHeroes),
+    getAxios<AntiHeroModel[]>(EndPoints.antiHeroes),
   );
 }

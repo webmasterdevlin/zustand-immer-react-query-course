@@ -3,11 +3,16 @@ import { api, EndPoints } from '../../../axios/api-config';
 import { queryClient } from '../../../../src/App';
 import { VillainModel } from '../villain';
 import { keys } from '../../keyNames';
+import { putAxios } from '../../../axios/generic-api-calls';
 
 export default function useUpdateVillain() {
   return useMutation(
     villain =>
-      api.post<VillainModel>(`${EndPoints.villains}/${villain.id}`, villain),
+      putAxios<VillainModel, VillainModel>(
+        EndPoints.villains,
+        villain.id,
+        villain,
+      ),
     {
       onMutate: async (villain: VillainModel) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)

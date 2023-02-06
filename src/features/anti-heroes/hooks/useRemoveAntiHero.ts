@@ -1,12 +1,13 @@
 import { useMutation } from 'react-query';
-import { api, EndPoints } from '../../../axios/api-config';
+import { EndPoints } from '../../../axios/api-config';
 import { queryClient } from '../../../../src/App';
 import { AntiHeroModel } from '../antiHero';
 import { keys } from '../../keyNames';
+import { deleteAxios } from '../../../axios/generic-api-calls';
 
 export default function useRemoveAntiHero() {
   return useMutation(
-    antiHeroId => api.delete<void>(`${EndPoints.antiHeroes}/${antiHeroId}`),
+    antiHeroId => deleteAxios(EndPoints.antiHeroes, antiHeroId),
     {
       onMutate: async (antiHeroId: string) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)

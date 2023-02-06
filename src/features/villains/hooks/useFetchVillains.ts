@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
-import { api, EndPoints } from '../../../axios/api-config';
+import { EndPoints } from '../../../axios/api-config';
+import { getAxios } from '../../../axios/generic-api-calls';
 import { keys } from '../../keyNames';
 import { VillainModel } from '../villain';
 
@@ -8,6 +9,6 @@ import { VillainModel } from '../villain';
  * */
 export default function useFetchVillains() {
   return useQuery([keys.villains], () =>
-    api.get<VillainModel[]>(EndPoints.villains),
+    getAxios<VillainModel[]>(EndPoints.villains),
   );
 }

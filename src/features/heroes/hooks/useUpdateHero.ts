@@ -3,10 +3,11 @@ import { api, EndPoints } from '../../../axios/api-config';
 import { queryClient } from '../../../../src/App';
 import { HeroModel } from '../hero';
 import { keys } from '../../keyNames';
+import { putAxios } from '../../../axios/generic-api-calls';
 
 export default function useUpdateHero() {
   return useMutation(
-    hero => api.post<HeroModel>(`${EndPoints.heroes}/${hero.id}`, hero),
+    hero => putAxios<HeroModel, HeroModel>(EndPoints.heroes, hero.id, hero),
     {
       onMutate: async (hero: HeroModel) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)

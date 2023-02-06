@@ -1,28 +1,32 @@
 import { useMutation } from 'react-query';
-import { api, EndPoints } from '../../../axios/api-config';
+import { EndPoints } from '../../../axios/api-config';
 import { queryClient } from '../../../../src/App';
 import { AntiHeroModel } from '../antiHero';
 import { keys } from '../../keyNames';
-
-
+import { postAxios } from '../../../axios/generic-api-calls';
 
 export default function useAddAntiHero() {
   return useMutation(
     [keys.antiHeroes],
-    antiHero => api.post<AntiHeroModel>(EndPoints.antiHeroes, antiHero),
+    antiHero => postAxios<AntiHeroModel>(EndPoints.antiHeroes, antiHero),
     {
       onMutate: async (antiHero: AntiHeroModel) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
         await queryClient.cancelQueries([keys.antiHeroes]);
 
         // Snapshot the previous value
-        const backup = queryClient.getQueryData<{ data: AntiHeroModel[] }>([keys.antiHeroes]);
+        const backup = queryClient.getQueryData<{ data: AntiHeroModel[] }>([
+          keys.antiHeroes,
+        ]);
 
         // Optimistically update by adding the antiHero
         if (backup)
-          queryClient.setQueryData<{ data: AntiHeroModel[] }>([keys.antiHeroes], {
-            data: [...backup.data, antiHero],
-          });
+          queryClient.setQueryData<{ data: AntiHeroModel[] }>(
+            [keys.antiHeroes],
+            {
+              data: [...backup.data, antiHero],
+            },
+          );
 
         return { backup };
       },
