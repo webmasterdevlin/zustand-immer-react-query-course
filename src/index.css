@@ -9,7 +9,7 @@
   h2 {
     @apply mb-4 text-xl;
   }
-  h2 {
+  h3 {
     @apply mb-3 text-lg;
   }
 }
