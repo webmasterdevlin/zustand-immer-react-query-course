@@ -1,7 +1,7 @@
 import { api, EndPointsValues } from './api-config';
 
 export async function getAxios<T>(endpoint: EndPointsValues) {
-  return await api.get<T[]>(`${endpoint}`);
+  return await api.get<T>(`${endpoint}`);
 }
 
 export async function deleteAxios<T>(endpoint: EndPointsValues, id: string) {

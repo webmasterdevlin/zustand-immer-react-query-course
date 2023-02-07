@@ -5,7 +5,7 @@ import InputBox from './InputBox';
 import { ErrorMessage } from '@hookform/error-message';
 
 type Props = {
-  handleMutate: (values: any) => Promise<void>;
+  handleMutate: (values: any) => any;
 };
 
 const FormSubmission = ({ handleMutate }: Props) => {

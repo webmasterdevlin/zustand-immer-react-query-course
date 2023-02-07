@@ -10,7 +10,7 @@ describe('Heroes hooks', () => {
     });
     await waitFor(() => result.current.isSuccess);
 
-    const { data } = result.current.data;
-    expect(data).toHaveLength(2);
+    const response = result.current.data;
+    expect(response?.data).toHaveLength(2);
   });
 });

@@ -27,12 +27,12 @@ function App() {
         <NavigationBar />
         <div
           className={
-            'bg-white dark:bg-slate-800 dark:text-white px-6 py-8 ring-1 ring-slate-900/5 shadow-xl'
+            'bg-white px-6 py-8 shadow-xl ring-1 ring-slate-900/5 dark:bg-slate-800 dark:text-white'
           }
         >
           <Routes />
         </div>
-        <ReactQueryDevtools initialIsOpen />
+        <ReactQueryDevtools initialIsOpen={false} />
       </BrowserRouter>
     </QueryClientProvider>
   );

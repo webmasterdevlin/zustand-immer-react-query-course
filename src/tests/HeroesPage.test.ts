@@ -25,7 +25,7 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test('Success heroes HTTP fetch', async ({ page }) => {
+test('Should get list of heroes', async ({ page }) => {
   await page.goto('/heroes');
 
   const row1 = page.getByText('Barry Allen');
