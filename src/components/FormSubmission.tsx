@@ -32,7 +32,8 @@ const FormSubmission = ({ handleMutate }: Props) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={'flex flex-col items-center justify-center'}>
         <div className={'card'}>
-          {/* <div className={'mb-5 flex flex-col'}>
+          {/*
+          <div className={'mb-5 flex flex-col'}>
             <label htmlFor={'firstName'}>First Name</label>
             <input
               className={'field'}
@@ -46,7 +47,8 @@ const FormSubmission = ({ handleMutate }: Props) => {
                 <pre className="text-xs italic text-red-500">{e.message}</pre>
               )}
             />
-          </div> */}
+          </div>
+          */}
           <InputBox
             label="First Name"
             errors={errors}
