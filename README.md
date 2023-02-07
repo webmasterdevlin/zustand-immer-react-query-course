@@ -1,6 +1,6 @@
 ## Redux Query Course with Zustand, Immer, and React Table
 
-### New Stack!
+### New Stack! Don't use the master or main branch
 
 - Go to tailwind-vite branch https://github.com/webmasterdevlin/zustand-immer-react-query-course/tree/tailwind-vite
 - It's using pnpm (replacing npm), Vite (replacing Webpack), Tailwind (replacing MUI), Vitest (replacing Jest), and Playwright (replacing Cypress)
