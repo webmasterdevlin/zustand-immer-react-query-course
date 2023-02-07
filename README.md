@@ -6,7 +6,7 @@
 - https://vitejs.dev
 - https://react-hook-form.com
 - https://zod.dev
-- https://mantine.dev
+- https://tailwindcss.com
 - https://vitest.dev
 - https://playwright.dev
 
