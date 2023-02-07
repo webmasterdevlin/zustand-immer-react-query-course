@@ -3,15 +3,18 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter } from 'react-router-dom';
 
-import NavigationBar from './components/NavigationBar';
 import Routes from './Routes';
+import NavigationBar from './components/NavigationBar';
 
-import { ThemeStoreType, useThemeStore } from './store/themeStore';
+import { useThemeStore } from './store/themeStore';
+import type { ThemeStoreType } from './store/themeStore';
 
 export const queryClient = new QueryClient();
 
 function App() {
-  const { isDark } = useThemeStore((state: ThemeStoreType) => state.theme);
+  const { isDark } = useThemeStore((state: ThemeStoreType) => {
+    return state.theme;
+  });
 
   useEffect(() => {
     if (isDark) {

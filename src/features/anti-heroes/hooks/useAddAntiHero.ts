@@ -1,14 +1,16 @@
 import { useMutation } from 'react-query';
-import { EndPoints } from '../../../axios/api-config';
 import { queryClient } from '../../../../src/App';
-import { AntiHeroModel } from '../antiHero';
-import { keys } from '../../keyNames';
+import { EndPoints } from '../../../axios/api-config';
 import { postAxios } from '../../../axios/generic-api-calls';
+import { keys } from '../../keyNames';
+import type { AntiHeroModel } from '../antiHero';
 
 export default function useAddAntiHero() {
   return useMutation(
     [keys.antiHeroes],
-    antiHero => postAxios<AntiHeroModel>(EndPoints.antiHeroes, antiHero),
+    antiHero => {
+      return postAxios<AntiHeroModel>(EndPoints.antiHeroes, antiHero);
+    },
     {
       onMutate: async (antiHero: AntiHeroModel) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
@@ -40,7 +42,9 @@ export default function useAddAntiHero() {
           );
       },
       // Always refetch after error or success:
-      onSettled: () => queryClient.invalidateQueries([keys.antiHeroes]),
+      onSettled: () => {
+        return queryClient.invalidateQueries([keys.antiHeroes]);
+      },
     },
   );
 }

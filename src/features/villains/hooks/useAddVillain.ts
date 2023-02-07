@@ -1,13 +1,15 @@
 import { useMutation } from 'react-query';
-import { api, EndPoints } from '../../../axios/api-config';
 import { queryClient } from '../../../../src/App';
-import { VillainModel } from '../villain';
-import { keys } from '../../keyNames';
+import { EndPoints } from '../../../axios/api-config';
 import { postAxios } from '../../../axios/generic-api-calls';
+import { keys } from '../../keyNames';
+import type { VillainModel } from '../villain';
 
 export default function useAddVillain() {
   return useMutation(
-    villain => postAxios<VillainModel>(EndPoints.villains, villain),
+    villain => {
+      return postAxios<VillainModel>(EndPoints.villains, villain);
+    },
     {
       onMutate: async (villain: VillainModel) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
@@ -36,7 +38,9 @@ export default function useAddVillain() {
           );
       },
       // Always refetch after error or success:
-      onSettled: () => queryClient.invalidateQueries([keys.villains]),
+      onSettled: () => {
+        return queryClient.invalidateQueries([keys.villains]);
+      },
     },
   );
 }

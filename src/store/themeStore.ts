@@ -1,6 +1,7 @@
+import produce from 'immer';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import produce, { Draft } from 'immer';
+import type { Draft } from 'immer';
 
 export type ThemeModel = {
   isDark: boolean;
@@ -22,16 +23,22 @@ export const useThemeStore = create<ThemeStoreType, any>(
       };
 
       // without immer
-      const setLightTheme = () =>
-        set(state => ({ theme: { isDark: false, user: get().theme.user } }));
+      const setLightTheme = () => {
+        return set(_ => {
+          return {
+            theme: { isDark: false, user: get().theme.user },
+          };
+        });
+      };
 
       // with immer
-      const setDarkTheme = () =>
-        set(
+      const setDarkTheme = () => {
+        return set(
           produce((draft: Draft<ThemeStoreType>) => {
             draft.theme.isDark = true;
           }),
         );
+      };
 
       return {
         theme,

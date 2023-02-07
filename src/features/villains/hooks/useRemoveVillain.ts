@@ -1,13 +1,15 @@
 import { useMutation } from 'react-query';
-import { api, EndPoints } from '../../../axios/api-config';
 import { queryClient } from '../../../../src/App';
-import { VillainModel } from '../villain';
-import { keys } from '../../keyNames';
+import { EndPoints } from '../../../axios/api-config';
 import { deleteAxios } from '../../../axios/generic-api-calls';
+import { keys } from '../../keyNames';
+import type { VillainModel } from '../villain';
 
 export default function useRemoveVillain() {
   return useMutation(
-    villainId => deleteAxios<void>(EndPoints.villains, villainId),
+    villainId => {
+      return deleteAxios<void>(EndPoints.villains, villainId);
+    },
     {
       onMutate: async (villainId: string) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
@@ -21,7 +23,11 @@ export default function useRemoveVillain() {
         // Optimistically update by removing the villain
         if (backup)
           queryClient.setQueryData<{ data: VillainModel[] }>([keys.villains], {
-            data: [...backup.data.filter(v => v.id !== villainId)],
+            data: [
+              ...backup.data.filter(v => {
+                return v.id !== villainId;
+              }),
+            ],
           });
 
         return { backup };
@@ -36,7 +42,9 @@ export default function useRemoveVillain() {
           );
       },
       // Always refetch after error or success:
-      onSettled: () => queryClient.invalidateQueries([keys.villains]),
+      onSettled: () => {
+        return queryClient.invalidateQueries([keys.villains]);
+      },
     },
   );
 }

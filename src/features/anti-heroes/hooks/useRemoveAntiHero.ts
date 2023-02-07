@@ -1,13 +1,15 @@
 import { useMutation } from 'react-query';
-import { EndPoints } from '../../../axios/api-config';
 import { queryClient } from '../../../../src/App';
-import { AntiHeroModel } from '../antiHero';
-import { keys } from '../../keyNames';
+import { EndPoints } from '../../../axios/api-config';
 import { deleteAxios } from '../../../axios/generic-api-calls';
+import { keys } from '../../keyNames';
+import type { AntiHeroModel } from '../antiHero';
 
 export default function useRemoveAntiHero() {
   return useMutation(
-    antiHeroId => deleteAxios(EndPoints.antiHeroes, antiHeroId),
+    antiHeroId => {
+      return deleteAxios(EndPoints.antiHeroes, antiHeroId);
+    },
     {
       onMutate: async (antiHeroId: string) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
@@ -23,7 +25,11 @@ export default function useRemoveAntiHero() {
           queryClient.setQueryData<{ data: AntiHeroModel[] }>(
             [keys.antiHeroes],
             {
-              data: [...backup.data.filter(ah => ah.id !== antiHeroId)],
+              data: [
+                ...backup.data.filter(ah => {
+                  return ah.id !== antiHeroId;
+                }),
+              ],
             },
           );
 
@@ -39,7 +45,9 @@ export default function useRemoveAntiHero() {
           );
       },
       // Always refetch after error or success:
-      onSettled: () => queryClient.invalidateQueries([keys.antiHeroes]),
+      onSettled: () => {
+        return queryClient.invalidateQueries([keys.antiHeroes]);
+      },
     },
   );
 }

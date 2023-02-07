@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePage = () => {
   return (
-    <div className={'flex flex-col justify-center items-center h-screen'}>
+    <div className={'flex h-screen flex-col items-center justify-center'}>
       <h2 className={'dark:text-white'}>
         Welcome to Zustand, Immer, and React Query Course 🧑‍🏫 💻
       </h2>

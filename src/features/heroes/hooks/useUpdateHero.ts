@@ -1,13 +1,15 @@
 import { useMutation } from 'react-query';
-import { api, EndPoints } from '../../../axios/api-config';
 import { queryClient } from '../../../../src/App';
-import { HeroModel } from '../hero';
-import { keys } from '../../keyNames';
+import { EndPoints } from '../../../axios/api-config';
 import { putAxios } from '../../../axios/generic-api-calls';
+import { keys } from '../../keyNames';
+import type { HeroModel } from '../hero';
 
 export default function useUpdateHero() {
   return useMutation(
-    hero => putAxios<HeroModel, HeroModel>(EndPoints.heroes, hero.id, hero),
+    hero => {
+      return putAxios<HeroModel, HeroModel>(EndPoints.heroes, hero.id, hero);
+    },
     {
       onMutate: async (hero: HeroModel) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
@@ -21,7 +23,11 @@ export default function useUpdateHero() {
         // Optimistically update by updating the hero
         if (backup)
           queryClient.setQueryData<{ data: HeroModel[] }>([keys.heroes], {
-            data: [...backup.data.map(h => (h.id === hero.id ? hero : h))],
+            data: [
+              ...backup.data.map(h => {
+                return h.id === hero.id ? hero : h;
+              }),
+            ],
           });
 
         return { backup };
@@ -36,7 +42,9 @@ export default function useUpdateHero() {
           );
       },
       // Always refetch after error or success:
-      onSettled: () => queryClient.invalidateQueries([keys.heroes]),
+      onSettled: () => {
+        return queryClient.invalidateQueries([keys.heroes]);
+      },
     },
   );
 }

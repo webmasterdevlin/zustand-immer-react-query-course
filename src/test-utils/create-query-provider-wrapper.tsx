@@ -1,10 +1,7 @@
 import React from 'react';
 
-import {
-  QueryClient,
-  QueryClientConfig,
-  QueryClientProvider,
-} from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import type { QueryClientConfig } from 'react-query';
 
 type QueryProviderWrapperProps = {
   children: React.ReactNode;
@@ -20,7 +17,9 @@ export const createQueryProviderWrapper = (config: QueryClientConfig = {}) => {
     ...config,
   });
 
-  return ({ children }: QueryProviderWrapperProps) => (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-  );
+  return ({ children }: QueryProviderWrapperProps) => {
+    return (
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    );
+  };
 };
