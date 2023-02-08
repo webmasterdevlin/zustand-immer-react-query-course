@@ -6,6 +6,10 @@ const prettierOptions = JSON.parse(
 );
 
 module.exports = {
+  env: {
+    browser: true,
+    es2022: true,
+  },
   extends: ['react-app', 'prettier'],
   plugins: [
     'react',
