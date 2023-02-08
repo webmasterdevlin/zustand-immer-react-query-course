@@ -17,29 +17,20 @@ export default function useAddAntiHero() {
         await queryClient.cancelQueries([keys.antiHeroes]);
 
         // Snapshot the previous value
-        const backup = queryClient.getQueryData<{ data: AntiHeroModel[] }>([
-          keys.antiHeroes,
-        ]);
+        const backup = queryClient.getQueryData<{ data: AntiHeroModel[] }>([keys.antiHeroes]);
 
         // Optimistically update by adding the antiHero
         if (backup)
-          queryClient.setQueryData<{ data: AntiHeroModel[] }>(
-            [keys.antiHeroes],
-            {
-              data: [...backup.data, antiHero],
-            },
-          );
+          queryClient.setQueryData<{ data: AntiHeroModel[] }>([keys.antiHeroes], {
+            data: [...backup.data, antiHero],
+          });
 
         return { backup };
       },
 
       // If the mutation fails, use the context returned from onMutate to roll back
       onError: (err, variables, context) => {
-        if (context?.backup)
-          queryClient.setQueryData<AntiHeroModel[]>(
-            [keys.antiHeroes],
-            context.backup.data,
-          );
+        if (context?.backup) queryClient.setQueryData<AntiHeroModel[]>([keys.antiHeroes], context.backup.data);
       },
       // Always refetch after error or success:
       onSettled: () => {

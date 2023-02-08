@@ -8,11 +8,7 @@ import type { VillainModel } from '../villain';
 export default function useUpdateVillain() {
   return useMutation(
     villain => {
-      return putAxios<VillainModel, VillainModel>(
-        EndPoints.villains,
-        villain.id,
-        villain,
-      );
+      return putAxios<VillainModel, VillainModel>(EndPoints.villains, villain.id, villain);
     },
     {
       // eslint-disable-next-line autofix/no-unused-vars
@@ -21,9 +17,7 @@ export default function useUpdateVillain() {
         await queryClient.cancelQueries([keys.villains]);
 
         // Snapshot the previous value
-        const backup = queryClient.getQueryData<{ data: VillainModel[] }>([
-          keys.villains,
-        ]);
+        const backup = queryClient.getQueryData<{ data: VillainModel[] }>([keys.villains]);
 
         // Optimistically update by updating the villain
         // if (backup)
@@ -37,11 +31,7 @@ export default function useUpdateVillain() {
 
       // If the mutation fails, use the context returned from onMutate to roll back
       onError: (err, variables, context) => {
-        if (context?.backup)
-          queryClient.setQueryData<VillainModel[]>(
-            [keys.villains],
-            context.backup.data,
-          );
+        if (context?.backup) queryClient.setQueryData<VillainModel[]>([keys.villains], context.backup.data);
       },
       // Always refetch after error or success:
       onSettled: () => {

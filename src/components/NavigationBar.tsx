@@ -1,16 +1,19 @@
 import React from 'react';
+import { Sun as SunIcon, Moon as MoonIcon } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
-import useFetchHeroes from '../features/heroes/hooks/useFetchHeroes';
-import useFetchAntiHeroes from '../features/anti-heroes/hooks/useFetchAntiHeroes';
-import useFetchVillains from '../features/villains/hooks/useFetchVillains';
-import { ThemeStoreType, useThemeStore } from '../store/themeStore';
 import { pathNames } from '../Routes';
+import useFetchAntiHeroes from '../features/anti-heroes/hooks/useFetchAntiHeroes';
+import useFetchHeroes from '../features/heroes/hooks/useFetchHeroes';
+import useFetchVillains from '../features/villains/hooks/useFetchVillains';
+import { useThemeStore } from '../store/themeStore';
 import TotalOfCharacters from './TotalOfCharacters';
-import { Sun as SunIcon, Moon as MoonIcon, Moon } from 'react-feather';
+import type { ThemeStoreType } from '../store/themeStore';
 
 const NavigationBar = () => {
   const { setDarkTheme, setLightTheme } = useThemeStore();
-  const themeStore = useThemeStore((state: ThemeStoreType) => state.theme);
+  const themeStore = useThemeStore((state: ThemeStoreType) => {
+    return state.theme;
+  });
 
   const navigate = useNavigate();
   const { data: antiHeroes } = useFetchAntiHeroes();
@@ -19,15 +22,17 @@ const NavigationBar = () => {
 
   return (
     <>
-      <div
-        className={`flex flex-row justify-between items-center flex-wrap mih-50`}
-      >
+      <div className={'mih-50 flex flex-row flex-wrap items-center justify-between'}>
         <div>
           {Object.keys(pathNames)?.map((key, index) => {
+            console.log('key:', key);
+            console.log('value:', pathNames[key]);
             return (
               <button
                 key={index}
-                onClick={() => navigate(pathNames[key])}
+                onClick={() => {
+                  navigate(pathNames[key]);
+                }}
                 className={'btn capitalize'}
               >
                 {key}
@@ -38,28 +43,25 @@ const NavigationBar = () => {
         <div>
           <div className={'flex'}>
             <TotalOfCharacters label={'heroes'} collection={heroes?.data} />
-            <TotalOfCharacters
-              label={'anti-heroes'}
-              collection={antiHeroes?.data}
-            />
+            <TotalOfCharacters label={'anti-heroes'} collection={antiHeroes?.data} />
             <TotalOfCharacters label={'villains'} collection={villains?.data} />
           </div>
         </div>
         <div>
-          <div
-            className={
-              'flex flex-row justify-between items-center flex-wrap mih-50 gap-10 pr-10'
-            }
-          >
+          <div className={'mih-50 flex flex-row flex-wrap items-center justify-between gap-10 pr-10'}>
             {themeStore.isDark ? (
               <SunIcon
                 className={'cursor-pointer'}
-                onClick={() => setLightTheme()}
+                onClick={() => {
+                  return setLightTheme();
+                }}
               />
             ) : (
               <MoonIcon
                 className={'cursor-pointer'}
-                onClick={() => setDarkTheme()}
+                onClick={() => {
+                  return setDarkTheme();
+                }}
               />
             )}
           </div>

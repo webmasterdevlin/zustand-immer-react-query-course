@@ -1,8 +1,9 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { HeroFormSchema, HeroFormSchemaType } from '../validations/hero';
+import { useForm } from 'react-hook-form';
+import { HeroFormSchema } from '../validations/hero';
 import InputBox from './InputBox';
-import { ErrorMessage } from '@hookform/error-message';
+import type { HeroFormSchemaType } from '../validations/hero';
+import type { SubmitHandler } from 'react-hook-form';
 
 type Props = {
   handleMutate: (values: any) => any;
@@ -49,35 +50,11 @@ const FormSubmission = ({ handleMutate }: Props) => {
             />
           </div>
           */}
-          <InputBox
-            label="First Name"
-            errors={errors}
-            name="firstName"
-            register={register}
-          />
-          <InputBox
-            label="Last Name"
-            errors={errors}
-            name="lastName"
-            register={register}
-          />
-          <InputBox
-            label="House"
-            errors={errors}
-            name="house"
-            register={register}
-          />
-          <InputBox
-            label="Known As"
-            errors={errors}
-            name="knownAs"
-            register={register}
-          />
-          <button
-            disabled={!isValid}
-            type="submit"
-            className={'btn btn--primary'}
-          >
+          <InputBox label="First Name" errors={errors} name="firstName" register={register} />
+          <InputBox label="Last Name" errors={errors} name="lastName" register={register} />
+          <InputBox label="House" errors={errors} name="house" register={register} />
+          <InputBox label="Known As" errors={errors} name="knownAs" register={register} />
+          <button disabled={!isValid} type="submit" className={'btn btn--primary'}>
             {isSubmitting ? 'submitting..' : 'Save Character'}
           </button>
         </div>

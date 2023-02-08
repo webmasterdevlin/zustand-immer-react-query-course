@@ -65,19 +65,14 @@ const TablePage = () => {
     data,
   });
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    tableInstance;
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
 
   useEffect(() => {
     console.table(data);
   }, [data]);
 
   return (
-    <div
-      className={
-        'mb-4 rounded bg-white px-8 pt-6 pb-8 shadow-md dark:text-slate-900'
-      }
-    >
+    <div className={'mb-4 rounded bg-white px-8 pt-6 pb-8 shadow-md dark:text-slate-900'}>
       <table className="min-w-full" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => {
@@ -86,13 +81,7 @@ const TablePage = () => {
                 {headerGroup.headers.map(column => {
                   return (
                     <td {...column.getHeaderProps()}>
-                      <p
-                        className={
-                          'mb-4 rounded bg-white px-8 pt-6 pb-8 shadow-md'
-                        }
-                      >
-                        {column.render('Header')}
-                      </p>
+                      <p className={'mb-4 rounded bg-white px-8 pt-6 pb-8 shadow-md'}>{column.render('Header')}</p>
                     </td>
                   );
                 })}
@@ -106,9 +95,7 @@ const TablePage = () => {
             return (
               <tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
-                  return (
-                    <th {...cell.getCellProps()}>{cell.render('Cell')}</th>
-                  );
+                  return <th {...cell.getCellProps()}>{cell.render('Cell')}</th>;
                 })}
               </tr>
             );

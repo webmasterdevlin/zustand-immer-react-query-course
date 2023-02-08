@@ -1,3 +1,6 @@
+.eslintrc.js
+tailwind.config.js
+
 .DS_Store
 node_modules
 /build

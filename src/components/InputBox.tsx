@@ -1,6 +1,6 @@
 import { ErrorMessage } from '@hookform/error-message';
-import { FieldErrorsImpl, UseFormRegisterReturn } from 'react-hook-form';
-import { HeroFormSchemaType } from '../validations/hero';
+import type { HeroFormSchemaType } from '../validations/hero';
+import type { FieldErrorsImpl, UseFormRegisterReturn } from 'react-hook-form';
 
 type Props = {
   register: (val: any) => UseFormRegisterReturn<any>;
@@ -17,9 +17,9 @@ const InputBox = ({ register, name, label, errors, ...rest }: Props) => {
       <ErrorMessage
         errors={errors}
         name={name}
-        render={e => (
-          <pre className="text-xs italic text-red-500">{e.message}</pre>
-        )}
+        render={e => {
+          return <pre className="text-xs italic text-red-500">{e.message}</pre>;
+        }}
       />
     </div>
   );

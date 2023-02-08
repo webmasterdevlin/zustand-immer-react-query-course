@@ -13,7 +13,7 @@ const VillainsPage = () => {
   const { data: response, status } = useFetchVillains();
   const { mutate: removeVillain } = useRemoveVillain();
   const { mutate: addVillain } = useAddVillain();
-  /*local state*/
+  /* local state*/
   const [counter, setCounter] = useState('0');
 
   const handleSoftDelete = (id: string) => {

@@ -10,7 +10,36 @@ module.exports = {
     browser: true,
     es2022: true,
   },
-  extends: ['react-app', 'prettier'],
+  extends: [
+    'react-app',
+    'prettier',
+    'eslint:recommended',
+    'eslint-config-prettier',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:import/recommended',
+    'plugin:jsx-a11y/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: {
+      jsx: true,
+    },
+    sourceType: 'module',
+    project: './tsconfig.json',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+    'import/resolver': {
+      typescript: {},
+      node: {
+        paths: ['src'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
   plugins: [
     'react',
     'prettier',
@@ -26,10 +55,18 @@ module.exports = {
       files: ['**/*.ts?(x)'],
       rules: {
         'prettier/prettier': ['warn', prettierOptions],
+        'react/react-in-jsx-scope': 'off',
+        camelcase: 'error',
+        'spaced-comment': 'error',
+        quotes: ['error', 'single'],
+        'no-console': 'warn',
+        'no-redeclare': 'warn',
+        'react/display-name': 'error',
+        'react/jsx-key': 'warn',
         'arrow-body-style': ['error', 'always'],
         'react/self-closing-comp': ['error', { component: true, html: true }],
         'autofix/no-unused-vars': [
-          'error',
+          'warn',
           {
             argsIgnorePattern: '^_',
             ignoreRestSiblings: true,

@@ -16,9 +16,7 @@ export default function useRemoveVillain() {
         await queryClient.cancelQueries([keys.villains]);
 
         // Snapshot the previous value
-        const backup = queryClient.getQueryData<{ data: VillainModel[] }>([
-          keys.villains,
-        ]);
+        const backup = queryClient.getQueryData<{ data: VillainModel[] }>([keys.villains]);
 
         // Optimistically update by removing the villain
         if (backup)
@@ -35,11 +33,7 @@ export default function useRemoveVillain() {
 
       // If the mutation fails, use the context returned from onMutate to roll back
       onError: (err, variables, context) => {
-        if (context?.backup)
-          queryClient.setQueryData<VillainModel[]>(
-            [keys.villains],
-            context.backup.data,
-          );
+        if (context?.backup) queryClient.setQueryData<VillainModel[]>([keys.villains], context.backup.data);
       },
       // Always refetch after error or success:
       onSettled: () => {

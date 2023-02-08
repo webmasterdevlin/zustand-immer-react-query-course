@@ -19,4 +19,4 @@ type EndPointsKeys = keyof EndPointType;
 // create a union from the objects values (square | circle)
 export type EndPointsValues = EndPointType[EndPointsKeys];
 
-// const anEndPoint: EndPointsValues = 'heroes';
+// sample code: const anEndPoint: EndPointsValues = 'heroes';

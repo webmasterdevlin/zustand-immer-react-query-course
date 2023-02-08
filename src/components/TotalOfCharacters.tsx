@@ -6,10 +6,12 @@ type Props = {
   dataTestId?: string;
 };
 
-const TotalOfCharacters = ({ label, collection, dataTestId }: Props) => (
-  <p className={'text-red-500 mr-10'}>
-    {label} has {collection?.length}
-  </p>
-);
+const TotalOfCharacters = ({ label, collection }: Props) => {
+  return (
+    <p className={'mr-10 text-red-500'}>
+      {label} has {collection?.length}
+    </p>
+  );
+};
 
 export default TotalOfCharacters;

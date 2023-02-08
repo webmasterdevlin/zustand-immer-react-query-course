@@ -1,20 +1,46 @@
-import React, { ElementType, lazy, Suspense } from 'react';
-import { RouteObject, useRoutes } from 'react-router';
-import { Keys } from 'react-hook-form/dist/types/path/common';
+import React, { lazy, Suspense } from 'react';
+import { useRoutes } from 'react-router';
+import type { ElementType } from 'react';
+import type { RouteObject } from 'react-router';
 
-const Loadable = (Component: ElementType) => (props: any) =>
-  (
-    <Suspense fallback={<h1>Loading</h1>}>
-      <Component {...props} />
-    </Suspense>
-  );
+const Loadable = (Component: ElementType) => {
+  const LazyComponents = (props: any) => {
+    return (
+      <Suspense fallback={<h1>Loading</h1>}>
+        <Component {...props} />
+      </Suspense>
+    );
+  };
 
-const HomePage = Loadable(lazy(() => import('./pages/HomePage')));
-const HeroesPage = Loadable(lazy(() => import('./pages/HeroesPage')));
-const AntiHeroesPage = Loadable(lazy(() => import('./pages/AntiHeroesPage')));
-const VillainsPage = Loadable(lazy(() => import('./pages/VillainsPage')));
+  return LazyComponents;
+};
 
-const TablePage = Loadable(lazy(() => import('./pages/TablePage')));
+const HomePage = Loadable(
+  lazy(() => {
+    return import('./pages/HomePage');
+  }),
+);
+const HeroesPage = Loadable(
+  lazy(() => {
+    return import('./pages/HeroesPage');
+  }),
+);
+const AntiHeroesPage = Loadable(
+  lazy(() => {
+    return import('./pages/AntiHeroesPage');
+  }),
+);
+const VillainsPage = Loadable(
+  lazy(() => {
+    return import('./pages/VillainsPage');
+  }),
+);
+
+const TablePage = Loadable(
+  lazy(() => {
+    return import('./pages/TablePage');
+  }),
+);
 
 type Paths = {
   home: string;
@@ -24,20 +50,17 @@ type Paths = {
   table: string;
 };
 
-type PageNames =
-  | 'home'
-  | 'heroes'
-  | 'antiHeroes'
-  | 'villains'
-  | 'table'
-  | string;
-export const pathNames: Record<PageNames, string> = {
+interface IObjectKeys extends Paths {
+  [key: string]: string;
+}
+
+export const pathNames: IObjectKeys = {
   home: '/',
   heroes: '/heroes',
   antiHeroes: '/anti-heroes',
   villains: '/villains',
   table: '/table',
-};
+} as const;
 
 const lazyRoutes: RouteObject[] = [
   {

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import { queryClient } from '../App';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
@@ -13,7 +12,7 @@ const HeroesPage = () => {
   const { data: response, status } = useFetchHeroes();
   const { mutate: removeHero } = useRemoveHero();
   const { mutate: addHero } = useAddHero();
-  /*local state*/
+  /* local state*/
   const [counter, setCounter] = useState('0');
 
   const handleSoftDelete = (id: string) => {

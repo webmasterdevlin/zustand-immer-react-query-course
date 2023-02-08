@@ -16,9 +16,7 @@ export default function useAddHero() {
         await queryClient.cancelQueries([keys.heroes]);
 
         // Snapshot the previous value
-        const backup = queryClient.getQueryData<{ data: HeroModel[] }>([
-          keys.heroes,
-        ]);
+        const backup = queryClient.getQueryData<{ data: HeroModel[] }>([keys.heroes]);
 
         // Optimistically update by adding the hero
         if (backup)
@@ -31,11 +29,7 @@ export default function useAddHero() {
 
       // If the mutation fails, use the context returned from onMutate to roll back
       onError: (err, variables, context) => {
-        if (context?.backup)
-          queryClient.setQueryData<HeroModel[]>(
-            [keys.heroes],
-            context.backup.data,
-          );
+        if (context?.backup) queryClient.setQueryData<HeroModel[]>([keys.heroes], context.backup.data);
       },
       // Always refetch after error or success:
       onSettled: () => {

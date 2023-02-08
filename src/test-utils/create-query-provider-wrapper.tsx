@@ -17,9 +17,9 @@ export const createQueryProviderWrapper = (config: QueryClientConfig = {}) => {
     ...config,
   });
 
-  return ({ children }: QueryProviderWrapperProps) => {
-    return (
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    );
+  const QueryComponent = ({ children }: QueryProviderWrapperProps) => {
+    return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
   };
+
+  return QueryComponent;
 };

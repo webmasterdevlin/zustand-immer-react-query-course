@@ -41,6 +41,20 @@
       "lastName": "Eisenhardt",
       "house": "Marvel",
       "knownAs": "Magneto"
+    },
+    {
+      "firstName": "Ruby",
+      "lastName": "Jane",
+      "house": "inmeta",
+      "knownAs": "Buby",
+      "id": "WMXBl3d"
+    },
+    {
+      "firstName": "Ruby",
+      "lastName": "Jane",
+      "house": "inmeta",
+      "knownAs": "Buby",
+      "id": "wO_Rywd"
     }
   ],
   "heroes": [

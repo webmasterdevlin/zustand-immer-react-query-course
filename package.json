@@ -13,7 +13,7 @@
     "test:unit.converage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "test:e2e.debug": "playwright test --debug",
-    "test:e2e.codegen": "npx playwright codegen http://localhost:5173/",
+    "test:e2e.codegen": "npx playwright codegen http://localhost:5173",
     "eslint": "eslint --ext js,ts,tsx",
     "checkTs": "tsc --noEmit",
     "prepare": "husky install"
@@ -63,6 +63,7 @@
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-react-app": "^7.0.1",
+    "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-autofix": "^1.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
