@@ -1,4 +1,3 @@
-/* eslint-disable autofix/no-unused-vars */
 import { useMutation } from 'react-query';
 import { queryClient } from '../../../../src/App';
 import { EndPoints } from '../../../axios/api-config';
@@ -16,6 +15,7 @@ export default function useUpdateVillain() {
       );
     },
     {
+      // eslint-disable-next-line autofix/no-unused-vars
       onMutate: async (villain: VillainModel) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
         await queryClient.cancelQueries([keys.villains]);
