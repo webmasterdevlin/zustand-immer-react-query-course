@@ -3,6 +3,7 @@ tailwind.config.js
 tsconfig.json
 vite.config.ts
 prettier.config.js
+postcss.config.cjs
 
 .DS_Store
 node_modules

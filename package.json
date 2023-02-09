@@ -15,8 +15,7 @@
     "test:e2e.debug": "playwright test --debug",
     "test:e2e.codegen": "npx playwright codegen http://localhost:5173",
     "eslint": "eslint --ext js,ts,tsx ./src",
-    "checkTs": "tsc --noEmit",
-    "prepare": "husky install"
+    "checkTs": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
@@ -65,13 +64,12 @@
     "eslint-config-react-app": "^7.0.1",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-autofix": "^1.1.0",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^8.0.3",
     "jsdom": "^21.1.0",
     "json-server": "^0.17.1",
-    "lint-staged": "^13.1.0",
     "msw": "^1.0.0",
     "postcss": "^8.4.21",
     "prettier": "^2.8.3",
@@ -87,13 +85,5 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "alias": {
     "process": false
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "pnpm run eslint --fix"
-    ],
-    "*.{md,json}": [
-      "prettier --write"
-    ]
   }
 }
