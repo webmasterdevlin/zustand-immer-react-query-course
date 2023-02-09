@@ -1,5 +1,8 @@
 .eslintrc.js
 tailwind.config.js
+tsconfig.json
+vite.config.ts
+prettier.config.js
 
 .DS_Store
 node_modules

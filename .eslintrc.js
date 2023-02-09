@@ -1,9 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const prettierOptions = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, '.prettierrc'), 'utf8'),
-);
+const prettierOptions = JSON.parse(fs.readFileSync(path.resolve(__dirname, '.prettierrc'), 'utf8'));
 
 module.exports = {
   env: {
@@ -22,9 +20,7 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: {
-      jsx: true,
-    },
+    ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json',
   },
@@ -40,13 +36,7 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    'react',
-    'prettier',
-    '@typescript-eslint',
-    'autofix',
-    'react-hooks',
-  ],
+  plugins: ['react', 'prettier', '@typescript-eslint', 'autofix', 'react-hooks'],
   rules: {
     'prettier/prettier': ['error', prettierOptions],
   },
@@ -82,15 +72,7 @@ module.exports = {
         'import/order': [
           'error',
           {
-            groups: [
-              'builtin',
-              'external',
-              'parent',
-              'sibling',
-              'index',
-              'object',
-              'type',
-            ],
+            groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
             pathGroups: [
               {
                 pattern: '@/**/**',

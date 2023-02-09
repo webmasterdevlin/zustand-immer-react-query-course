@@ -14,7 +14,7 @@
     "test:e2e": "playwright test",
     "test:e2e.debug": "playwright test --debug",
     "test:e2e.codegen": "npx playwright codegen http://localhost:5173",
-    "eslint": "eslint --ext js,ts,tsx",
+    "eslint": "eslint --ext js,ts,tsx ./src",
     "checkTs": "tsc --noEmit",
     "prepare": "husky install"
   },
@@ -80,6 +80,7 @@
     "typescript": "^4.9.5",
     "uuid": "^9.0.0",
     "vite": "^4.1.1",
+    "vite-plugin-eslint": "^1.8.1",
     "vitest": "^0.28.4",
     "zod": "^3.20.2"
   },
@@ -89,7 +90,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
-      "yarn run eslint --fix"
+      "pnpm run eslint --fix"
     ],
     "*.{md,json}": [
       "prettier --write"
