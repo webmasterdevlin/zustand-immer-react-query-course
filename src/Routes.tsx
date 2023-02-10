@@ -42,19 +42,7 @@ const TablePage = Loadable(
   }),
 );
 
-type Paths = {
-  home: string;
-  heroes: string;
-  antiHeroes: string;
-  villains: string;
-  table: string;
-};
-
-interface IObjectKeys extends Paths {
-  [key: string]: string;
-}
-
-export const pathNames: IObjectKeys = {
+export const pathNames = {
   home: '/',
   heroes: '/heroes',
   antiHeroes: '/anti-heroes',

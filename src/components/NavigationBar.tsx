@@ -24,14 +24,12 @@ const NavigationBar = () => {
     <>
       <div className={'mih-50 flex flex-row flex-wrap items-center justify-between'}>
         <div>
-          {Object.keys(pathNames)?.map((key, index) => {
-            console.log('key:', key);
-            console.log('value:', pathNames[key]);
+          {Object.entries(pathNames)?.map(([key, value], index) => {
             return (
               <button
                 key={index}
                 onClick={() => {
-                  navigate(pathNames[key]);
+                  navigate(value);
                 }}
                 className={'btn capitalize'}
               >
