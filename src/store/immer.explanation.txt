@@ -1,0 +1,46 @@
+let user1 = {
+  name: 'Ping',
+  age: 30,
+};
+
+let user2 = {...user1};
+
+user2.name = 'Pong';
+
+console.log('user1:', user1);
+
+console.log('user2:', user2);
+
+
+/*
+let user3 = {
+  name: 'Ping',
+  age: 30,
+  school: {
+    name: 'MIT'
+  }
+};
+
+let user4 = {...user3};
+
+user3.name = 'Pong';
+user4.school.name = 'Caltech';
+
+console.log('user1:', user3);
+
+console.log('user2:', user4);
+
+// let user4 = JSON.parse(JSON.stringify(user3));
+
+*/
+// WARNING:
+// JSON stringify only works in primitive types.
+// Don't use in objects with functions and dates
+// Don't use with circular reference or not unidirectional tree
+/*
+    const circularReference = { otherData: 123 };
+    circularReference.myself = circularReference;
+*/
+
+
+// SOLUTION: Immer for immutable object
