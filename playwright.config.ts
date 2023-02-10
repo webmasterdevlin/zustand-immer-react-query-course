@@ -1,3 +1,4 @@
+import { defineConfig } from '@playwright/test';
 import type { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
@@ -6,6 +7,7 @@ const config: PlaywrightTestConfig = {
     port: 5173,
   },
   testDir: 'src/tests',
+  fullyParallel: true,
 };
 
 export default config;
