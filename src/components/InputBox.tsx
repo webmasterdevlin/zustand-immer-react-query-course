@@ -1,5 +1,5 @@
 import { ErrorMessage } from '@hookform/error-message';
-import type { HeroFormSchemaType } from '../validations/hero';
+import type { HeroFormSchemaType } from '../validations/character';
 import type { FieldErrorsImpl, UseFormRegisterReturn } from 'react-hook-form';
 
 type Props = {

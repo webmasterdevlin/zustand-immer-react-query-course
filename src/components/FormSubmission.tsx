@@ -1,8 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { HeroFormSchema } from '../validations/hero';
+import { CharacterFormSchema } from '../validations/character';
 import InputBox from './InputBox';
-import type { HeroFormSchemaType } from '../validations/hero';
+import type { CharacterFormSchemaType } from '../validations/character';
 import type { SubmitHandler } from 'react-hook-form';
 
 type Props = {
@@ -15,12 +15,12 @@ const FormSubmission = ({ handleMutate }: Props) => {
     register,
     reset,
     formState: { isValid, isSubmitting, errors },
-  } = useForm<HeroFormSchemaType>({
-    resolver: zodResolver(HeroFormSchema),
+  } = useForm<CharacterFormSchemaType>({
+    resolver: zodResolver(CharacterFormSchema),
     mode: 'all',
   });
 
-  const onSubmit: SubmitHandler<HeroFormSchemaType> = async data => {
+  const onSubmit: SubmitHandler<CharacterFormSchemaType> = async data => {
     try {
       await handleMutate(data);
       reset();
