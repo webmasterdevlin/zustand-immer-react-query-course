@@ -44,3 +44,5 @@ yarn-error.log
 .output
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+test-results
