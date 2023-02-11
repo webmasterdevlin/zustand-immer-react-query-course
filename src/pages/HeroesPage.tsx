@@ -35,18 +35,18 @@ const HeroesPage = () => {
       {status === 'loading' ? (
         <h2>Loading.. Please wait..</h2>
       ) : (
-        response?.data?.map(v => {
+        response?.data?.map(h => {
           return (
-            <div key={v.id} className={'flex items-center justify-between'}>
+            <div key={h.id} className={'flex items-center justify-between'}>
               <h1>
-                <span>{`${v.firstName} ${v.lastName} is ${v.knownAs}`}</span>
-                {counter === v.id && <span> - marked</span>}
+                <span>{`${h.firstName} ${h.lastName} is ${h.knownAs}`}</span>
+                {counter === h.id && <span> - marked</span>}
               </h1>
               <div>
                 <button
                   className={'btn btn--primary mx-0.5rem'}
                   onClick={() => {
-                    return setCounter(v.id);
+                    setCounter(h.id);
                   }}
                 >
                   Mark
@@ -54,7 +54,7 @@ const HeroesPage = () => {
                 <button
                   className={'btn mx-0.5rem'}
                   onClick={() => {
-                    return handleSoftDelete(v.id);
+                    return handleSoftDelete(h.id);
                   }}
                 >
                   Remove
@@ -62,7 +62,7 @@ const HeroesPage = () => {
                 <button
                   className={'btn btn--secondary mx-0.5rem'}
                   onClick={() => {
-                    return removeHero(v.id);
+                    return removeHero(h.id);
                   }}
                 >
                   DELETE in DB
