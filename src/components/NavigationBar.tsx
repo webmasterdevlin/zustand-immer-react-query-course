@@ -48,19 +48,9 @@ const NavigationBar = () => {
         <div>
           <div className={'mih-50 flex flex-row flex-wrap items-center justify-between gap-10 pr-10'}>
             {themeStore.isDark ? (
-              <SunIcon
-                className={'cursor-pointer'}
-                onClick={() => {
-                  return setLightTheme();
-                }}
-              />
+              <SunIcon className={'cursor-pointer'} onClick={setLightTheme} />
             ) : (
-              <MoonIcon
-                className={'cursor-pointer'}
-                onClick={() => {
-                  return setDarkTheme();
-                }}
-              />
+              <MoonIcon className={'cursor-pointer'} onClick={setDarkTheme} />
             )}
           </div>
         </div>
