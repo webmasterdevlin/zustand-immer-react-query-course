@@ -20,7 +20,7 @@ const AntiHeroesPage = () => {
       return {
         data: input?.data?.filter(h => {
           return h.id !== id;
-        }) as any,
+        }) as AntiHeroModel[],
       };
     });
   };
@@ -46,7 +46,7 @@ const AntiHeroesPage = () => {
                 <button
                   className={'btn btn--primary mx-0.5rem'}
                   onClick={() => {
-                    return setCounter(ah.id);
+                    setCounter(ah.id);
                   }}
                 >
                   Mark
@@ -54,7 +54,7 @@ const AntiHeroesPage = () => {
                 <button
                   className={'btn mx-0.5rem'}
                   onClick={() => {
-                    return handleSoftDelete(ah.id);
+                    handleSoftDelete(ah.id);
                   }}
                 >
                   Remove
@@ -62,7 +62,7 @@ const AntiHeroesPage = () => {
                 <button
                   className={'btn btn--secondary mx-0.5rem'}
                   onClick={() => {
-                    return removeAntiHero(ah.id);
+                    removeAntiHero(ah.id);
                   }}
                 >
                   DELETE in DB

@@ -21,7 +21,7 @@ const VillainsPage = () => {
       return {
         data: input?.data?.filter(h => {
           return h.id !== id;
-        }) as any,
+        }) as VillainModel[],
       };
     });
   };
@@ -47,7 +47,7 @@ const VillainsPage = () => {
                 <button
                   className={'btn btn--primary mx-0.5rem'}
                   onClick={() => {
-                    return setCounter(v.id);
+                    setCounter(v.id);
                   }}
                 >
                   Mark
@@ -55,7 +55,7 @@ const VillainsPage = () => {
                 <button
                   className={'btn mx-0.5rem'}
                   onClick={() => {
-                    return handleSoftDelete(v.id);
+                    handleSoftDelete(v.id);
                   }}
                 >
                   Remove
@@ -63,7 +63,7 @@ const VillainsPage = () => {
                 <button
                   className={'btn btn--secondary mx-0.5rem'}
                   onClick={() => {
-                    return removeVillain(v.id);
+                    removeVillain(v.id);
                   }}
                 >
                   DELETE in DB

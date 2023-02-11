@@ -20,7 +20,7 @@ const HeroesPage = () => {
       return {
         data: prevData?.data?.filter(h => {
           return h.id !== id;
-        }) as any,
+        }) as HeroModel[],
       };
     });
   };
@@ -54,7 +54,7 @@ const HeroesPage = () => {
                 <button
                   className={'btn mx-0.5rem'}
                   onClick={() => {
-                    return handleSoftDelete(h.id);
+                    handleSoftDelete(h.id);
                   }}
                 >
                   Remove
@@ -62,7 +62,7 @@ const HeroesPage = () => {
                 <button
                   className={'btn btn--secondary mx-0.5rem'}
                   onClick={() => {
-                    return removeHero(h.id);
+                    removeHero(h.id);
                   }}
                 >
                   DELETE in DB
