@@ -26,7 +26,7 @@ export const useThemeStore = create<ThemeStoreType, any>(
       const setLightTheme = () => {
         return set(_ => {
           return {
-            theme: { isDark: false, user: get().theme.user },
+            theme: { ...get().theme, isDark: false },
           };
         });
       };
