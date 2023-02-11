@@ -16,9 +16,9 @@ const HeroesPage = () => {
   const [counter, setCounter] = useState('0');
 
   const handleSoftDelete = (id: string) => {
-    queryClient.setQueryData<{ data: HeroModel[] }>('heroes', input => {
+    queryClient.setQueryData<{ data: HeroModel[] }>('heroes', prevData => {
       return {
-        data: input?.data?.filter(h => {
+        data: prevData?.data?.filter(h => {
           return h.id !== id;
         }) as any,
       };
