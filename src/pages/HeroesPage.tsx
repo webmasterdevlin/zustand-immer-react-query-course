@@ -37,7 +37,7 @@ const HeroesPage = () => {
       ) : (
         response?.data?.map(h => {
           return (
-            <div key={h.id} className={'flex items-center justify-between'}>
+            <div data-testid="hero-card" key={h.id} className={'flex items-center justify-between'}>
               <h1>
                 <span>{`${h.firstName} ${h.lastName} is ${h.knownAs}`}</span>
                 {counter === h.id && <span> - marked</span>}

@@ -12,7 +12,9 @@ type Props = {
 const InputBox = ({ register, name, label, errors, ...rest }: Props) => {
   return (
     <div className={'mb-5 flex flex-col'}>
-      <label htmlFor={name}>{label}</label>
+      <label className="capitalize" htmlFor={name}>
+        {label}
+      </label>
       <input className={'field'} id={name} {...register(name)} {...rest} />
       <ErrorMessage
         errors={errors}

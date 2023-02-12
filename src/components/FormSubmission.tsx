@@ -50,10 +50,10 @@ const FormSubmission = ({ handleMutate }: Props) => {
             />
           </div>
           */}
-          <InputBox label="First Name" errors={errors} name="firstName" register={register} />
-          <InputBox label="Last Name" errors={errors} name="lastName" register={register} />
-          <InputBox label="House" errors={errors} name="house" register={register} />
-          <InputBox label="Known As" errors={errors} name="knownAs" register={register} />
+          <InputBox label="first name" errors={errors} name="firstName" register={register} />
+          <InputBox label="last name" errors={errors} name="lastName" register={register} />
+          <InputBox label="house" errors={errors} name="house" register={register} />
+          <InputBox label="known as" errors={errors} name="knownAs" register={register} />
           <button disabled={!isValid} type="submit" className={'btn btn--primary'}>
             {isSubmitting ? 'submitting..' : 'Save Character'}
           </button>
