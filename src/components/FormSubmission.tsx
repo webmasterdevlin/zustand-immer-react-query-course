@@ -45,7 +45,7 @@ const FormSubmission = ({ handleMutate }: Props) => {
               errors={errors}
               name="firstName"
               render={e => (
-                <pre className="text-xs italic text-red-500">{e.message}</pre>
+                <pre className="text-xs text-red-500">{e.message}</pre>
               )}
             />
           </div>
