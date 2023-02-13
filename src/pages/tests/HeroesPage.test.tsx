@@ -1,6 +1,7 @@
 import { render, screen } from '../../test-utils/testing-library-utils';
 import HeroesPage from '../HeroesPage';
 
+// integration testing
 describe('Heroes Page', () => {
   it('should render hero lists', async () => {
     render(<HeroesPage />);
