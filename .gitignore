@@ -28,7 +28,8 @@ build
 .parcel-cache
 node_modules
 yarn.lock
-package-locak.json
+package-lock.json
+pnpm-lock.yaml
 yarn-error.log
 *.log
 
