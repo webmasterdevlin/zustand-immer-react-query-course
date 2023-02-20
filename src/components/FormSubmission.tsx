@@ -1,6 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { CharacterFormSchema } from '../validations/character';
+import Button from './Button';
+import Card from './Card';
 import InputBox from './InputBox';
 import type { CharacterFormSchemaType } from '../validations/character';
 import type { SubmitHandler } from 'react-hook-form';
@@ -32,7 +34,7 @@ const FormSubmission = ({ handleMutate }: Props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={'flex flex-col items-center justify-center'}>
-        <div className={'card'}>
+        <Card>
           {/*
           <div className={'mb-5 flex flex-col'}>
             <label htmlFor={'firstName'}>First Name</label>
@@ -54,10 +56,10 @@ const FormSubmission = ({ handleMutate }: Props) => {
           <InputBox label="last name" errors={errors} name="lastName" register={register} />
           <InputBox label="house" errors={errors} name="house" register={register} />
           <InputBox label="known as" errors={errors} name="knownAs" register={register} />
-          <button disabled={!isValid} type="submit" className={'btn btn--primary'}>
+          <Button disabled={!isValid} type="submit" color="primary">
             {isSubmitting ? 'submitting..' : 'Save Character'}
-          </button>
-        </div>
+          </Button>
+        </Card>
       </div>
     </form>
   );

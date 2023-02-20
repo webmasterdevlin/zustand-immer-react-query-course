@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { queryClient } from '../App';
+import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
 import UpdateUiLabel from '../components/UpdateUiLabel';
@@ -44,30 +45,29 @@ const VillainsPage = () => {
                 {counter === v.id && <span> - marked</span>}
               </h1>
               <div>
-                <button
-                  className={'btn btn--primary mx-0.5rem'}
+                <Button
+                  color={'primary'}
                   onClick={() => {
                     setCounter(v.id);
                   }}
                 >
                   Mark
-                </button>
-                <button
-                  className={'btn mx-0.5rem'}
+                </Button>
+                <Button
                   onClick={() => {
                     handleSoftDelete(v.id);
                   }}
                 >
                   Remove
-                </button>
-                <button
-                  className={'btn btn--secondary mx-0.5rem'}
+                </Button>
+                <Button
+                  color="secondary"
                   onClick={() => {
                     removeVillain(v.id);
                   }}
                 >
                   DELETE in DB
-                </button>
+                </Button>
               </div>
             </div>
           );
