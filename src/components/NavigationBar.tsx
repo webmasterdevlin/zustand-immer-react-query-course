@@ -6,6 +6,7 @@ import useFetchAntiHeroes from '../features/anti-heroes/hooks/useFetchAntiHeroes
 import useFetchHeroes from '../features/heroes/hooks/useFetchHeroes';
 import useFetchVillains from '../features/villains/hooks/useFetchVillains';
 import { useThemeStore } from '../store/themeStore';
+import Button from './Button';
 import TotalOfCharacters from './TotalOfCharacters';
 import type { ThemeStoreType } from '../store/themeStore';
 
@@ -26,15 +27,14 @@ const NavigationBar = () => {
         <div>
           {Object.entries(pathNames)?.map(([key, value], index) => {
             return (
-              <button
+              <Button
                 key={index}
                 onClick={() => {
                   navigate(value);
                 }}
-                className={'btn capitalize'}
               >
                 {key}
-              </button>
+              </Button>
             );
           })}
         </div>

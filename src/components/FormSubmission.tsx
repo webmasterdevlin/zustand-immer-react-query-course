@@ -39,7 +39,7 @@ const FormSubmission = ({ handleMutate }: Props) => {
           <div className={'mb-5 flex flex-col'}>
             <label htmlFor={'firstName'}>First Name</label>
             <input
-              className={'field'}
+              className={'mr-4 border-0 border-b bg-white pt-2 pb-2 pr-0 pl-0 text-base text-gray-900 outline-none'}
               id={'firstName'}
               {...register('firstName')}
             />

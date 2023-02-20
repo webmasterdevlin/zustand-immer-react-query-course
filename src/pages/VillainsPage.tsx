@@ -75,14 +75,14 @@ const VillainsPage = () => {
       )}
 
       {response?.data?.length === 0 && status !== 'loading' && (
-        <button
-          className={'btn btn--primary mx-0.5rem'}
+        <Button
+          color="primary"
           onClick={() => {
             return queryClient.invalidateQueries('villains');
           }}
         >
           Re-Fetch
-        </button>
+        </Button>
       )}
     </div>
   );
