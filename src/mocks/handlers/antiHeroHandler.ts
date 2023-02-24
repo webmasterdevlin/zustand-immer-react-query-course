@@ -1,6 +1,6 @@
 import { rest } from 'msw';
 
-const baseUrl = 'http://localhost/api';
+const baseUrl = '**/api';
 
 export const ANTI_HEROES = [
   {
@@ -25,7 +25,9 @@ export const antiHeroHandler = [
   }),
 
   rest.delete(`${baseUrl}/anti-heroes/:id`, (req, res, ctx) => {
-    const antiHeroExist = ANTI_HEROES.find(ah => ah.id === req.params.id);
+    const antiHeroExist = ANTI_HEROES.find(ah => {
+      return ah.id === req.params.id;
+    });
     return antiHeroExist ? res(ctx.status(200)) : res(ctx.status(404));
   }),
 
@@ -36,7 +38,9 @@ export const antiHeroHandler = [
   rest.put(`${baseUrl}/anti-heroes/:id`, (req, res, ctx) => {
     console.log('ID:', req.params.id);
 
-    return ANTI_HEROES.find(ah => ah.id === req.params.id)
+    return ANTI_HEROES.find(ah => {
+      return ah.id === req.params.id;
+    })
       ? res(ctx.status(200))
       : res(ctx.status(404));
   }),

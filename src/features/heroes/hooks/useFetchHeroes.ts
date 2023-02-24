@@ -1,10 +1,13 @@
 import { useQuery } from 'react-query';
-import { api, EndPoints } from '../../../axios/api-config';
-import { HeroModel } from '../hero';
+import { EndPoints } from '../../../axios/api-config';
+import { getAxios } from '../../../axios/generic-api-calls';
+import type { HeroModel } from '../hero';
 
-/*This function won't send an http request if not necessary.
+/* This function won't send an http request if not necessary.
  * So we can use this function to sync states in different components
  * */
 export default function useFetchHeroes() {
-  return useQuery('heroes', () => api.get<HeroModel[]>(EndPoints.heroes));
+  return useQuery('heroes', () => {
+    return getAxios<HeroModel[]>(EndPoints.heroes);
+  });
 }

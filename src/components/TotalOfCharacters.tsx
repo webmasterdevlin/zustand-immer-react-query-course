@@ -1,14 +1,17 @@
 import React from 'react';
 
 type Props = {
+  label?: string;
   collection: any[] | undefined;
-  dataTestId: string;
+  dataTestId?: string;
 };
 
-const TotalOfCharacters = ({ collection, dataTestId }: Props) => (
-  <span data-testid={dataTestId} style={{ color: 'cyan' }}>
-    {collection?.length}
-  </span>
-);
+const TotalOfCharacters = ({ label, collection }: Props) => {
+  return (
+    <p className={'mr-10 text-red-500'}>
+      {label} has {collection?.length}
+    </p>
+  );
+};
 
 export default TotalOfCharacters;

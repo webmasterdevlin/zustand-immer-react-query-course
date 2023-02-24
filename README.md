@@ -1,35 +1,50 @@
-## New Stack! Don't use the master or main branch
+## Redux Query Course with Zustand, Immer, and React Table
 
-### Redux Query Course with Zustand, Immer, and React Table
+#### Tech tools
 
-- Go to tailwind-vite branch https://github.com/webmasterdevlin/zustand-immer-react-query-course/tree/tailwind-vite
-- It's using pnpm (replacing npm), Vite (replacing Webpack), Tailwind (replacing MUI), React Hook Form (replacing Formik), Zod (replacing Yup), Vitest (replacing Jest), and Playwright (replacing Cypress)
+- https://pnpm.io
+- https://vitejs.dev
+- https://react-hook-form.com
+- https://zod.dev
+- https://tailwindcss.com
+- https://vitest.dev
+- https://playwright.dev
+
+```sh
+$ git clone https://github.com/webmasterdevlin/zustand-immer-react-query-course.git
+$ cd zustand-immer-react-query-course
+$ pnpm install
+$ pnpm start
+```
+
+#### E2e testing
+
+```sh
+$ npx playwright install
+$ pnpm test:e2e
+```
 
 The React app, and the fake web service will run concurrently.
 
 ![screenshot](./screenshot.png)
 
-### Best practices in writing tests
+## Set up React Testing Library and Vitest
 
-https://kentcdodds.com/blog/common-mistakes-with-react-testing-library
+- create ./src/test-utils/testing-library-util.tsx that will be a copy of the root component
 
-- always use eslint-plugin-testing-library and eslint-plugin-jest-dom
-- always use screen
-- use screen.getByRole instead of screen.getByTestId
-- use screen.queryByRole only when expecting not.toBeInTheDocument
-- use await screen.find\* instead of await waitFor/wait
-- if necessary, use await waitFor instead of await wait
-- use userEvent instead of fireEvent
-- don't use userEvent inside the callback of waitFor
+## Set up MSW for mocking API calls
 
-### Cypress' best practices in writing tests
+- pnpm i -D msw
+- the msw is a mocking library which will intercept the requests and responses in the integration tests
+- create ./src/mocks/handler/todoHandler.ts
+- create ./src/mocks/handler/index.ts
+- create ./src/mocks/server.ts
+- update the ./src/setupTests.ts
 
-https://docs.cypress.io/guides/references/best-practices.html
+## Integration tests
 
-### Application's styles
-
-- The application is using test ID instead of role when querying dom elements
-- Test IDs are simple and isolated
+- write integration tests for the fetch todos function of WorkTodosPage.tsx by creating ./src/pages/tests/WorkTodosPage.test.ts
+- run the tests, pnpm run test, and see if the todos are rendered
 
 #### React Query persist cache between tests
 

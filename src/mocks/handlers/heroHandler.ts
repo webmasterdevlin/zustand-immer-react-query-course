@@ -1,6 +1,6 @@
 import { rest } from 'msw';
 
-const baseUrl = 'http://localhost/api';
+const baseUrl = '**/api';
 
 export const HEROES = [
   {
@@ -25,7 +25,9 @@ export const heroHandler = [
   }),
 
   rest.delete(`${baseUrl}/heroes/:id`, (req, res, ctx) => {
-    return HEROES.find(h => h.id === req.params.id)
+    return HEROES.find(h => {
+      return h.id === req.params.id;
+    })
       ? res(ctx.status(200))
       : res(ctx.status(404));
   }),
@@ -35,7 +37,9 @@ export const heroHandler = [
   }),
 
   rest.put(`${baseUrl}/heroes/:id`, (req, res, ctx) => {
-    return HEROES.find(h => h.id === req.params.id)
+    return HEROES.find(h => {
+      return h.id === req.params.id;
+    })
       ? res(ctx.status(200))
       : res(ctx.status(404));
   }),

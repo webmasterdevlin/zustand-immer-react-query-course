@@ -1,6 +1,6 @@
 import { rest } from 'msw';
 
-const baseUrl = 'http://localhost/api';
+const baseUrl = '**/api';
 
 export const VILLAINS = [
   {
@@ -25,7 +25,9 @@ export const villainHandler = [
   }),
 
   rest.delete(`${baseUrl}/villains/:id`, (req, res, ctx) => {
-    return VILLAINS.find(v => v.id === req.params.id)
+    return VILLAINS.find(v => {
+      return v.id === req.params.id;
+    })
       ? res(ctx.status(200))
       : res(ctx.status(404));
   }),
@@ -35,7 +37,9 @@ export const villainHandler = [
   }),
 
   rest.put(`${baseUrl}/villains/:id`, (req, res, ctx) => {
-    return VILLAINS.find(v => v.id === req.params.id)
+    return VILLAINS.find(v => {
+      return v.id === req.params.id;
+    })
       ? res(ctx.status(200))
       : res(ctx.status(404));
   }),

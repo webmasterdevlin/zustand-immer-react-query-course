@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2021 Devlin Duldulao
+Copyright (c) 2023 Devlin Duldulao
 README.md
 screenshot.png
 Permission is hereby granted, free of charge, to any person obtaining a copy

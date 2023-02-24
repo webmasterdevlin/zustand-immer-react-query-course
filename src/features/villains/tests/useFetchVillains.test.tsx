@@ -1,14 +1,23 @@
 import { renderHook } from '@testing-library/react-hooks';
+
+import { createQueryProviderWrapper } from '../../../test-utils/create-query-provider-wrapper';
 import useFetchVillains from '../hooks/useFetchVillains';
-import { wrapper } from '../../../test-utils/testing-library-utils';
 
 describe('Villains hooks', () => {
   it('should fire useFetchVillains', async () => {
-    const { result, waitFor } = renderHook(() => useFetchVillains(), {
-      wrapper,
+    const { result, waitFor } = renderHook(
+      () => {
+        return useFetchVillains();
+      },
+      {
+        wrapper: createQueryProviderWrapper(),
+      },
+    );
+    await waitFor(() => {
+      return result.current.isSuccess;
     });
 
-    await waitFor(() => result.current.isSuccess);
-    expect(result.current.data.data).toHaveLength(2);
+    const response = result.current.data;
+    expect(response?.data).toHaveLength(2);
   });
 });

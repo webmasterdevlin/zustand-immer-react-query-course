@@ -1,6 +1,0 @@
-# to be able to build this site locally, let's specify
-# build settings in this file
-
-[build]
-  command = "npm run test && npm run build"
-  publish = "build"

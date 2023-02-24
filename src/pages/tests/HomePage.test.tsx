@@ -1,17 +1,12 @@
-import {
-  render,
-  screen,
-} from '../../test-utils/testing-library-utils';
 import HomePage from '../../pages/HomePage';
+import { render, screen } from '../../test-utils/testing-library-utils';
 
+// component testing
 describe('Home Page', () => {
-  it('should welcome message is visible', async () => {
+  it('should have welcome back', () => {
     render(<HomePage />);
 
-    const title = await screen.findByRole('heading', {
-      name: 'Welcome to Zustand, Immer, and React Query Course 🧑‍🏫 💻',
-    });
-
-    expect(title).toBeInTheDocument();
+    const welcomeBack = screen.getByTestId('welcome-message');
+    expect(welcomeBack).toHaveTextContent(/welcome/i);
   });
 });

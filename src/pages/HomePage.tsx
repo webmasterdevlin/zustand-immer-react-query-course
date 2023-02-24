@@ -1,24 +1,14 @@
 import React from 'react';
-import { Box, Typography, Container } from '@mui/material';
-import { x } from '@xstyled/emotion';
-import { ReactQueryDevtools } from 'react-query/devtools';
 
 const HomePage = () => {
+  console.log('HomePage');
+
   return (
-    <Container>
-      <x.div
-        w={'100%'}
-        display={'flex'}
-        flexDirection={'row'}
-        justifyContent={'flex-start'}
-        alignItems={'center'}
-      >
-        <Typography variant={'h2'}>
-          Welcome to Zustand, Immer, and React Query Course 🧑‍🏫 💻
-        </Typography>
-      </x.div>
-      <ReactQueryDevtools initialIsOpen />
-    </Container>
+    <div className={'flex h-screen flex-col items-center justify-center'}>
+      <h2 data-testid="welcome-message" className={'dark:text-white'}>
+        Welcome to Zustand, Immer, and React Query Course 🧑‍🏫 💻
+      </h2>
+    </div>
   );
 };
 

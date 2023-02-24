@@ -1,0 +1,21 @@
+.eslintrc.js
+tailwind.config.js
+tsconfig.json
+vite.config.ts
+prettier.config.js
+postcss.config.cjs
+playwright.config.ts
+
+.DS_Store
+node_modules
+/build
+/.husky
+/package
+.env
+.env.*
+!.env.example
+
+# Ignore files for PNPM, NPM and YARN
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
