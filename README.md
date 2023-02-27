@@ -1,4 +1,4 @@
-## Redux Query Course with Zustand, Immer, and React Table
+## React Query Course with Zustand, Immer, and React Table
 
 #### Tech tools
 
