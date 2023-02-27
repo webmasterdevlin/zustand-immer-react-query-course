@@ -7,6 +7,8 @@
 - https://react-hook-form.com
 - https://zod.dev
 - https://tailwindcss.com
+- https://zustand-demo.pmnd.rs
+- https://react-query-v3.tanstack.com
 - https://vitest.dev
 - https://playwright.dev
 
