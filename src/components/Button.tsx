@@ -8,6 +8,9 @@ type Props = {
   type?: 'button' | 'submit' | 'reset';
 };
 
+/* creating a shareable button component is better than using @apply of
+TailwindCSS because it will be easier to maintain and add new styles */
+
 export default function Button({ disabled, color = 'default', ...rest }: Props) {
   let className = '';
 
