@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InputBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputBox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +63,9 @@
   <component name="KubernetesApiPersistence">
     <option name="context" value="myCluster" />
   </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="6c9xhafp" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -90,7 +98,7 @@
     "nodejs_package_manager_path": "yarn",
     "prettierjs.PrettierConfiguration.Package": "/Users/inmetadeveloper/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/prettier",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\devduldu.CRAYON\\Documents\\DEVELOPMENT\\React\\zustand-immer-react-query-course\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "/Users/inmetadeveloper/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -143,6 +151,7 @@
       <workItem from="1673270626796" duration="15077000" />
       <workItem from="1675786342307" duration="717000" />
       <workItem from="1676719329167" duration="179000" />
+      <workItem from="1678719785130" duration="324000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1644671503056</created>

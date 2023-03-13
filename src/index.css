@@ -2,64 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/*apply directives are not recommended*/
+
 @layer base {
-  h1 {
-    @apply mb-5 text-2xl;
-  }
 
-  h2 {
-    @apply mb-4 text-xl;
-  }
-
-  h3 {
-    @apply mb-3 text-lg;
-  }
 }
 
 @layer components {
-  .navbar {
-    @apply w-full bg-gray-100 pb-10 font-sans shadow;
-  }
 
-  .btn {
-    @apply mr-2 mb-2 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-black;
-  }
-
-  .btn--primary {
-    @apply bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:text-gray-300 dark:shadow-lg dark:shadow-blue-800/80 dark:focus:ring-blue-800;
-  }
-
-  .btn--secondary {
-    @apply bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-white shadow-lg shadow-purple-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-purple-300 disabled:text-gray-300 dark:shadow-lg dark:shadow-purple-800/80 dark:focus:ring-purple-800;
-  }
-
-  .active {
-    @apply bg-blue-200;
-  }
-
-  .not-active {
-    @apply bg-gray-100;
-  }
-
-  .form {
-    @apply mb-8 flex flex-row items-center justify-start;
-  }
-
-  .field {
-    @apply mr-4 border-0 border-b bg-white pt-2 pb-2 pr-0 pl-0 text-base text-gray-900 outline-none;
-  }
-
-  .card {
-    @apply mb-4 rounded bg-slate-800 px-8 pt-6 pb-8 text-white shadow-md dark:bg-gray-100 dark:text-slate-900;
-  }
 }
 
 @layer utilities {
-  .filter-none {
-    filter: none;
-  }
 
-  .filter-grayscale {
-    filter: grayscale(100%);
-  }
 }
