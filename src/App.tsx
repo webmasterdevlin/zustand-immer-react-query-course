@@ -3,9 +3,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter } from 'react-router-dom';
-
 import Routes from './Routes';
-
 import FallbackRenderer from './components/FallbackRenderer';
 import NavigationBar from './components/NavigationBar';
 import { useThemeStore } from './store/themeStore';
