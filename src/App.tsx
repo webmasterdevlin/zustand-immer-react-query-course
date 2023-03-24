@@ -28,11 +28,11 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <NavigationBar />
-        <ErrorBoundary fallbackRender={FallbackRenderer}>
-          <div className={' bg-white px-6 py-8 shadow-xl ring-1 ring-slate-900/5 dark:bg-slate-800 dark:text-white'}>
+        <div className={' bg-white px-6 py-8 shadow-xl ring-1 ring-slate-900/5 dark:bg-slate-800 dark:text-white'}>
+          <ErrorBoundary fallbackRender={FallbackRenderer}>
             <Routes />
-          </div>
-        </ErrorBoundary>
+          </ErrorBoundary>
+        </div>
         <ReactQueryDevtools initialIsOpen={false} />
       </BrowserRouter>
     </QueryClientProvider>
