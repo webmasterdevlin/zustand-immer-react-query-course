@@ -7,6 +7,7 @@ import UpdateUiLabel from '../components/UpdateUiLabel';
 import useAddHero from '../features/heroes/hooks/useAddHero';
 import useFetchHeroes from '../features/heroes/hooks/useFetchHeroes';
 import useRemoveHero from '../features/heroes/hooks/useRemoveHero';
+import { keys } from '../features/keyNames';
 import type { HeroModel } from '../features/heroes/hero';
 
 const HeroesPage = () => {
@@ -17,7 +18,7 @@ const HeroesPage = () => {
   const [counter, setCounter] = useState('0');
 
   const handleSoftDelete = (id: string) => {
-    queryClient.setQueryData<{ data: HeroModel[] }>('heroes', prevData => {
+    queryClient.setQueryData<{ data: HeroModel[] }>([keys.heroes], prevData => {
       return {
         data: prevData?.data?.filter(h => {
           return h.id !== id;
@@ -77,7 +78,7 @@ const HeroesPage = () => {
         <Button
           color="primary"
           onClick={() => {
-            return queryClient.invalidateQueries('heroes');
+            return queryClient.invalidateQueries([keys.heroes]);
           }}
         >
           Re-Fetch

@@ -7,6 +7,7 @@ import UpdateUiLabel from '../components/UpdateUiLabel';
 import useAddAntiHero from '../features/anti-heroes/hooks/useAddAntiHero';
 import useFetchAntiHeroes from '../features/anti-heroes/hooks/useFetchAntiHeroes';
 import useRemoveAntiHero from '../features/anti-heroes/hooks/useRemoveAntiHero';
+import { keys } from '../features/keyNames';
 import type { AntiHeroModel } from '../features/anti-heroes/antiHero';
 
 const AntiHeroesPage = () => {
@@ -17,7 +18,7 @@ const AntiHeroesPage = () => {
   const [counter, setCounter] = useState('0');
 
   const handleSoftDelete = (id: string) => {
-    queryClient.setQueryData<{ data: AntiHeroModel[] }>('antiHeroes', input => {
+    queryClient.setQueryData<{ data: AntiHeroModel[] }>([keys.antiHeroes], input => {
       return {
         data: input?.data?.filter(h => {
           return h.id !== id;
@@ -77,7 +78,7 @@ const AntiHeroesPage = () => {
         <Button
           color="primary"
           onClick={() => {
-            return queryClient.invalidateQueries('antiHeroes');
+            return queryClient.invalidateQueries([keys.antiHeroes]);
           }}
         >
           Re-Fetch

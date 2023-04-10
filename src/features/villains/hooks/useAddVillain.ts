@@ -1,5 +1,5 @@
 import { useMutation } from 'react-query';
-import { queryClient } from '../../../../src/App';
+import { queryClient } from '../../../App';
 import { EndPoints } from '../../../axios/api-config';
 import { postAxios } from '../../../axios/generic-api-calls';
 import { keys } from '../../keyNames';

@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
 import UpdateUiLabel from '../components/UpdateUiLabel';
+import { keys } from '../features/keyNames';
 import useAddVillain from '../features/villains/hooks/useAddVillain';
 import useFetchVillains from '../features/villains/hooks/useFetchVillains';
 import useRemoveVillain from '../features/villains/hooks/useRemoveVillain';
@@ -18,7 +19,7 @@ const VillainsPage = () => {
   const [counter, setCounter] = useState('0');
 
   const handleSoftDelete = (id: string) => {
-    queryClient.setQueryData<{ data: VillainModel[] }>('villains', input => {
+    queryClient.setQueryData<{ data: VillainModel[] }>([keys.villains], input => {
       return {
         data: input?.data?.filter(h => {
           return h.id !== id;
@@ -78,7 +79,7 @@ const VillainsPage = () => {
         <Button
           color="primary"
           onClick={() => {
-            return queryClient.invalidateQueries('villains');
+            return queryClient.invalidateQueries([keys.villains]);
           }}
         >
           Re-Fetch

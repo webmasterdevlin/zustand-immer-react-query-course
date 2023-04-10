@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/.zshrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useAddAntiHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useAddAntiHero.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useFetchAntiHeroes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useFetchAntiHeroes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useRemoveAntiHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useRemoveAntiHero.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useUpdateAntiHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useUpdateAntiHero.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/heroes/hooks/useAddHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/hooks/useAddHero.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/heroes/hooks/useFetchHeroes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/hooks/useFetchHeroes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/heroes/hooks/useRemoveHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/hooks/useRemoveHero.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/heroes/hooks/useUpdateHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/hooks/useUpdateHero.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useAddVillain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/hooks/useAddVillain.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useRemoveVillain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/hooks/useRemoveVillain.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useUpdateVillain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/hooks/useUpdateVillain.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AntiHeroesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AntiHeroesPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HeroesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HeroesPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/VillainsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/VillainsPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/create-query-provider-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/create-query-provider-wrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/testing-library-utils.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/testing-library-utils.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="vite" />
+        <entry key="$PROJECT_DIR$" value="tanstack" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,6 +103,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "/Users/inmetadeveloper/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -302,6 +323,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="convert to tanstack query" />
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
