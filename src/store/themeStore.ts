@@ -1,4 +1,4 @@
-import produce from 'immer';
+import { produce } from 'immer';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { Draft } from 'immer';
