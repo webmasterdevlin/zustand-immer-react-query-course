@@ -14,7 +14,7 @@ console.log('user2:', user2);
 
 /*
 let user3 = {
-  name: 'Ping',
+  name: 'John',
   age: 30,
   school: {
     name: 'MIT'
@@ -22,15 +22,16 @@ let user3 = {
 };
 
 let user4 = {...user3};
+// let user4 = JSON.parse(JSON.stringify(user3));
 
-user3.name = 'Pong';
+user3.name = 'Mike';
 user4.school.name = 'Caltech';
 
-console.log('user1:', user3);
+console.log('user3:', user3);
 
-console.log('user2:', user4);
+console.log('user4:', user4);
 
-// let user4 = JSON.parse(JSON.stringify(user3));
+
 
 */
 // WARNING:
