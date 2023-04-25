@@ -12,9 +12,7 @@ import type { ThemeStoreType } from './store/themeStore';
 export const queryClient = new QueryClient();
 
 function App() {
-  const { isDark } = useThemeStore((state: ThemeStoreType) => {
-    return state.theme;
-  });
+  const { isDark } = useThemeStore(state => state.theme);
 
   useEffect(() => {
     if (isDark) {
