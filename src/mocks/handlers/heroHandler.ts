@@ -32,8 +32,8 @@ export const heroHandler = [
       : res(ctx.status(404));
   }),
 
-  rest.post(`${baseUrl}/heroes`, (req, res, ctx) => {
-    return res(ctx.json(req.body));
+  rest.post(`${baseUrl}/heroes`, async (req, res, ctx) => {
+    return res(ctx.json(await req.json()));
   }),
 
   rest.put(`${baseUrl}/heroes/:id`, (req, res, ctx) => {
