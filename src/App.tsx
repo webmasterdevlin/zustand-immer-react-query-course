@@ -7,9 +7,8 @@ import Routes from './Routes';
 import FallbackRenderer from './components/FallbackRenderer';
 import NavigationBar from './components/NavigationBar';
 import { useThemeStore } from './store/themeStore';
-import type { ThemeStoreType } from './store/themeStore';
 
-export const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
 function App() {
   const { isDark } = useThemeStore(state => {

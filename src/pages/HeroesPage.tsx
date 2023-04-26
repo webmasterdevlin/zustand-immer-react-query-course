@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { queryClient } from '../App';
+import { useQueryClient } from 'react-query';
 import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
@@ -11,11 +11,12 @@ import { keys } from '../features/keyNames';
 import type { HeroModel } from '../features/heroes/hero';
 
 const HeroesPage = () => {
+  const queryClient = useQueryClient();
   const { data: response, status } = useFetchHeroes();
   const { mutate: removeHero } = useRemoveHero();
   const { mutate: addHero } = useAddHero();
   /* local state*/
-  const [counter, setCounter] = useState('0');
+  const [tracker, setTracker] = useState('0');
 
   const handleSoftDelete = (id: string) => {
     queryClient.setQueryData<{ data: HeroModel[] }>([keys.heroes], prevData => {
@@ -42,13 +43,13 @@ const HeroesPage = () => {
             <div data-testid="hero-card" key={h.id} className={'flex items-center justify-between'}>
               <h1>
                 <span>{`${h.firstName} ${h.lastName} is ${h.knownAs}`}</span>
-                {counter === h.id && <span> - marked</span>}
+                {tracker === h.id && <span> - marked</span>}
               </h1>
               <div>
                 <Button
                   color={'primary'}
                   onClick={() => {
-                    setCounter(h.id);
+                    setTracker(h.id);
                   }}
                 >
                   Mark

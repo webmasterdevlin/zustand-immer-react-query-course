@@ -1,11 +1,12 @@
-import { useMutation } from 'react-query';
-import { queryClient } from '../../../App';
+import { useMutation, useQueryClient } from 'react-query';
 import { EndPoints } from '../../../axios/api-config';
 import { deleteAxios } from '../../../axios/generic-api-calls';
 import { keys } from '../../keyNames';
 import type { VillainModel } from '../villain';
 
 export default function useRemoveVillain() {
+  const queryClient = useQueryClient();
+
   return useMutation(
     villainId => {
       return deleteAxios<void>(EndPoints.villains, villainId);

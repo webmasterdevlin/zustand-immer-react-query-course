@@ -1,11 +1,12 @@
-import { useMutation } from 'react-query';
-import { queryClient } from '../../../App';
+import { useMutation, useQueryClient } from 'react-query';
 import { EndPoints } from '../../../axios/api-config';
 import { deleteAxios } from '../../../axios/generic-api-calls';
 import { keys } from '../../keyNames';
 import type { AntiHeroModel } from '../antiHero';
 
 export default function useRemoveAntiHero() {
+  const queryClient = useQueryClient();
+
   return useMutation(
     antiHeroId => {
       return deleteAxios(EndPoints.antiHeroes, antiHeroId);

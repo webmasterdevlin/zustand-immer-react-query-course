@@ -1,11 +1,12 @@
-import { useMutation } from 'react-query';
-import { queryClient } from '../../../App';
+import { useMutation, useQueryClient } from 'react-query';
 import { EndPoints } from '../../../axios/api-config';
 import { putAxios } from '../../../axios/generic-api-calls';
 import { keys } from '../../keyNames';
 import type { AntiHeroModel } from '../antiHero';
 
 export default function useUpdateAntiHero() {
+  const queryClient = useQueryClient();
+
   return useMutation(
     antiHero => {
       return putAxios<AntiHeroModel, AntiHeroModel>(EndPoints.antiHeroes, antiHero.id, antiHero);

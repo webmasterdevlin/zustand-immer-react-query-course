@@ -1,6 +1,5 @@
 import { useState } from 'react';
-
-import { queryClient } from '../App';
+import { useQueryClient } from 'react-query';
 import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
@@ -12,6 +11,7 @@ import useRemoveVillain from '../features/villains/hooks/useRemoveVillain';
 import type { VillainModel } from '../features/villains/villain';
 
 const VillainsPage = () => {
+  const queryClient = useQueryClient();
   const { data: response, status } = useFetchVillains();
   const { mutate: removeVillain } = useRemoveVillain();
   const { mutate: addVillain } = useAddVillain();

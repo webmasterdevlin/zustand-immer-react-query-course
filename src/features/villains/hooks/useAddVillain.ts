@@ -1,11 +1,12 @@
-import { useMutation } from 'react-query';
-import { queryClient } from '../../../App';
+import { useMutation, useQueryClient } from 'react-query';
 import { EndPoints } from '../../../axios/api-config';
 import { postAxios } from '../../../axios/generic-api-calls';
 import { keys } from '../../keyNames';
 import type { VillainModel } from '../villain';
 
 export default function useAddVillain() {
+  const queryClient = useQueryClient();
+
   return useMutation(
     villain => {
       return postAxios<VillainModel>(EndPoints.villains, villain);

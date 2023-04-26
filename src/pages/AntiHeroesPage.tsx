@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { queryClient } from '../App';
+import { useQueryClient } from 'react-query';
 import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
@@ -11,6 +11,7 @@ import { keys } from '../features/keyNames';
 import type { AntiHeroModel } from '../features/anti-heroes/antiHero';
 
 const AntiHeroesPage = () => {
+  const queryClient = useQueryClient();
   const { data: response, status } = useFetchAntiHeroes();
   const { mutate: removeAntiHero } = useRemoveAntiHero();
   const { mutate: addAntiHero } = useAddAntiHero();

@@ -1,11 +1,12 @@
-import { useMutation } from 'react-query';
-import { queryClient } from '../../../App';
+import { useMutation, useQueryClient } from 'react-query';
 import { EndPoints } from '../../../axios/api-config';
 import { postAxios } from '../../../axios/generic-api-calls';
 import { keys } from '../../keyNames';
 import type { HeroModel } from '../hero';
 
 export default function useAddHero() {
+  const queryClient = useQueryClient();
+
   return useMutation(
     hero => {
       return postAxios<HeroModel>(EndPoints.heroes, hero);
