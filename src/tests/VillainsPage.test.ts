@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import type { Route } from '@playwright/test';
 
 const homePageUrl = 'http://localhost:5173/';
 const villainsEndpoint = '**/api/villains';
@@ -11,7 +10,7 @@ const knownAsSelector = 'Known As';
 
 test('Should add a new villain', async ({ page }) => {
   await page.goto(homePageUrl);
-  await page.route(villainsEndpoint, async (route: Route) => {
+  await page.route(villainsEndpoint, async route => {
     route.fulfill({
       status: 200,
       body: JSON.stringify([]),
@@ -26,7 +25,7 @@ test('Should add a new villain', async ({ page }) => {
   await page.getByLabel(houseSelector).fill('inmeta consulting');
   await page.getByLabel(houseSelector).press('Tab');
   await page.getByLabel(knownAsSelector).fill('Dev');
-  await page.route(villainsEndpoint, (route: Route) => {
+  await page.route(villainsEndpoint, route => {
     route.fulfill({
       status: 201,
       body: JSON.stringify({
