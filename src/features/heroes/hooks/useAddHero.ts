@@ -12,9 +12,9 @@ export default function useAddHero() {
       return postAxios<HeroModel>(EndPoints.heroes, hero);
     },
     {
-      onSuccess: res => {
+      onSuccess: ({ data }) => {
         queryClient.setQueryData<{ data: HeroModel[] }>([keys.heroes], cache => {
-          return cache?.data ? { data: [...cache.data, res.data] } : { data: [res.data] };
+          return cache?.data ? { data: [...cache.data, data] } : { data: [data] };
         });
       },
     },

@@ -28,7 +28,7 @@ const AntiHeroesPage = () => {
     });
   };
 
-  if (status === 'error') return <p>Error :(</p>;
+  if (status === 'error') return <p>Error 😟</p>;
 
   return (
     <div>
