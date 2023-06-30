@@ -1,4 +1,4 @@
-## React Query Course with Zustand, Immer, and React Table
+## Tanstack Query Course with Zustand, Immer, and React Table
 
 #### Tech tools
 
@@ -8,14 +8,23 @@
 - https://zod.dev
 - https://tailwindcss.com
 - https://zustand-demo.pmnd.rs
-- https://react-query-v3.tanstack.com
+- https://tanstack.com
 - https://vitest.dev
 - https://playwright.dev
 
 ```sh
 $ git clone https://github.com/webmasterdevlin/zustand-immer-react-query-course.git
+```
+
+```sh
 $ cd zustand-immer-react-query-course
+```
+
+```sh
 $ pnpm install
+```
+
+```sh
 $ pnpm start
 ```
 
@@ -23,6 +32,9 @@ $ pnpm start
 
 ```sh
 $ npx playwright install
+```
+
+```sh
 $ pnpm test:e2e
 ```
 
