@@ -15,7 +15,7 @@ const InputBox = ({ register, name, label, errors, ...rest }: Props) => {
       <label className="capitalize" htmlFor={name}>
         {label}
       </label>
-      <input id={name} {...register(name)} {...rest} />
+      <input className="text-black" id={name} {...register(name)} {...rest} />
       <ErrorMessage
         errors={errors}
         name={name}
