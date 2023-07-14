@@ -10,6 +10,7 @@
     "build": "vite build",
     "test:unit": "vitest",
     "test:unit.watch": "vitest watch",
+    "test:unit.ui": "vitest --ui --api 1337",
     "test:unit.converage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "test:e2e.debug": "playwright test --debug",

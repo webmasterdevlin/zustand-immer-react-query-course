@@ -60,7 +60,7 @@ The React app, and the fake web service will run concurrently.
 - write integration tests for the fetch todos function of WorkTodosPage.tsx by creating ./src/pages/tests/WorkTodosPage.test.ts
 - run the tests, pnpm run test, and see if the todos are rendered
 
-#### React Query persist cache between tests
+#### TanStack Query persist cache between tests
 
 - the beforeEach does not work
 
