@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import React from 'react';
+import { cn } from '../utils/style';
 
 type Props = {
   children: React.ReactNode;
@@ -32,7 +32,7 @@ export default function Button({ disabled, color = 'default', ...rest }: Props) 
       break;
   }
 
-  const className = clsx(defaultClasses, colorClasses, '', '');
+  const className = cn(defaultClasses, colorClasses);
 
   return (
     <button className={className} {...rest}>

@@ -11,7 +11,7 @@ const knownAsSelector = 'Known As';
 test('Should add a new villain', async ({ page }) => {
   await page.goto(homePageUrl);
   await page.route(villainsEndpoint, async route => {
-    route.fulfill({
+    await route.fulfill({
       status: 200,
       body: JSON.stringify([]),
     });
