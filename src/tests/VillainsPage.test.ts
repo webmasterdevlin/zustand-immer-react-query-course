@@ -11,10 +11,7 @@ const knownAsSelector = 'Known As';
 test('Should add a new villain', async ({ page }) => {
   await page.goto(homePageUrl);
   await page.route(villainsEndpoint, async route => {
-    await route.fulfill({
-      body: JSON.stringify([]),
-      status: 200,
-    });
+    await route.fulfill({ json: [] });
   });
   await page.getByRole('button', { name: 'villains' }).click();
   await page.getByLabel(firstNameSelector).click();
@@ -27,14 +24,15 @@ test('Should add a new villain', async ({ page }) => {
   await page.getByLabel(knownAsSelector).fill('Dev');
   await page.route(villainsEndpoint, route => {
     route.fulfill({
-      body: JSON.stringify({
-        firstName: 'Devlin',
-        house: 'inmeta consulting',
-        id: '7ggew732dw',
-        knownAs: 'Dev',
-        lastName: 'Duldulao',
-      }),
-      status: 201,
+      json: [
+        {
+          firstName: 'Devlin',
+          house: 'inmeta consulting',
+          id: '7ggew732dw',
+          knownAs: 'Dev',
+          lastName: 'Duldulao',
+        },
+      ],
     });
   });
   await page.getByRole('button', { name: 'Save Character' }).click();

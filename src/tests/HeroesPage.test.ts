@@ -4,7 +4,7 @@ test.beforeEach(async ({ page }) => {
   // mock heroes http request
   await page.route('**/api/heroes', route => {
     route.fulfill({
-      body: JSON.stringify([
+      json: [
         {
           firstName: 'Barry',
           house: 'DC',
@@ -19,8 +19,7 @@ test.beforeEach(async ({ page }) => {
           knownAs: 'Cyclopes',
           lastName: 'Summer',
         },
-      ]),
-      status: 200,
+      ],
     });
   });
 });
