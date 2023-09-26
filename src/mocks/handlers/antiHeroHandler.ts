@@ -4,18 +4,18 @@ const baseUrl = '**/api';
 
 export const ANTI_HEROES = [
   {
-    id: '4893hfwuig',
     firstName: 'Eddy',
-    lastName: 'Brock',
     house: 'Marvel',
+    id: '4893hfwuig',
     knownAs: 'Venom',
+    lastName: 'Brock',
   },
   {
-    id: '9greg7t767g',
     firstName: 'Wade',
-    lastName: 'Wilson',
     house: 'Marvel',
+    id: '9greg7t767g',
     knownAs: 'Deadpool',
+    lastName: 'Wilson',
   },
 ];
 
