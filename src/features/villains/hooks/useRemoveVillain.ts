@@ -12,6 +12,11 @@ export default function useRemoveVillain() {
       return deleteAxios<void>(EndPoints.villains, villainId);
     },
     {
+      // If the mutation fails, use the context returned from onMutate to roll back
+      onError: (err, variables, context) => {
+        if (context?.backup) queryClient.setQueryData<VillainModel[]>([keys.villains], context.backup.data);
+      },
+
       onMutate: async (villainId: string) => {
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
         await queryClient.cancelQueries([keys.villains]);
@@ -30,11 +35,6 @@ export default function useRemoveVillain() {
           });
 
         return { backup };
-      },
-
-      // If the mutation fails, use the context returned from onMutate to roll back
-      onError: (err, variables, context) => {
-        if (context?.backup) queryClient.setQueryData<VillainModel[]>([keys.villains], context.backup.data);
       },
       // Always refetch after error or success:
       onSettled: () => {

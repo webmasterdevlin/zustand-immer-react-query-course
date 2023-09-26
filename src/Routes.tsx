@@ -43,37 +43,37 @@ const TablePage = Loadable(
 );
 
 export const pathNames = {
-  home: '/',
-  heroes: '/heroes',
   antiHeroes: '/anti-heroes',
-  villains: '/villains',
+  heroes: '/heroes',
+  home: '/',
   table: '/table',
+  villains: '/villains',
 } as const;
 
 const lazyRoutes: RouteObject[] = [
   {
+    element: <HomePage />,
     path: pathNames.home,
-    element: <HomePage />,
   },
   {
-    path: pathNames.heroes,
     element: <HeroesPage />,
+    path: pathNames.heroes,
   },
   {
-    path: pathNames.antiHeroes,
     element: <AntiHeroesPage />,
+    path: pathNames.antiHeroes,
   },
   {
-    path: pathNames.villains,
     element: <VillainsPage />,
+    path: pathNames.villains,
   },
   {
-    path: pathNames.table,
     element: <TablePage />,
+    path: pathNames.table,
   },
   {
-    path: '*',
     element: <HomePage />,
+    path: '*',
   },
 ];
 

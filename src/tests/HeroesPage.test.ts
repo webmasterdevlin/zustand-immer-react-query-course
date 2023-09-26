@@ -4,23 +4,23 @@ test.beforeEach(async ({ page }) => {
   // mock heroes http request
   await page.route('**/api/heroes', route => {
     route.fulfill({
-      status: 200,
       body: JSON.stringify([
         {
-          id: '7ggew732dw',
           firstName: 'Barry',
-          lastName: 'Allen',
           house: 'DC',
+          id: '7ggew732dw',
           knownAs: 'Flash',
+          lastName: 'Allen',
         },
         {
-          id: '1ggew732dw',
           firstName: 'Scott',
-          lastName: 'Summer',
           house: 'Marvel',
+          id: '1ggew732dw',
           knownAs: 'Cyclopes',
+          lastName: 'Summer',
         },
       ]),
+      status: 200,
     });
   });
 });

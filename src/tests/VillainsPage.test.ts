@@ -12,8 +12,8 @@ test('Should add a new villain', async ({ page }) => {
   await page.goto(homePageUrl);
   await page.route(villainsEndpoint, async route => {
     await route.fulfill({
-      status: 200,
       body: JSON.stringify([]),
+      status: 200,
     });
   });
   await page.getByRole('button', { name: 'villains' }).click();
@@ -27,14 +27,14 @@ test('Should add a new villain', async ({ page }) => {
   await page.getByLabel(knownAsSelector).fill('Dev');
   await page.route(villainsEndpoint, route => {
     route.fulfill({
-      status: 201,
       body: JSON.stringify({
-        id: '7ggew732dw',
         firstName: 'Devlin',
-        lastName: 'Duldulao',
         house: 'inmeta consulting',
+        id: '7ggew732dw',
         knownAs: 'Dev',
+        lastName: 'Duldulao',
       }),
+      status: 201,
     });
   });
   await page.getByRole('button', { name: 'Save Character' }).click();

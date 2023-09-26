@@ -5,17 +5,17 @@ const baseUrl = '**/api';
 export const VILLAINS = [
   {
     firstName: 'Lex',
-    lastName: 'Luther',
     house: 'DC',
-    knownAs: 'Lex',
     id: '3290fhe',
+    knownAs: 'Lex',
+    lastName: 'Luther',
   },
   {
     firstName: 'Max',
-    lastName: 'Eisenhardt',
     house: 'Marvel',
-    knownAs: 'Magneto',
     id: '6r8finlfy',
+    knownAs: 'Magneto',
+    lastName: 'Eisenhardt',
   },
 ];
 
@@ -33,7 +33,7 @@ export const villainHandler = [
   }),
 
   rest.post(`${baseUrl}/villains`, (req, res, ctx) => {
-    return res(ctx.json(req.body));
+    return res(ctx.json(req.json()));
   }),
 
   rest.put(`${baseUrl}/villains/:id`, (req, res, ctx) => {

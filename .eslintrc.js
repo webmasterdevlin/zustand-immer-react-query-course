@@ -9,7 +9,6 @@ module.exports = {
     es2022: true,
   },
   extends: [
-    'react-app',
     'prettier',
     'eslint:recommended',
     'eslint-config-prettier',
@@ -36,9 +35,12 @@ module.exports = {
       },
     },
   },
-  plugins: ['react', 'prettier', '@typescript-eslint', 'autofix', 'react-hooks'],
+  plugins: ['react', 'prettier', '@typescript-eslint', 'autofix', 'react-hooks', 'sort-keys-fix'],
   rules: {
     'prettier/prettier': ['error', prettierOptions],
+    'sort-keys-fix/sort-keys-fix': 'warn',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-unused-vars': 'warn',
   },
   overrides: [
     {
