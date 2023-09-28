@@ -1,6 +1,6 @@
 import { produce } from 'immer';
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, devtools } from 'zustand/middleware';
 import type { Draft } from 'immer';
 
 export type ThemeModel = {
@@ -15,39 +15,49 @@ export type ThemeStoreType = {
 };
 
 export const useThemeStore = create<ThemeStoreType, any>(
-  persist(
-    (set, get) => {
-      const theme = {
-        isDark: false,
-        user: 'John Doe',
-      };
+  devtools(
+    persist(
+      (set, get) => {
+        const theme = {
+          isDark: false,
+          user: 'John Doe',
+        };
 
-      // without immer
-      const setLightTheme = () => {
-        return set(_ => {
-          return {
-            theme: { ...get().theme, isDark: false },
-          };
-        });
-      };
+        // without immer
+        const setLightTheme = () => {
+          return set(
+            _ => {
+              return {
+                theme: { ...get().theme, isDark: false },
+              };
+            },
+            false,
+            'setLightTheme',
+          );
+        };
 
-      // with immer
-      const setDarkTheme = () => {
-        return set(
-          produce((draft: Draft<ThemeStoreType>) => {
-            draft.theme.isDark = true;
-          }),
-        );
-      };
+        // with immer
+        const setDarkTheme = () => {
+          return (
+            set(
+              produce((draft: Draft<ThemeStoreType>) => {
+                draft.theme.isDark = true;
+              }),
+            ),
+            false,
+            'setDarkTheme'
+          );
+        };
 
-      return {
-        theme,
-        setDarkTheme,
-        setLightTheme,
-      };
-    },
-    {
-      name: 'themeStore',
-    },
+        return {
+          setDarkTheme,
+          setLightTheme,
+          theme,
+        };
+      },
+      {
+        name: 'themeStore',
+      },
+    ),
   ),
 );
