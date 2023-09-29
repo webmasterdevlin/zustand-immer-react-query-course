@@ -4,6 +4,7 @@ import { CharacterFormSchema } from '../validations/character';
 import Button from './Button';
 import Card from './Card';
 import InputBox from './InputBox';
+import type { HeroModel } from '../features/heroes/hero';
 import type { CharacterFormSchemaType } from '../validations/character';
 import type { SubmitHandler } from 'react-hook-form';
 
@@ -18,17 +19,13 @@ const FormSubmission = ({ handleMutate }: Props) => {
     reset,
     formState: { isValid, isSubmitting, errors },
   } = useForm<CharacterFormSchemaType>({
-    resolver: zodResolver(CharacterFormSchema),
     mode: 'all',
+    resolver: zodResolver(CharacterFormSchema),
   });
 
-  const onSubmit: SubmitHandler<CharacterFormSchemaType> = async data => {
-    try {
-      await handleMutate(data);
-      reset();
-    } catch (e: any) {
-      alert(e.message);
-    }
+  const onSubmit: SubmitHandler<CharacterFormSchemaType> = data => {
+    handleMutate(data);
+    reset();
   };
 
   return (
