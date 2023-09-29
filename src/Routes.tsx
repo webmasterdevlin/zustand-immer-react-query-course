@@ -42,12 +42,13 @@ const TablePage = Loadable(
   }),
 );
 
+/* eslint-disable sort-keys-fix/sort-keys-fix */
 export const pathNames = {
-  antiHeroes: '/anti-heroes',
-  heroes: '/heroes',
   home: '/',
-  table: '/table',
+  heroes: '/heroes',
+  antiHeroes: '/anti-heroes',
   villains: '/villains',
+  table: '/table',
 } as const;
 
 const lazyRoutes: RouteObject[] = [
