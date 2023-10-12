@@ -8,7 +8,6 @@ import useFetchVillains from '../features/villains/hooks/useFetchVillains';
 import { useThemeStore } from '../store/themeStore';
 import Button from './Button';
 import TotalOfCharacters from './TotalOfCharacters';
-import type { ThemeStoreType } from '../store/themeStore';
 
 const NavigationBar = () => {
   const { setDarkTheme, setLightTheme } = useThemeStore();
