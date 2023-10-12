@@ -18,7 +18,7 @@ export default function Button({ disabled, color = 'default', ...rest }: Props) 
 
   switch (color) {
     case 'default':
-      colorClasses = `text-black ${disabled ? 'text-gray-400' : ''}`;
+      colorClasses = `dark:text-white text-black ${disabled ? 'text-gray-400' : ''}`;
       break;
     case 'primary':
       colorClasses = `bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:text-gray-300 dark:shadow-lg dark:shadow-blue-800/80 dark:focus:ring-blue-800  ${
