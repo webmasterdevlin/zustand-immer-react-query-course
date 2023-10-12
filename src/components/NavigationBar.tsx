@@ -12,7 +12,7 @@ import type { ThemeStoreType } from '../store/themeStore';
 
 const NavigationBar = () => {
   const { setDarkTheme, setLightTheme } = useThemeStore();
-  const themeStore = useThemeStore((state: ThemeStoreType) => {
+  const theme = useThemeStore(state => {
     return state.theme;
   });
 
@@ -47,7 +47,7 @@ const NavigationBar = () => {
         </div>
         <div>
           <div className={'mih-50 flex flex-row flex-wrap items-center justify-between gap-10 pr-10'}>
-            {themeStore.isDark ? (
+            {theme.isDark ? (
               <SunIcon className={'cursor-pointer'} onClick={setLightTheme} />
             ) : (
               <MoonIcon className={'cursor-pointer'} onClick={setDarkTheme} />
