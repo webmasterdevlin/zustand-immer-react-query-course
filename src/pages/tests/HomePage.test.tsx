@@ -3,10 +3,10 @@ import { render, screen } from '../../test-utils/testing-library-utils';
 
 // component testing
 describe('Home Page', () => {
-  it('should have welcome back', () => {
+  it('should have welcome', () => {
     render(<HomePage />);
 
-    const welcomeBack = screen.getByTestId('welcome-message');
-    expect(welcomeBack).toHaveTextContent(/welcome/i);
+    const welcome = screen.getByTestId('welcome-message');
+    expect(welcome).toHaveTextContent(/welcome/i);
   });
 });
