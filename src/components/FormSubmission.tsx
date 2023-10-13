@@ -32,28 +32,11 @@ const FormSubmission = ({ handleMutate }: Props) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={'flex flex-col items-center justify-center'}>
         <Card>
-          {/*
-          <div className={'mb-5 flex flex-col'}>
-            <label htmlFor={'firstName'}>First Name</label>
-            <input
-              className={'mr-4 border-0 border-b bg-white pt-2 pb-2 pr-0 pl-0 text-base text-gray-900 outline-none'}
-              id={'firstName'}
-              {...register('firstName')}
-            />
-            <ErrorMessage
-              errors={errors}
-              name="firstName"
-              render={e => (
-                <pre className="text-xs text-red-500">{e.message}</pre>
-              )}
-            />
-          </div>
-          */}
           <InputBox label="first name" errors={errors} name="firstName" register={register} />
           <InputBox label="last name" errors={errors} name="lastName" register={register} />
           <InputBox label="house" errors={errors} name="house" register={register} />
           <InputBox label="known as" errors={errors} name="knownAs" register={register} />
-          <Button disabled={!isValid} type="submit" color="primary">
+          <Button type="submit" color="primary" disabled={!isValid}>
             {isSubmitting ? 'submitting..' : 'Save Character'}
           </Button>
         </Card>
