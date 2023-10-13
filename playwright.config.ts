@@ -7,7 +7,7 @@ const config: PlaywrightTestConfig = {
     port: 5173,
     reuseExistingServer: true,
   },
-  testDir: 'src/tests',
+  testDir: 'src/e2e',
   fullyParallel: true,
   reporter: 'html',
   projects: [
