@@ -8,7 +8,10 @@ import type { VillainModel } from '../villain';
  * So we can use this function to sync states in different components
  * */
 export default function useFetchVillains() {
-  return useQuery([keys.villains], () => {
-    return getAxios<VillainModel[]>(EndPoints.villains);
+  return useQuery({
+    queryFn: () => {
+      return getAxios<VillainModel[]>(EndPoints.villains);
+    },
+    queryKey: [keys.villains],
   });
 }

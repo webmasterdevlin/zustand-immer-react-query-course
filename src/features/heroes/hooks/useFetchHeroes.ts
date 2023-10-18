@@ -8,7 +8,10 @@ import type { HeroModel } from '../hero';
  * So we can use this function to sync states in different components
  * */
 export default function useFetchHeroes() {
-  return useQuery([keys.heroes], () => {
-    return getAxios<HeroModel[]>(EndPoints.heroes);
+  return useQuery({
+    queryFn: () => {
+      return getAxios<HeroModel[]>(EndPoints.heroes);
+    },
+    queryKey: [keys.heroes],
   });
 }
