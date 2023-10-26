@@ -1,4 +1,4 @@
-import { rest } from 'msw';
+import { HttpResponse, http } from 'msw';
 
 const baseUrl = '**/api';
 
@@ -20,27 +20,25 @@ export const HEROES = [
 ];
 
 export const heroHandler = [
-  rest.get(`${baseUrl}/heroes`, (req, res, ctx) => {
-    return res(ctx.json(HEROES));
+  http.get(`${baseUrl}/heroes`, () => {
+    return HttpResponse.json(HEROES);
   }),
 
-  rest.delete(`${baseUrl}/heroes/:id`, (req, res, ctx) => {
-    return HEROES.find(h => {
-      return h.id === req.params.id;
-    })
-      ? res(ctx.status(200))
-      : res(ctx.status(404));
+  http.delete(`${baseUrl}/heroes/:id`, ({ params }) => {
+    const heroExist = HEROES.find(h => {
+      return h.id === params.id;
+    });
+    return new HttpResponse(null, { status: heroExist ? 200 : 404 });
   }),
 
-  rest.post(`${baseUrl}/heroes`, async (req, res, ctx) => {
-    return res(ctx.json(await req.json()));
+  http.post(`${baseUrl}/heroes`, async ({ request }) => {
+    return HttpResponse.json(request.body);
   }),
 
-  rest.put(`${baseUrl}/heroes/:id`, (req, res, ctx) => {
-    return HEROES.find(h => {
-      return h.id === req.params.id;
-    })
-      ? res(ctx.status(200))
-      : res(ctx.status(404));
+  http.put(`${baseUrl}/heroes/:id`, ({ params }) => {
+    const heroExist = HEROES.find(h => {
+      return h.id === params.id;
+    });
+    return new HttpResponse(null, { status: heroExist ? 200 : 404 });
   }),
 ];

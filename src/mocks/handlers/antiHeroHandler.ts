@@ -1,4 +1,4 @@
-import { rest } from 'msw';
+import { HttpResponse, http } from 'msw';
 
 const baseUrl = '**/api';
 
@@ -20,28 +20,26 @@ export const ANTI_HEROES = [
 ];
 
 export const antiHeroHandler = [
-  rest.get(`${baseUrl}/anti-heroes`, (req, res, ctx) => {
-    return res(ctx.json(ANTI_HEROES));
+  http.get(`${baseUrl}/anti-heroes`, () => {
+    return HttpResponse.json(ANTI_HEROES);
   }),
 
-  rest.delete(`${baseUrl}/anti-heroes/:id`, (req, res, ctx) => {
+  http.delete(`${baseUrl}/anti-heroes/:id`, ({ params }) => {
     const antiHeroExist = ANTI_HEROES.find(ah => {
-      return ah.id === req.params.id;
+      return ah.id === params.id;
     });
-    return antiHeroExist ? res(ctx.status(200)) : res(ctx.status(404));
+    return new HttpResponse(null, { status: antiHeroExist ? 200 : 404 });
   }),
 
-  rest.post(`${baseUrl}/anti-heroes`, (req, res, ctx) => {
-    return res(ctx.json(req.body));
+  http.post(`${baseUrl}/anti-heroes`, ({ request }) => {
+    return HttpResponse.json(request.body);
   }),
 
-  rest.put(`${baseUrl}/anti-heroes/:id`, (req, res, ctx) => {
-    console.log('ID:', req.params.id);
-
-    return ANTI_HEROES.find(ah => {
-      return ah.id === req.params.id;
-    })
-      ? res(ctx.status(200))
-      : res(ctx.status(404));
+  http.put(`${baseUrl}/anti-heroes/:id`, ({ params }) => {
+    console.log('ID:', params.id);
+    const antiHeroExist = ANTI_HEROES.find(ah => {
+      return ah.id === params.id;
+    });
+    return new HttpResponse(null, { status: antiHeroExist ? 200 : 404 });
   }),
 ];

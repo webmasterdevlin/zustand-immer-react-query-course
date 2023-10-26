@@ -1,4 +1,4 @@
-import { rest } from 'msw';
+import { HttpResponse, http } from 'msw';
 
 const baseUrl = '**/api';
 
@@ -20,27 +20,25 @@ export const VILLAINS = [
 ];
 
 export const villainHandler = [
-  rest.get(`${baseUrl}/villains`, (req, res, ctx) => {
-    return res(ctx.json(VILLAINS));
+  http.get(`${baseUrl}/villains`, () => {
+    return HttpResponse.json(VILLAINS);
   }),
 
-  rest.delete(`${baseUrl}/villains/:id`, (req, res, ctx) => {
-    return VILLAINS.find(v => {
-      return v.id === req.params.id;
-    })
-      ? res(ctx.status(200))
-      : res(ctx.status(404));
+  http.delete(`${baseUrl}/villains/:id`, ({ params }) => {
+    const villainExist = VILLAINS.find(v => {
+      return v.id === params.id;
+    });
+    return new HttpResponse(null, { status: villainExist ? 200 : 404 });
   }),
 
-  rest.post(`${baseUrl}/villains`, (req, res, ctx) => {
-    return res(ctx.json(req.json()));
+  http.post(`${baseUrl}/villains`, ({ request }) => {
+    return HttpResponse.json(request.body);
   }),
 
-  rest.put(`${baseUrl}/villains/:id`, (req, res, ctx) => {
-    return VILLAINS.find(v => {
-      return v.id === req.params.id;
-    })
-      ? res(ctx.status(200))
-      : res(ctx.status(404));
+  http.put(`${baseUrl}/villains/:id`, ({ params }) => {
+    const villainExist = VILLAINS.find(v => {
+      return v.id === params.id;
+    });
+    return new HttpResponse(null, { status: villainExist ? 200 : 404 });
   }),
 ];
