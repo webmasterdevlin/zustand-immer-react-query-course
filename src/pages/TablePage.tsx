@@ -9,13 +9,13 @@ const TablePage = () => {
         .fill(null)
         .map(_ => {
           return {
-            id: uuidv4(),
-            firstName: faker.name.firstName(),
-            lastName: faker.name.lastName(),
             age: Math.floor(Math.random() * 80) + 18,
-            visits: Math.floor(Math.random() * 100),
+            firstName: faker.person.firstName(),
+            id: uuidv4(),
+            lastName: faker.person.lastName(),
             progress: Math.floor(Math.random() * 10),
             status: Math.floor(Math.random() * 10) & 2 ? 'married' : 'single',
+            visits: Math.floor(Math.random() * 100),
           };
         }),
     ];
@@ -72,7 +72,7 @@ const TablePage = () => {
   }, [data]);
 
   return (
-    <div className={'mb-4 rounded bg-white px-8 pt-6 pb-8 shadow-md dark:text-slate-900'}>
+    <div className={'mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md dark:text-slate-900'}>
       <table className="min-w-full" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => {
@@ -81,7 +81,7 @@ const TablePage = () => {
                 {headerGroup.headers.map(column => {
                   return (
                     <td {...column.getHeaderProps()}>
-                      <p className={'mb-4 rounded bg-white px-8 pt-6 pb-8 shadow-md'}>{column.render('Header')}</p>
+                      <p className={'mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md'}>{column.render('Header')}</p>
                     </td>
                   );
                 })}

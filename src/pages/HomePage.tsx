@@ -1,8 +1,6 @@
 import React from 'react';
 
 const HomePage = () => {
-  console.log('HomePage');
-
   return (
     <div className={'flex h-screen flex-col items-center justify-center'}>
       <h2 data-testid="welcome-message" className={'dark:text-white'}>
