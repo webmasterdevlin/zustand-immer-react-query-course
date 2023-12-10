@@ -15,7 +15,6 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: 'src/setupTests.ts',
     reporters: 'verbose',
-    threads: true,
     coverage: {
       provider: 'istanbul',
     },
