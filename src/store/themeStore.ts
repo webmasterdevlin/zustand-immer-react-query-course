@@ -14,7 +14,7 @@ export type ThemeStoreType = {
   setDarkTheme: () => void;
 };
 
-export const useThemeStore = create<ThemeStoreType, any>(
+export const useThemeStore = create<ThemeStoreType>()(
   devtools(
     persist(
       (set, get) => {
