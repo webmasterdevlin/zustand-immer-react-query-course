@@ -17,7 +17,7 @@ export type ThemeStoreType = {
 export const useThemeStore = create<ThemeStoreType>()(
   devtools(
     persist(
-      (set, get) => {
+      set => {
         const theme = {
           isDark: false,
           user: 'John Doe',
@@ -26,9 +26,9 @@ export const useThemeStore = create<ThemeStoreType>()(
         // without immer
         const setLightTheme = () => {
           return set(
-            _ => {
+            state => {
               return {
-                theme: { ...get().theme, isDark: false },
+                theme: { ...state.theme, isDark: false },
               };
             },
             false,
