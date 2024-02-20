@@ -1,5 +1,6 @@
 {
   "name": "react-query-course",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -101,7 +102,6 @@
     "vitest": "^1.2.2",
     "zod": "^3.22.4"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead",
   "alias": {
     "process": false
   }

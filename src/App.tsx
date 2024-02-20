@@ -1,12 +1,30 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { createRouter, ErrorComponent, RouterProvider } from '@tanstack/react-router';
 import React, { useEffect } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
-import { BrowserRouter } from 'react-router-dom';
-import Routes from './Routes';
-import FallbackRenderer from './components/FallbackRenderer';
-import NavigationBar from './components/NavigationBar';
+import Spinner from './components/Spinner';
+import { routeTree } from './routeTree.gen';
 import { useThemeStore } from './store/themeStore';
+
+const router = createRouter({
+  defaultErrorComponent: ({ error }: any) => {
+    return <ErrorComponent error={error} />;
+  },
+  defaultPendingComponent: () => {
+    return (
+      <div className={'p-2 text-2xl'}>
+        <Spinner />
+      </div>
+    );
+  },
+  defaultPreload: 'intent',
+  routeTree,
+});
+
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router;
+  }
+}
 
 const queryClient = new QueryClient();
 
@@ -25,15 +43,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <NavigationBar />
-        <div className={' bg-white px-6 py-8 shadow-xl ring-1 ring-slate-900/5 dark:bg-slate-800 dark:text-white'}>
-          <ErrorBoundary fallbackRender={FallbackRenderer}>
-            <Routes />
-          </ErrorBoundary>
-        </div>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </QueryClientProvider>
   );
 }

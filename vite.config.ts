@@ -5,10 +5,11 @@ import react from '@vitejs/plugin-react';
 import eslint from 'vite-plugin-eslint';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
 import million from 'million/compiler';
+import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), eslint(), viteTsconfigPaths(), million.vite({ auto: true })],
+  plugins: [react(), eslint(), viteTsconfigPaths(), million.vite({ auto: true }), TanStackRouterVite()],
   test: {
     include: ['src/**/*.{test,spec}.{js,ts,tsx}'],
     exclude: ['src/e2e'],

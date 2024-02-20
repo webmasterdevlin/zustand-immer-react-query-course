@@ -12,18 +12,18 @@ import { server } from './mocks/server';
 // replace fetch with cross-fetch
 global.fetch = fetch;
 
-// Establish API mocking before all tests.
+// Establish API mocking before all -tests.
 beforeAll(() => {
   return server.listen();
 });
 
-// Reset any request handlers that we may add during the tests,
-// so they don't affect other tests.
+// Reset any request handlers that we may add during the -tests,
+// so they don't affect other -tests.
 afterEach(() => {
   return server.resetHandlers();
 });
 
-// Clean up after the tests are finished.
+// Clean up after the -tests are finished.
 afterAll(() => {
   cleanup();
   return server.close();

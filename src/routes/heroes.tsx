@@ -1,4 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
+import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
@@ -10,7 +11,11 @@ import useRemoveHero from '../features/heroes/hooks/useRemoveHero';
 import { keys } from '../features/keyNames';
 import type { HeroModel } from '../features/heroes/hero';
 
-const HeroesPage = () => {
+export const Route = createFileRoute('/heroes')({
+  component: Heroes,
+});
+
+function Heroes() {
   const queryClient = useQueryClient();
   const { data: response, status } = useFetchHeroes();
   const { mutate: removeHero } = useRemoveHero();
@@ -87,6 +92,6 @@ const HeroesPage = () => {
       )}
     </div>
   );
-};
+}
 
-export default HeroesPage;
+export default Heroes;

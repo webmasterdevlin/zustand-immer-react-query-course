@@ -1,4 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
+import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
@@ -10,7 +11,11 @@ import useRemoveAntiHero from '../features/anti-heroes/hooks/useRemoveAntiHero';
 import { keys } from '../features/keyNames';
 import type { AntiHeroModel } from '../features/anti-heroes/antiHero';
 
-const AntiHeroesPage = () => {
+export const Route = createFileRoute('/anti-heroes')({
+  component: AntiHeroes,
+});
+
+function AntiHeroes() {
   const queryClient = useQueryClient();
   const { data: response, status } = useFetchAntiHeroes();
   const { mutate: removeAntiHero } = useRemoveAntiHero();
@@ -87,6 +92,6 @@ const AntiHeroesPage = () => {
       )}
     </div>
   );
-};
+}
 
-export default AntiHeroesPage;
+export default AntiHeroes;

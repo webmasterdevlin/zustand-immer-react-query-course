@@ -11,17 +11,74 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as VillainsImport } from './routes/villains'
+import { Route as TableImport } from './routes/table'
+import { Route as HeroesImport } from './routes/heroes'
+import { Route as AntiHeroesImport } from './routes/anti-heroes'
+import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const VillainsRoute = VillainsImport.update({
+  path: '/villains',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const TableRoute = TableImport.update({
+  path: '/table',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const HeroesRoute = HeroesImport.update({
+  path: '/heroes',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AntiHeroesRoute = AntiHeroesImport.update({
+  path: '/anti-heroes',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const IndexRoute = IndexImport.update({
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {}
+  interface FileRoutesByPath {
+    '/': {
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/anti-heroes': {
+      preLoaderRoute: typeof AntiHeroesImport
+      parentRoute: typeof rootRoute
+    }
+    '/heroes': {
+      preLoaderRoute: typeof HeroesImport
+      parentRoute: typeof rootRoute
+    }
+    '/table': {
+      preLoaderRoute: typeof TableImport
+      parentRoute: typeof rootRoute
+    }
+    '/villains': {
+      preLoaderRoute: typeof VillainsImport
+      parentRoute: typeof rootRoute
+    }
+  }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([])
+export const routeTree = rootRoute.addChildren([
+  IndexRoute,
+  AntiHeroesRoute,
+  HeroesRoute,
+  TableRoute,
+  VillainsRoute,
+])
 
 /* prettier-ignore-end */

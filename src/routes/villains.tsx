@@ -1,4 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
+import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
@@ -10,7 +11,11 @@ import useFetchVillains from '../features/villains/hooks/useFetchVillains';
 import useRemoveVillain from '../features/villains/hooks/useRemoveVillain';
 import type { VillainModel } from '../features/villains/villain';
 
-const VillainsPage = () => {
+export const Route = createFileRoute('/villains')({
+  component: Villains,
+});
+
+function Villains() {
   const queryClient = useQueryClient();
   const { data: response, status } = useFetchVillains();
   const { mutate: removeVillain } = useRemoveVillain();
@@ -87,6 +92,6 @@ const VillainsPage = () => {
       )}
     </div>
   );
-};
+}
 
-export default VillainsPage;
+export default Villains;

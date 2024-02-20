@@ -1,8 +1,14 @@
 import { faker } from '@faker-js/faker';
+import { createFileRoute } from '@tanstack/react-router';
 import React, { useEffect, useMemo } from 'react';
 import { useTable } from 'react-table';
 import { v4 as uuidv4 } from 'uuid';
-const TablePage = () => {
+
+export const Route = createFileRoute('/table')({
+  component: Table,
+});
+
+function Table() {
   const data = useMemo(() => {
     return [
       ...Array(100)
@@ -104,6 +110,6 @@ const TablePage = () => {
       </table>
     </div>
   );
-};
+}
 
-export default TablePage;
+export default Table;

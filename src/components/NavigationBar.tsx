@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sun as SunIcon, Moon as MoonIcon } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
-import { pathNames } from '../Routes';
+
 import useFetchAntiHeroes from '../features/anti-heroes/hooks/useFetchAntiHeroes';
 import useFetchHeroes from '../features/heroes/hooks/useFetchHeroes';
 import useFetchVillains from '../features/villains/hooks/useFetchVillains';
@@ -24,18 +24,18 @@ const NavigationBar = () => {
     <>
       <div className={'mih-50 flex flex-row flex-wrap items-center justify-between'}>
         <div>
-          {Object.entries(pathNames)?.map(([key, value], index) => {
-            return (
-              <Button
-                key={index}
-                onClick={() => {
-                  navigate(value);
-                }}
-              >
-                {key}
-              </Button>
-            );
-          })}
+          {/* {Object.entries(pathNames)?.map(([key, value], index) => {*/}
+          {/*  return (*/}
+          {/*    <Button*/}
+          {/*      key={index}*/}
+          {/*      onClick={() => {*/}
+          {/*        navigate(value);*/}
+          {/*      }}*/}
+          {/*    >*/}
+          {/*      {key}*/}
+          {/*    </Button>*/}
+          {/*  );*/}
+          {/* })}*/}
         </div>
         <div>
           <div className={'flex'}>
