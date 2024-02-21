@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createRouter, ErrorComponent, RouterProvider } from '@tanstack/react-router';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Spinner from './components/Spinner';
 import { routeTree } from './routeTree.gen';
 import { useThemeStore } from './store/themeStore';
