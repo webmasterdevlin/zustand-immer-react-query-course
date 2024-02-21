@@ -1,5 +1,4 @@
-import { Link, useNavigate } from '@tanstack/react-router';
-import React from 'react';
+import { Link } from '@tanstack/react-router';
 import { Sun as SunIcon, Moon as MoonIcon } from 'react-feather';
 
 import useFetchAntiHeroes from '../features/anti-heroes/hooks/useFetchAntiHeroes';
@@ -7,7 +6,6 @@ import useFetchHeroes from '../features/heroes/hooks/useFetchHeroes';
 import useFetchVillains from '../features/villains/hooks/useFetchVillains';
 import { useThemeStore } from '../store/themeStore';
 import { root } from '../utils/routePaths';
-import Button from './Button';
 import TotalOfCharacters from './TotalOfCharacters';
 
 const NavigationBar = () => {
@@ -16,7 +14,6 @@ const NavigationBar = () => {
     return state.theme;
   });
 
-  const navigate = useNavigate();
   const { data: antiHeroes } = useFetchAntiHeroes();
   const { data: heroes } = useFetchHeroes();
   const { data: villains } = useFetchVillains();
@@ -25,18 +22,6 @@ const NavigationBar = () => {
     <>
       <div className={'mih-50 flex flex-row flex-wrap items-center justify-between'}>
         <div className="ml-10 flex items-baseline gap-2 space-x-4">
-          {/* {Object.entries(pathNames)?.map(([key, value], index) => {*/}
-          {/*  return (*/}
-          {/*    <Button*/}
-          {/*      key={index}*/}
-          {/*      onClick={() => {*/}
-          {/*        navigate(value);*/}
-          {/*      }}*/}
-          {/*    >*/}
-          {/*      {key}*/}
-          {/*    </Button>*/}
-          {/*  );*/}
-          {/* })}*/}
           {root.map(([to, label]) => {
             return (
               <Link
