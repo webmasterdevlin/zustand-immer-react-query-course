@@ -1,7 +1,6 @@
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Outlet, useRouterState, createRootRoute } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
-import React from 'react';
 import NavigationBar from '../components/NavigationBar';
 import Spinner from '../components/Spinner';
 
@@ -22,7 +21,7 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <>
-      {/* <NavigationBar />*/}
+      <NavigationBar />
       <div className={'text-3xl'}>
         <RouterSpinner />
       </div>

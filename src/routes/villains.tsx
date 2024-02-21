@@ -40,7 +40,7 @@ function Villains() {
       <TitleBar title={'Villains Page'} />
       <FormSubmission handleMutate={addVillain} />
       <UpdateUiLabel />
-      {status === 'loading' ? (
+      {status === 'pending' ? (
         <h2>Loading.. Please wait..</h2>
       ) : (
         response?.data?.map(v => {
@@ -80,11 +80,11 @@ function Villains() {
         })
       )}
 
-      {response?.data?.length === 0 && status !== 'loading' && (
+      {response?.data?.length === 0 && status !== 'pending' && (
         <Button
           color="primary"
           onClick={() => {
-            return queryClient.invalidateQueries([keys.villains]);
+            return queryClient.invalidateQueries({ queryKey: [keys.villains] });
           }}
         >
           Re-Fetch

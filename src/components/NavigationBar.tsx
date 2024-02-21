@@ -1,11 +1,12 @@
+import { Link, useNavigate } from '@tanstack/react-router';
 import React from 'react';
 import { Sun as SunIcon, Moon as MoonIcon } from 'react-feather';
-import { useNavigate } from 'react-router-dom';
 
 import useFetchAntiHeroes from '../features/anti-heroes/hooks/useFetchAntiHeroes';
 import useFetchHeroes from '../features/heroes/hooks/useFetchHeroes';
 import useFetchVillains from '../features/villains/hooks/useFetchVillains';
 import { useThemeStore } from '../store/themeStore';
+import { root } from '../utils/routePaths';
 import Button from './Button';
 import TotalOfCharacters from './TotalOfCharacters';
 
@@ -23,7 +24,7 @@ const NavigationBar = () => {
   return (
     <>
       <div className={'mih-50 flex flex-row flex-wrap items-center justify-between'}>
-        <div>
+        <div className="ml-10 flex items-baseline gap-2 space-x-4">
           {/* {Object.entries(pathNames)?.map(([key, value], index) => {*/}
           {/*  return (*/}
           {/*    <Button*/}
@@ -36,6 +37,19 @@ const NavigationBar = () => {
           {/*    </Button>*/}
           {/*  );*/}
           {/* })}*/}
+          {root.map(([to, label]) => {
+            return (
+              <Link
+                to={to}
+                key={to}
+                preload="intent"
+                className="hidden rounded-md px-3 py-2 text-sm capitalize text-gray-300 hover:bg-gray-700 hover:text-white md:block"
+                activeProps={{ className: 'font-bold' }}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </div>
         <div>
           <div className={'flex'}>
