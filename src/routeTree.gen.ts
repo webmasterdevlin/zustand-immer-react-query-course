@@ -13,10 +13,10 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as VillainsImport } from './routes/villains'
 import { Route as TableImport } from './routes/table'
 import { Route as HeroesImport } from './routes/heroes'
 import { Route as IndexImport } from './routes/index'
+import { Route as VillainsIndexImport } from './routes/villains/index'
 
 // Create Virtual Routes
 
@@ -28,11 +28,6 @@ const AntiHeroesLazyRoute = AntiHeroesLazyImport.update({
   path: '/anti-heroes',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/anti-heroes.lazy').then((d) => d.Route))
-
-const VillainsRoute = VillainsImport.update({
-  path: '/villains',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const TableRoute = TableImport.update({
   path: '/table',
@@ -46,6 +41,11 @@ const HeroesRoute = HeroesImport.update({
 
 const IndexRoute = IndexImport.update({
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const VillainsIndexRoute = VillainsIndexImport.update({
+  path: '/villains/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -65,12 +65,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TableImport
       parentRoute: typeof rootRoute
     }
-    '/villains': {
-      preLoaderRoute: typeof VillainsImport
-      parentRoute: typeof rootRoute
-    }
     '/anti-heroes': {
       preLoaderRoute: typeof AntiHeroesLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/villains/': {
+      preLoaderRoute: typeof VillainsIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -82,8 +82,8 @@ export const routeTree = rootRoute.addChildren([
   IndexRoute,
   HeroesRoute,
   TableRoute,
-  VillainsRoute,
   AntiHeroesLazyRoute,
+  VillainsIndexRoute,
 ])
 
 /* prettier-ignore-end */

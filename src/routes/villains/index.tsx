@@ -1,17 +1,17 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
-import Button from '../components/Button';
-import FormSubmission from '../components/FormSubmission';
-import TitleBar from '../components/TitleBar';
-import UpdateUiLabel from '../components/UpdateUiLabel';
-import { keys } from '../features/keyNames';
-import useAddVillain from '../features/villains/hooks/useAddVillain';
-import useFetchVillains from '../features/villains/hooks/useFetchVillains';
-import useRemoveVillain from '../features/villains/hooks/useRemoveVillain';
-import type { VillainModel } from '../features/villains/villain';
+import Button from '../../components/Button';
+import FormSubmission from '../../components/FormSubmission';
+import TitleBar from '../../components/TitleBar';
+import UpdateUiLabel from '../../components/UpdateUiLabel';
+import { keys } from '../../features/keyNames';
+import useAddVillain from '../../features/villains/hooks/useAddVillain';
+import useFetchVillains from '../../features/villains/hooks/useFetchVillains';
+import useRemoveVillain from '../../features/villains/hooks/useRemoveVillain';
+import type { VillainModel } from '../../features/villains/villain';
 
-export const Route = createFileRoute('/villains')({
+export const Route = createFileRoute('/villains/')({
   component: Villains,
 });
 
