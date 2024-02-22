@@ -2,10 +2,11 @@
 
 #### Tech tools
 
-- https://pnpm.io
+- https://bun.sh
 - https://vitejs.dev
 - https://react-hook-form.com
 - https://zod.dev
+- https://tanstack.com/router/latest
 - https://tailwindcss.com
 - https://zustand-demo.pmnd.rs
 - https://tanstack.com
@@ -21,11 +22,11 @@ $ cd zustand-immer-react-query-course
 ```
 
 ```sh
-$ pnpm install
+$ bun install
 ```
 
 ```sh
-$ pnpm start
+$ bun run start
 ```
 
 #### E2e testing
@@ -35,20 +36,22 @@ $ npx playwright install
 ```
 
 ```sh
-$ pnpm test:e2e
+$ bun run test:e2e
 ```
 
 The React app, and the fake web service will run concurrently.
 
 ![screenshot](./screenshot.png)
 
-## Set up React Testing Library and Vitest
+## Vitest
 
-- create ./src/test-utils/testing-library-util.tsx that will be a copy of the root component
+## Tanstack Router
+
+- routeTree.gen.ts is an auto generated route tree
 
 ## Set up MSW for mocking API calls
 
-- pnpm i -D msw
+- bun i -D msw
 - the msw is a mocking library which will intercept the requests and responses in the integration tests
 - create ./src/mocks/handler/todoHandler.ts
 - create ./src/mocks/handler/index.ts
