@@ -7,7 +7,7 @@
     "dev": "vite",
     "preview": "vite preview",
     "backend": "json-server --watch json-server/db.json --routes json-server/routes.json",
-    "start": "concurrently \"pnpm backend\" \"pnpm dev\"",
+    "start": "concurrently \"bun run backend\" \"bun run dev\"",
     "build": "vite build",
     "test.unit": "vitest",
     "test.unit.watch": "vitest watch",
