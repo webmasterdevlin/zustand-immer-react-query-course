@@ -5,12 +5,9 @@
 import '@testing-library/jest-dom';
 
 import { cleanup } from '@testing-library/react';
-import { fetch } from 'cross-fetch';
+
 import { beforeAll, afterEach, afterAll } from 'vitest';
 import { server } from './mocks/server';
-
-// replace fetch with cross-fetch
-global.fetch = fetch;
 
 // Establish API mocking before all -tests.
 beforeAll(() => {
