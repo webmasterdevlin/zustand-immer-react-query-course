@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { EndPoints } from '../../../axios/api-config';
-import { postAxios } from '../../../axios/generic-api-calls';
+import { EndPoints } from '../../../http-client/api-config';
+import { postAxios } from '../../../http-client/generic-api-calls';
 import { keys } from '../../keyNames';
 import type { AntiHeroModel } from '../antiHero';
 
