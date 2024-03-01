@@ -26,7 +26,7 @@ function RootComponent() {
         <RouterSpinner />
         <Outlet />
       </div>
-      <ReactQueryDevtools buttonPosition="top-right" initialIsOpen={false} />
+      <ReactQueryDevtools buttonPosition="bottom-left" initialIsOpen={false} />
       <TanStackRouterDevtools position="bottom-right" />
     </>
   );
