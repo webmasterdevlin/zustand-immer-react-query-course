@@ -1,7 +1,8 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '../components/Button';
+import Dedupe from '../components/Dedupe';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
 import UpdateUiLabel from '../components/UpdateUiLabel';
@@ -33,11 +34,18 @@ function Heroes() {
     });
   };
 
+  useEffect(() => {
+    console.log('Heroes component rendered');
+    // for deduping demo
+    fetch('https://jsonplaceholder.typicode.com/todos/1');
+  }, []);
+
   if (status === 'error') return <p>Error 😟</p>;
 
   return (
     <div>
       <TitleBar title={'Heroes Page'} />
+      <Dedupe />
       <FormSubmission handleMutate={addHero} />
       <UpdateUiLabel />
       {status === 'pending' ? (

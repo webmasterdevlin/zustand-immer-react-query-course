@@ -26,7 +26,7 @@ declare module '@tanstack/react-router' {
   }
 }
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 function App() {
   const { isDark } = useThemeStore(state => {
