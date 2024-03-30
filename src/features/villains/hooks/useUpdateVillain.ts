@@ -8,7 +8,7 @@ export default function useUpdateVillain() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: villain => {
+    mutationFn: (villain: VillainModel) => {
       return putAxios<VillainModel, VillainModel>(EndPoints.villains, villain.id, villain);
     },
 

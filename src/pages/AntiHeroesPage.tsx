@@ -35,7 +35,7 @@ const AntiHeroesPage = () => {
       <TitleBar title={'Anti-Heroes Page'} />
       <FormSubmission handleMutate={addAntiHero} />
       <UpdateUiLabel />
-      {status === 'loading' ? (
+      {status === 'pending' ? (
         <h2>Loading.. Please wait..</h2>
       ) : (
         response?.data?.map(ah => {
@@ -75,11 +75,11 @@ const AntiHeroesPage = () => {
         })
       )}
 
-      {response?.data?.length === 0 && status !== 'loading' && (
+      {response?.data?.length === 0 && status !== 'pending' && (
         <Button
           color="primary"
           onClick={() => {
-            return queryClient.invalidateQueries([keys.antiHeroes]);
+            return queryClient.invalidateQueries({ queryKey: [keys.antiHeroes] });
           }}
         >
           Re-Fetch
