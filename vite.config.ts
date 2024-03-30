@@ -2,13 +2,12 @@
 /// <reference types="vite/client" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import eslint from 'vite-plugin-eslint';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
 import million from 'million/compiler';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), eslint(), viteTsconfigPaths(), million.vite({ auto: true })],
+  plugins: [react(), viteTsconfigPaths(), million.vite({ auto: true })],
   test: {
     include: ['src/**/*.{test,spec}.{js,ts,tsx}'],
     exclude: ['src/e2e'],
