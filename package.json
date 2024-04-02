@@ -31,7 +31,6 @@
     "axios": "^1.6.8",
     "clsx": "^2.1.0",
     "immer": "^10.0.4",
-    "million": "^3.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.13",
