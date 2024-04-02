@@ -11,7 +11,6 @@ module.exports = {
   extends: [
     'prettier',
     'eslint:recommended',
-    'eslint-config-prettier',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
@@ -35,9 +34,8 @@ module.exports = {
       },
     },
   },
-  plugins: ['react', 'prettier', '@typescript-eslint', 'autofix', 'react-hooks', 'sort-keys-fix'],
+  plugins: ['autofix', 'react-hooks', 'sort-keys-fix'],
   rules: {
-    'prettier/prettier': ['error', prettierOptions],
     'sort-keys-fix/sort-keys-fix': 'warn',
     '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
@@ -46,7 +44,6 @@ module.exports = {
     {
       files: ['**/*.ts?(x)'],
       rules: {
-        'prettier/prettier': ['warn', prettierOptions],
         'react/react-in-jsx-scope': 'off',
         camelcase: 'error',
         'spaced-comment': 'error',
