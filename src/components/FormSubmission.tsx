@@ -4,7 +4,6 @@ import { CharacterFormSchema } from '../validations/character';
 import Button from './Button';
 import Card from './Card';
 import InputBox from './InputBox';
-import type { HeroModel } from '../features/heroes/hero';
 import type { CharacterFormSchemaType } from '../validations/character';
 import type { SubmitHandler } from 'react-hook-form';
 

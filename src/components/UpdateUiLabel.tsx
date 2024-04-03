@@ -1,5 +1,3 @@
-import React from 'react';
-
 const UpdateUiLabel = () => {
   return (
     <div className={'mb-2 flex justify-end'}>

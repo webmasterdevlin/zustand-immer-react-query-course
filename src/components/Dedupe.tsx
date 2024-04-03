@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import useFetchHeroes from '../features/heroes/hooks/useFetchHeroes';
 
 export default function Dedupe() {

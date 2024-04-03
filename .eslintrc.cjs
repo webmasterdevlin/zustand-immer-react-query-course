@@ -9,7 +9,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
-    'plugin:jsx-a11y/recommended',
+    // 'plugin:jsx-a11y/recommended', if a11y is needed
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

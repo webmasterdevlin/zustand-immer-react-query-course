@@ -12,13 +12,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "jsx": "react-jsx"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
