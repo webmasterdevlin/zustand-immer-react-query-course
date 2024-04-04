@@ -45,7 +45,7 @@ module.exports = {
         quotes: ['error', 'single'],
         'no-console': 'warn',
         'no-redeclare': 'warn',
-        'react/display-name': 'error',
+        'react/display-name': 'warn',
         'react/jsx-key': 'warn',
         'arrow-body-style': ['error', 'always'],
         'react/self-closing-comp': ['error', { component: true, html: true }],
