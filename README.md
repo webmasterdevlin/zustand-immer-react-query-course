@@ -1,4 +1,7 @@
 ## Tanstack Query Course with Zustand, Immer, and React Table
+### There are two versions of this application. One using React Router and one using Tanstack Router
+- Tanstack Router: `main` branch
+- React Router: `using-react-router` branch
 
 #### Tech tools
 
