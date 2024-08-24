@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="fix react query devtools">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/villains/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/villains/index.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="fix react query devtools" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -197,7 +193,7 @@
       <workItem from="1708460452570" duration="4990000" />
       <workItem from="1708471205958" duration="464000" />
       <workItem from="1708495934005" duration="1743000" />
-      <workItem from="1724528988170" duration="1993000" />
+      <workItem from="1724528988170" duration="3601000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1644671503056</created>
