@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="fix react query devtools">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/villains/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/villains/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +31,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "webmasterdevlin"
+  }
+}]]></component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -55,6 +63,12 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/webmasterdevlin/zustand-immer-react-query-course.git",
+    "accountId": "c980d4b8-65c4-4031-9b60-6f274ea945e3"
+  }
+}]]></component>
   <component name="KubernetesApiPersistence">
     <option name="context" value="myCluster" />
   </component>
@@ -81,27 +95,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tanstack-router&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/devlinduldulao/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/src/routes&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/inmetadeveloper/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/devlinduldulao/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/devlinduldulao/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/src/routes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "/Users/inmetadeveloper/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/prettier",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
+    "ts.external.directory.path": "/Users/devlinduldulao/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="ReactDesignerToolWindowState">
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.intellij.reactbuddy.reactComponents" value="false" />
+        <entry key="com.intellij.reactbuddy.reactInspector" value="false" />
+      </map>
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/routes" />
@@ -114,6 +136,13 @@
       <recent name="$PROJECT_DIR$/src/pages" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-WS-242.20224.426" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -168,6 +197,7 @@
       <workItem from="1708460452570" duration="4990000" />
       <workItem from="1708471205958" duration="464000" />
       <workItem from="1708495934005" duration="1743000" />
+      <workItem from="1724528988170" duration="1993000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1644671503056</created>

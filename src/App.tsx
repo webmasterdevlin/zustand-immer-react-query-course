@@ -5,7 +5,13 @@ import Spinner from './components/Spinner';
 import { routeTree } from './routeTree.gen';
 import { useThemeStore } from './store/themeStore';
 
+export const queryClient = new QueryClient();
+
 const router = createRouter({
+  context: {
+    auth: undefined!,
+    queryClient: queryClient
+  },
   defaultErrorComponent: ({ error }: any) => {
     return <ErrorComponent error={error} />;
   },
@@ -17,6 +23,9 @@ const router = createRouter({
     );
   },
   defaultPreload: 'intent',
+  // Since we're using React Query, we don't want loader calls to ever be stale
+  // This will ensure that the loader is always called when the route is preloaded or visited
+  defaultPreloadStaleTime: 0,
   routeTree,
 });
 
@@ -25,8 +34,6 @@ declare module '@tanstack/react-router' {
     router: typeof router;
   }
 }
-
-export const queryClient = new QueryClient();
 
 function App() {
   const { isDark } = useThemeStore(state => {
@@ -43,7 +50,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}  />
     </QueryClientProvider>
   );
 }

@@ -13,6 +13,10 @@ import type { VillainModel } from '../../features/villains/villain';
 
 export const Route = createFileRoute('/villains/')({
   component: Villains,
+
+  loader: ({context}) => {
+    return ''
+  }
 });
 
 function Villains() {

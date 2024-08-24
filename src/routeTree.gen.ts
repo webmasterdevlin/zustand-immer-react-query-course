@@ -54,22 +54,37 @@ const VillainsIndexRoute = VillainsIndexImport.update({
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
     '/heroes': {
+      id: '/heroes'
+      path: '/heroes'
+      fullPath: '/heroes'
       preLoaderRoute: typeof HeroesImport
       parentRoute: typeof rootRoute
     }
     '/table': {
+      id: '/table'
+      path: '/table'
+      fullPath: '/table'
       preLoaderRoute: typeof TableImport
       parentRoute: typeof rootRoute
     }
     '/anti-heroes': {
+      id: '/anti-heroes'
+      path: '/anti-heroes'
+      fullPath: '/anti-heroes'
       preLoaderRoute: typeof AntiHeroesLazyImport
       parentRoute: typeof rootRoute
     }
     '/villains/': {
+      id: '/villains/'
+      path: '/villains'
+      fullPath: '/villains'
       preLoaderRoute: typeof VillainsIndexImport
       parentRoute: typeof rootRoute
     }
@@ -78,12 +93,44 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([
+export const routeTree = rootRoute.addChildren({
   IndexRoute,
   HeroesRoute,
   TableRoute,
   AntiHeroesLazyRoute,
   VillainsIndexRoute,
-])
+})
 
 /* prettier-ignore-end */
+
+/* ROUTE_MANIFEST_START
+{
+  "routes": {
+    "__root__": {
+      "filePath": "__root.tsx",
+      "children": [
+        "/",
+        "/heroes",
+        "/table",
+        "/anti-heroes",
+        "/villains/"
+      ]
+    },
+    "/": {
+      "filePath": "index.tsx"
+    },
+    "/heroes": {
+      "filePath": "heroes.tsx"
+    },
+    "/table": {
+      "filePath": "table.tsx"
+    },
+    "/anti-heroes": {
+      "filePath": "anti-heroes.lazy.tsx"
+    },
+    "/villains/": {
+      "filePath": "villains/index.tsx"
+    }
+  }
+}
+ROUTE_MANIFEST_END */
