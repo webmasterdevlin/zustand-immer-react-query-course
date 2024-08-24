@@ -17,7 +17,7 @@
     "test.e2e.debug": "playwright test --debug",
     "test.e2e.codegen": "playwright codegen http://localhost:5173",
     "test.e2e.html": "playwright show-report",
-    "eslint": "eslint --fix --ext .ts,.tsx ./src",
+    "eslint": "eslint src/",
     "checkTs": "tsc --noEmit",
     "prepare": "husky"
   },

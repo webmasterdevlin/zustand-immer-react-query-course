@@ -17,7 +17,7 @@ export default function useUpdateVillain() {
       if (context?.backup) queryClient.setQueryData<VillainModel[]>([keys.villains], context.backup.data);
     },
 
-    // eslint-disable-next-line autofix/no-unused-vars
+     
     onMutate: async () => {
       // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
       await queryClient.cancelQueries({ queryKey: [keys.villains] });
