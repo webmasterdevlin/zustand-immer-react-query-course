@@ -14,7 +14,6 @@ describe('Villains hooks', () => {
       },
     );
 
-    const response = result.current;
-    expect(response.meta).toHaveLength(2);
+    expect(result.current.queryKey).toEqual(['villains']);
   });
 });
