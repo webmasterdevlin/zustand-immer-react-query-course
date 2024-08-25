@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="fix react query devtools" />
+    <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="migrate from useQuery to queryOptions">
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavigationBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavigationBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useFetchVillains.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/hooks/villainsQueryOptions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/villains/tests/useFetchVillains.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/tests/useFetchVillains.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/__root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/__root.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/anti-heroes.lazy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/anti-heroes.lazy.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/heroes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/heroes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/villains/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/villains/index.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,12 +40,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "webmasterdevlin"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;webmasterdevlin&quot;
   }
-}]]></component>
+}</component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -59,12 +72,12 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/webmasterdevlin/zustand-immer-react-query-course.git",
-    "accountId": "c980d4b8-65c4-4031-9b60-6f274ea945e3"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/webmasterdevlin/zustand-immer-react-query-course.git&quot;,
+    &quot;accountId&quot;: &quot;c980d4b8-65c4-4031-9b60-6f274ea945e3&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">
     <option name="context" value="myCluster" />
   </component>
@@ -106,7 +119,7 @@
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
-    "prettierjs.PrettierConfiguration.Package": "/Users/inmetadeveloper/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/prettier",
+    "prettierjs.PrettierConfiguration.Package": "/Users/devlinduldulao/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/prettier",
     "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
     "ts.external.directory.path": "/Users/devlinduldulao/Documents/DEVELOPMENT/React/zustand-immer-react-query-course/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -378,12 +391,15 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="convert to tanstack query" />
     <MESSAGE value="update" />
     <MESSAGE value="fix root" />
     <MESSAGE value="fix react query devtools" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix react query devtools" />
+    <MESSAGE value="migrate from useQuery to queryOptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="migrate from useQuery to queryOptions" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

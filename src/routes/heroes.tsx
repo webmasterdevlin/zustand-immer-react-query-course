@@ -14,6 +14,9 @@ import type { HeroModel } from '../features/heroes/hero';
 
 export const Route = createFileRoute('/heroes')({
   component: Heroes,
+  loader: ({ context }) => {
+    return {};
+  },
 });
 
 function Heroes() {

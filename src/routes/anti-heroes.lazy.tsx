@@ -13,6 +13,15 @@ import type { AntiHeroModel } from '../features/anti-heroes/antiHero';
 
 export const Route = createLazyFileRoute('/anti-heroes')({
   component: AntiHeroes,
+  errorComponent: () => {
+    return <h1>Error loading Anti-Heroes 😟</h1>;
+  },
+  notFoundComponent: () => {
+    return <h1>Anti-Heroes not found</h1>;
+  },
+  pendingComponent: () => {
+    return <h1>Loading Anti-Heroes...</h1>;
+  },
 });
 
 function AntiHeroes() {

@@ -9,8 +9,7 @@ export const queryClient = new QueryClient();
 
 const router = createRouter({
   context: {
-    auth: undefined!,
-    queryClient: queryClient
+    queryClient: queryClient,
   },
   defaultErrorComponent: ({ error }: any) => {
     return <ErrorComponent error={error} />;
@@ -50,7 +49,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router}  />
+      <RouterProvider router={router} />
     </QueryClientProvider>
   );
 }

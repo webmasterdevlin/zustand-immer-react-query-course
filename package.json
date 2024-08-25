@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "backend": "json-server --watch json-server/db.json --routes json-server/routes.json",
+    "backend": "json-server --watch json-server/db.json --routes json-server/routes.json --delay 5000",
     "start": "concurrently \"pnpm run backend\" \"pnpm run dev\"",
     "build": "vite build",
     "test.unit": "vitest",
