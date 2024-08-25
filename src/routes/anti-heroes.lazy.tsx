@@ -22,6 +22,7 @@ export const Route = createLazyFileRoute('/anti-heroes')({
   pendingComponent: () => {
     return <h1>Loading Anti-Heroes...</h1>;
   },
+  // no loader here because this is a lazy route
 });
 
 function AntiHeroes() {
