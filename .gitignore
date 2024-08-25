@@ -48,3 +48,5 @@ vite.config.ts.timestamp-*
 
 test-results
 playwright-report
+.idea
+.vscode
