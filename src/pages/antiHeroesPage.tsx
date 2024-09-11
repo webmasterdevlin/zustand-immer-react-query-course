@@ -5,18 +5,24 @@ import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
 import UpdateUiLabel from '../components/UpdateUiLabel';
-import antiHeroesQueryOptions from '../features/anti-heroes/hooks/antiHeroesQueryOptions';
-import useAddAntiHero from '../features/anti-heroes/hooks/useAddAntiHero';
-import useRemoveAntiHero from '../features/anti-heroes/hooks/useRemoveAntiHero';
+import antiHeroesQueryOptions from '../features/anti-heroes/serverState/antiHeroesQueryOptions';
+import useAddAntiHero from '../features/anti-heroes/serverState/useAddAntiHero';
+import useRemoveAntiHero from '../features/anti-heroes/serverState/useRemoveAntiHero';
 import { keys } from '../features/keyNames';
 import type { AntiHeroModel } from '../features/anti-heroes/antiHero';
 
-export const loader = () => {
-  return queryClient.ensureQueryData(antiHeroesQueryOptions());
-};
+export async function loader() {
+  try {
+    return queryClient.ensureQueryData(antiHeroesQueryOptions());
+  } catch (error) {
+    return null;
+  }
+}
 
 const AntiHeroesPage = () => {
   const queryClient = useQueryClient();
+
+  // status does not have pending. means no more conditional 'if (pending)'
   const { data: response, status } = useSuspenseQuery(antiHeroesQueryOptions());
   const { mutate: removeAntiHero } = useRemoveAntiHero();
   const { mutate: addAntiHero } = useAddAntiHero();

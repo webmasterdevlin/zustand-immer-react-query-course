@@ -1,13 +1,13 @@
 import { renderHook } from '@testing-library/react-hooks';
 
 import { createQueryProviderWrapper } from '../../../test-utils/create-query-provider-wrapper';
-import useFetchHeroes from '../hooks/useFetchHeroes';
+import heroesQueryOptions from '../serverState/heroesQueryOptions';
 
-describe('Heroes hooks', () => {
-  it('should fire useFetchHeroes', async () => {
+describe('Heroes serverState', () => {
+  it('should fire heroesQueryOptions', async () => {
     const { result, waitFor } = renderHook(
       () => {
-        return useFetchHeroes();
+        return heroesQueryOptions();
       },
       {
         wrapper: createQueryProviderWrapper(),

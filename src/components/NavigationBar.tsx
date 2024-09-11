@@ -1,8 +1,8 @@
 import React from 'react';
 import { Sun as SunIcon, Moon as MoonIcon } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
+import { useThemeStore } from '../clientState/themeStore';
 import { pathNames } from '../routes';
-import { useThemeStore } from '../store/themeStore';
 import Button from './Button';
 
 const NavigationBar = () => {

@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 import { createQueryProviderWrapper } from '../../../test-utils/create-query-provider-wrapper';
-import useAddHero from '../hooks/useAddHero';
+import useAddHero from '../serverState/useAddHero';
 import type { HeroModel } from '../hero';
 
 describe.skip('useAddHero', () => {

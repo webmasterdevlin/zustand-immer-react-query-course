@@ -1,14 +1,14 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 
 import { createQueryProviderWrapper } from '../../../test-utils/create-query-provider-wrapper';
-import useFetchHeroes from '../hooks/useFetchHeroes';
-import useRemoveHero from '../hooks/useRemoveHero';
+import heroesQueryOptions from '../serverState/heroesQueryOptions';
+import useRemoveHero from '../serverState/useRemoveHero';
 
-describe('Heroes hooks', () => {
-  it('should fire useFetchHeroes', async () => {
+describe('Heroes serverState', () => {
+  it('should fire heroesQueryOptions', async () => {
     const { result, waitFor: addWaitFor } = renderHook(
       () => {
-        return useFetchHeroes();
+        return heroesQueryOptions();
       },
       {
         wrapper: createQueryProviderWrapper(),

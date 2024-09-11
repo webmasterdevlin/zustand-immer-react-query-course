@@ -2,8 +2,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { useThemeStore } from './clientState/themeStore';
 import Routes from './routes';
-import { useThemeStore } from './store/themeStore';
 
 export const queryClient = new QueryClient();
 

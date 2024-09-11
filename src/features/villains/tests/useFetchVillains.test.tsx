@@ -1,13 +1,13 @@
 import { renderHook } from '@testing-library/react-hooks';
 
 import { createQueryProviderWrapper } from '../../../test-utils/create-query-provider-wrapper';
-import useFetchVillains from '../hooks/useFetchVillains';
+import villainsQueryOptions from '../serverState/villainsQueryOptions';
 
-describe('Villains hooks', () => {
-  it('should fire useFetchVillains', async () => {
+describe('Villains serverState', () => {
+  it('should fire villainsQueryOptions', async () => {
     const { result, waitFor } = renderHook(
       () => {
-        return useFetchVillains();
+        return villainsQueryOptions();
       },
       {
         wrapper: createQueryProviderWrapper(),

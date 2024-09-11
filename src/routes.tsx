@@ -1,10 +1,10 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Index from './pages';
 import { loader as antiHeroesLoader } from './pages/antiHeroesPage';
-import HeroesPage from './pages/heroesPage';
+import HeroesPage, { loader as heroesLoader } from './pages/heroesPage';
 import Root from './pages/root';
 import TablePage from './pages/tablePage';
-import VillainsPage from './pages/villainsPage';
+import VillainsPage, { loader as villainsLoader } from './pages/villainsPage';
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 export const pathNames = {
@@ -22,8 +22,8 @@ const routes = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
       <Route index element={<Index />} />
-      <Route path="/heroes" element={<HeroesPage />} />
-      <Route path="/villains" element={<VillainsPage />} />
+      <Route path="/heroes" element={<HeroesPage />} loader={heroesLoader} />
+      <Route path="/villains" element={<VillainsPage />} loader={villainsLoader} />
       <Route
         path="/anti-heroes"
         lazy={async () => {

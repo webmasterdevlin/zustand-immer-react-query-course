@@ -1,9 +1,9 @@
 import { renderHook } from '@testing-library/react-hooks';
 
 import { createQueryProviderWrapper } from '../../../test-utils/create-query-provider-wrapper';
-import antiHeroesQueryOptions from '../hooks/antiHeroesQueryOptions';
+import antiHeroesQueryOptions from '../serverState/antiHeroesQueryOptions';
 
-describe('Anti Heroes hooks', () => {
+describe('Anti Heroes serverState', () => {
   it('should fire antiHeroesQueryOptions', async () => {
     const { result, waitFor } = renderHook(
       () => {
