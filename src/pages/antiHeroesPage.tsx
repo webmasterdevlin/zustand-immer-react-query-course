@@ -1,6 +1,5 @@
-import { useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
+import { type QueryClient, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import { queryClient } from '../App';
 import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
@@ -10,13 +9,12 @@ import useAddAntiHero from '../features/anti-heroes/serverState/useAddAntiHero';
 import useRemoveAntiHero from '../features/anti-heroes/serverState/useRemoveAntiHero';
 import { keys } from '../features/keyNames';
 import type { AntiHeroModel } from '../features/anti-heroes/antiHero';
+import type { LoaderFunction } from 'react-router-dom';
 
-export async function loader() {
-  try {
+export async function loader(queryClient: QueryClient) {
+  return function (request: LoaderFunction) {
     return queryClient.ensureQueryData(antiHeroesQueryOptions());
-  } catch (error) {
-    return null;
-  }
+  };
 }
 
 const AntiHeroesPage = () => {

@@ -1,3 +1,5 @@
+import { QueryClient } from '@tanstack/react-query';
+import { Suspense } from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Index from './pages';
 import { loader as antiHeroesLoader } from './pages/antiHeroesPage';
@@ -17,18 +19,45 @@ export const pathNames = {
   table: '/table',
 } as const;
 
+export const queryClient = new QueryClient();
+
 // selecting pages that are lazy loaded or eagerly loaded
 const routes = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
       <Route index element={<Index />} />
-      <Route path="/heroes" element={<HeroesPage />} loader={heroesLoader} />
-      <Route path="/villains" element={<VillainsPage />} loader={villainsLoader} />
+      <Route
+        path="/heroes"
+        loader={() => {
+          return heroesLoader(queryClient);
+        }}
+        element={<HeroesPage />}
+      />
+      <Route
+        path="/villains"
+        loader={() => {
+          return villainsLoader(queryClient);
+        }}
+        element={
+          <Suspense fallback={<h2>Fallback component from the VillainsPage suspense</h2>}>
+            <VillainsPage />
+          </Suspense>
+        }
+      />
       <Route
         path="/anti-heroes"
+        loader={() => {
+          return antiHeroesLoader(queryClient);
+        }}
         lazy={async () => {
           const { default: AntiHeroesPage } = await import('./pages/antiHeroesPage');
-          return { element: <AntiHeroesPage />, loader: antiHeroesLoader };
+          return {
+            element: (
+              <Suspense fallback={<h1>Fallback component from the AntiHeroesPage suspense</h1>}>
+                <AntiHeroesPage />
+              </Suspense>
+            ),
+          };
         }}
       />
       <Route
@@ -51,5 +80,9 @@ const routes = createBrowserRouter(
 );
 
 export default function Routes() {
-  return <RouterProvider router={routes} />;
+  return (
+    <Suspense fallback={<h1>Fallback component from the root suspense</h1>}>
+      <RouterProvider router={routes} />
+    </Suspense>
+  );
 }

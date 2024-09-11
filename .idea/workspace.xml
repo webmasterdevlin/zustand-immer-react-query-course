@@ -6,32 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavigationBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavigationBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/hooks/antiHeroesQueryOptions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/serverState/antiHeroesQueryOptions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useAddAntiHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/serverState/useAddAntiHero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useRemoveAntiHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/serverState/useRemoveAntiHero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/hooks/useUpdateAntiHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/serverState/useUpdateAntiHero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/anti-heroes/tests/useFetchAntiHeroes.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/anti-heroes/tests/useFetchAntiHeroes.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/hooks/useAddHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/serverState/useAddHero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/hooks/useFetchHeroes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/serverState/heroesQueryOptions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/hooks/useRemoveHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/serverState/useRemoveHero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/hooks/useUpdateHero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/serverState/useUpdateHero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/tests/useAddHero.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/tests/useAddHero.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/tests/useFetchHeroes.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/tests/useFetchHeroes.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/heroes/tests/useRemoveHero.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/heroes/tests/useRemoveHero.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useAddVillain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/serverState/useAddVillain.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useFetchVillains.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/serverState/villainsQueryOptions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useRemoveVillain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/serverState/useRemoveVillain.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/villains/hooks/useUpdateVillain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/serverState/useUpdateVillain.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/villains/tests/useFetchVillains.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/villains/tests/useFetchVillains.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/antiHeroesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/antiHeroesPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/heroesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/heroesPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/villainsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/villainsPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/immer.explanation.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientState/immer.explanation.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/themeStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientState/themeStore.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -355,7 +335,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726042222393</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="update">
+      <option name="closed" value="true" />
+      <created>1726076736673</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1726076736673</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,10 +365,10 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="convert to tanstack query" />
-    <MESSAGE value="update" />
     <MESSAGE value="ignore idea vscode" />
     <MESSAGE value="add lazy load sign-in/up" />
-    <option name="LAST_COMMIT_MESSAGE" value="add lazy load sign-in/up" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

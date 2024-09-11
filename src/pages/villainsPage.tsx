@@ -1,6 +1,5 @@
 import { useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import { queryClient } from '../App';
 import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
@@ -10,13 +9,13 @@ import useAddVillain from '../features/villains/serverState/useAddVillain';
 import useRemoveVillain from '../features/villains/serverState/useRemoveVillain';
 import villainsQueryOptions from '../features/villains/serverState/villainsQueryOptions';
 import type { VillainModel } from '../features/villains/villain';
+import type { QueryClient } from '@tanstack/react-query';
+import type { LoaderFunction } from 'react-router-dom';
 
-export async function loader() {
-  try {
+export async function loader(queryClient: QueryClient) {
+  return function (request: LoaderFunction) {
     return queryClient?.ensureQueryData(villainsQueryOptions());
-  } catch (error) {
-    return null;
-  }
+  };
 }
 
 const VillainsPage = () => {
