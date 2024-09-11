@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HomePage = () => {
+const Index = () => {
   return (
     <div className={'flex h-screen flex-col items-center justify-center'}>
       <h2 data-testid="welcome-message" className={'dark:text-white'}>
@@ -10,4 +10,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Index;

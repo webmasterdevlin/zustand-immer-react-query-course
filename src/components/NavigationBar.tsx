@@ -1,10 +1,10 @@
 import React from 'react';
 import { Sun as SunIcon, Moon as MoonIcon } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
-import { pathNames } from '../Routes';
 import useFetchAntiHeroes from '../features/anti-heroes/hooks/useFetchAntiHeroes';
 import useFetchHeroes from '../features/heroes/hooks/useFetchHeroes';
 import useFetchVillains from '../features/villains/hooks/useFetchVillains';
+import { pathNames } from '../routes';
 import { useThemeStore } from '../store/themeStore';
 import Button from './Button';
 import TotalOfCharacters from './TotalOfCharacters';

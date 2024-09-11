@@ -2,6 +2,7 @@ import { faker } from '@faker-js/faker';
 import React, { useEffect, useMemo } from 'react';
 import { useTable } from 'react-table';
 import { v4 as uuidv4 } from 'uuid';
+
 const TablePage = () => {
   const data = useMemo(() => {
     return [

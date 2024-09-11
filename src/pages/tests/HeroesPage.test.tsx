@@ -1,5 +1,5 @@
 import { render, screen } from '../../test-utils/testing-library-utils';
-import HeroesPage from '../HeroesPage';
+import HeroesPage from '../heroesPage';
 
 // integration testing
 describe('Heroes Page', () => {
