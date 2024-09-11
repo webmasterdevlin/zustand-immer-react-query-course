@@ -20,9 +20,21 @@ import { Route as VillainsIndexImport } from './routes/villains/index'
 
 // Create Virtual Routes
 
+const SignUpLazyImport = createFileRoute('/sign-up')()
+const SignInLazyImport = createFileRoute('/sign-in')()
 const AntiHeroesLazyImport = createFileRoute('/anti-heroes')()
 
 // Create/Update Routes
+
+const SignUpLazyRoute = SignUpLazyImport.update({
+  path: '/sign-up',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/sign-up.lazy').then((d) => d.Route))
+
+const SignInLazyRoute = SignInLazyImport.update({
+  path: '/sign-in',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/sign-in.lazy').then((d) => d.Route))
 
 const AntiHeroesLazyRoute = AntiHeroesLazyImport.update({
   path: '/anti-heroes',
@@ -81,6 +93,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AntiHeroesLazyImport
       parentRoute: typeof rootRoute
     }
+    '/sign-in': {
+      id: '/sign-in'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof SignInLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/sign-up': {
+      id: '/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof SignUpLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/villains/': {
       id: '/villains/'
       path: '/villains'
@@ -98,6 +124,8 @@ export interface FileRoutesByFullPath {
   '/heroes': typeof HeroesRoute
   '/table': typeof TableRoute
   '/anti-heroes': typeof AntiHeroesLazyRoute
+  '/sign-in': typeof SignInLazyRoute
+  '/sign-up': typeof SignUpLazyRoute
   '/villains': typeof VillainsIndexRoute
 }
 
@@ -106,6 +134,8 @@ export interface FileRoutesByTo {
   '/heroes': typeof HeroesRoute
   '/table': typeof TableRoute
   '/anti-heroes': typeof AntiHeroesLazyRoute
+  '/sign-in': typeof SignInLazyRoute
+  '/sign-up': typeof SignUpLazyRoute
   '/villains': typeof VillainsIndexRoute
 }
 
@@ -115,15 +145,39 @@ export interface FileRoutesById {
   '/heroes': typeof HeroesRoute
   '/table': typeof TableRoute
   '/anti-heroes': typeof AntiHeroesLazyRoute
+  '/sign-in': typeof SignInLazyRoute
+  '/sign-up': typeof SignUpLazyRoute
   '/villains/': typeof VillainsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/heroes' | '/table' | '/anti-heroes' | '/villains'
+  fullPaths:
+    | '/'
+    | '/heroes'
+    | '/table'
+    | '/anti-heroes'
+    | '/sign-in'
+    | '/sign-up'
+    | '/villains'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/heroes' | '/table' | '/anti-heroes' | '/villains'
-  id: '__root__' | '/' | '/heroes' | '/table' | '/anti-heroes' | '/villains/'
+  to:
+    | '/'
+    | '/heroes'
+    | '/table'
+    | '/anti-heroes'
+    | '/sign-in'
+    | '/sign-up'
+    | '/villains'
+  id:
+    | '__root__'
+    | '/'
+    | '/heroes'
+    | '/table'
+    | '/anti-heroes'
+    | '/sign-in'
+    | '/sign-up'
+    | '/villains/'
   fileRoutesById: FileRoutesById
 }
 
@@ -132,6 +186,8 @@ export interface RootRouteChildren {
   HeroesRoute: typeof HeroesRoute
   TableRoute: typeof TableRoute
   AntiHeroesLazyRoute: typeof AntiHeroesLazyRoute
+  SignInLazyRoute: typeof SignInLazyRoute
+  SignUpLazyRoute: typeof SignUpLazyRoute
   VillainsIndexRoute: typeof VillainsIndexRoute
 }
 
@@ -140,6 +196,8 @@ const rootRouteChildren: RootRouteChildren = {
   HeroesRoute: HeroesRoute,
   TableRoute: TableRoute,
   AntiHeroesLazyRoute: AntiHeroesLazyRoute,
+  SignInLazyRoute: SignInLazyRoute,
+  SignUpLazyRoute: SignUpLazyRoute,
   VillainsIndexRoute: VillainsIndexRoute,
 }
 
@@ -159,6 +217,8 @@ export const routeTree = rootRoute
         "/heroes",
         "/table",
         "/anti-heroes",
+        "/sign-in",
+        "/sign-up",
         "/villains/"
       ]
     },
@@ -173,6 +233,12 @@ export const routeTree = rootRoute
     },
     "/anti-heroes": {
       "filePath": "anti-heroes.lazy.tsx"
+    },
+    "/sign-in": {
+      "filePath": "sign-in.lazy.tsx"
+    },
+    "/sign-up": {
+      "filePath": "sign-up.lazy.tsx"
     },
     "/villains/": {
       "filePath": "villains/index.tsx"
