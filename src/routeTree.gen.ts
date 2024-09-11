@@ -93,13 +93,59 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({
-  IndexRoute,
-  HeroesRoute,
-  TableRoute,
-  AntiHeroesLazyRoute,
-  VillainsIndexRoute,
-})
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
+  '/heroes': typeof HeroesRoute
+  '/table': typeof TableRoute
+  '/anti-heroes': typeof AntiHeroesLazyRoute
+  '/villains': typeof VillainsIndexRoute
+}
+
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/heroes': typeof HeroesRoute
+  '/table': typeof TableRoute
+  '/anti-heroes': typeof AntiHeroesLazyRoute
+  '/villains': typeof VillainsIndexRoute
+}
+
+export interface FileRoutesById {
+  __root__: typeof rootRoute
+  '/': typeof IndexRoute
+  '/heroes': typeof HeroesRoute
+  '/table': typeof TableRoute
+  '/anti-heroes': typeof AntiHeroesLazyRoute
+  '/villains/': typeof VillainsIndexRoute
+}
+
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/heroes' | '/table' | '/anti-heroes' | '/villains'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/heroes' | '/table' | '/anti-heroes' | '/villains'
+  id: '__root__' | '/' | '/heroes' | '/table' | '/anti-heroes' | '/villains/'
+  fileRoutesById: FileRoutesById
+}
+
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+  HeroesRoute: typeof HeroesRoute
+  TableRoute: typeof TableRoute
+  AntiHeroesLazyRoute: typeof AntiHeroesLazyRoute
+  VillainsIndexRoute: typeof VillainsIndexRoute
+}
+
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  HeroesRoute: HeroesRoute,
+  TableRoute: TableRoute,
+  AntiHeroesLazyRoute: AntiHeroesLazyRoute,
+  VillainsIndexRoute: VillainsIndexRoute,
+}
+
+export const routeTree = rootRoute
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
 
 /* prettier-ignore-end */
 

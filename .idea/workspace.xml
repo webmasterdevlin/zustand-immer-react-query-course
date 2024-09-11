@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="" />
+    <list default="true" id="fa97e883-f774-4dbb-a9d8-c4255b15f804" name="Changes" comment="removed unused">
+      <change beforePath="$PROJECT_DIR$/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/.husky/pre-commit" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavigationBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavigationBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routeTree.gen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routeTree.gen.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -386,7 +392,8 @@
     <MESSAGE value="fix root" />
     <MESSAGE value="fix react query devtools" />
     <MESSAGE value="migrate from useQuery to queryOptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="migrate from useQuery to queryOptions" />
+    <MESSAGE value="removed unused" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed unused" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

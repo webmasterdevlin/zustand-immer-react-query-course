@@ -1,12 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { Sun as SunIcon, Moon as MoonIcon } from 'react-feather';
-
-import useFetchAntiHeroes from '../features/anti-heroes/hooks/useFetchAntiHeroes';
-import useFetchHeroes from '../features/heroes/hooks/useFetchHeroes';
-import villainsQueryOptions from '../features/villains/hooks/villainsQueryOptions.ts';
 import { useThemeStore } from '../store/themeStore';
 import { root } from '../utils/routePaths';
-import TotalOfCharacters from './TotalOfCharacters';
 
 const NavigationBar = () => {
   const { setDarkTheme, setLightTheme } = useThemeStore();
