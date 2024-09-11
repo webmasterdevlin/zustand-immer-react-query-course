@@ -1,13 +1,13 @@
 import { renderHook } from '@testing-library/react-hooks';
 
 import { createQueryProviderWrapper } from '../../../test-utils/create-query-provider-wrapper';
-import useFetchAntiHeroes from '../hooks/useFetchAntiHeroes';
+import antiHeroesQueryOptions from '../hooks/antiHeroesQueryOptions';
 
 describe('Anti Heroes hooks', () => {
-  it('should fire useFetchAntiHeroes', async () => {
+  it('should fire antiHeroesQueryOptions', async () => {
     const { result, waitFor } = renderHook(
       () => {
-        return useFetchAntiHeroes();
+        return antiHeroesQueryOptions();
       },
       {
         wrapper: createQueryProviderWrapper(),

@@ -1,7 +1,9 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Index from './pages';
+import { loader as antiHeroesLoader } from './pages/antiHeroesPage';
 import HeroesPage from './pages/heroesPage';
 import Root from './pages/root';
+import TablePage from './pages/tablePage';
 import VillainsPage from './pages/villainsPage';
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
@@ -15,6 +17,7 @@ export const pathNames = {
   table: '/table',
 } as const;
 
+// selecting pages that are lazy loaded or eagerly loaded
 const routes = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
@@ -25,7 +28,7 @@ const routes = createBrowserRouter(
         path="/anti-heroes"
         lazy={async () => {
           const { default: AntiHeroesPage } = await import('./pages/antiHeroesPage');
-          return { element: <AntiHeroesPage /> };
+          return { element: <AntiHeroesPage />, loader: antiHeroesLoader };
         }}
       />
       <Route
@@ -42,6 +45,7 @@ const routes = createBrowserRouter(
           return { element: <SignUp /> };
         }}
       />
+      <Route path="/table" element={<TablePage />} />
     </Route>,
   ),
 );

@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
 import { useThemeStore } from './store/themeStore';
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 function App() {
   const { isDark } = useThemeStore(state => {

@@ -1,18 +1,23 @@
-import { useQueryClient } from '@tanstack/react-query';
+import { useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { useState } from 'react';
+import { queryClient } from '../App';
 import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
 import UpdateUiLabel from '../components/UpdateUiLabel';
+import antiHeroesQueryOptions from '../features/anti-heroes/hooks/antiHeroesQueryOptions';
 import useAddAntiHero from '../features/anti-heroes/hooks/useAddAntiHero';
-import useFetchAntiHeroes from '../features/anti-heroes/hooks/useFetchAntiHeroes';
 import useRemoveAntiHero from '../features/anti-heroes/hooks/useRemoveAntiHero';
 import { keys } from '../features/keyNames';
 import type { AntiHeroModel } from '../features/anti-heroes/antiHero';
 
+export const loader = () => {
+  return queryClient.ensureQueryData(antiHeroesQueryOptions());
+};
+
 const AntiHeroesPage = () => {
   const queryClient = useQueryClient();
-  const { data: response, status } = useFetchAntiHeroes();
+  const { data: response, status } = useSuspenseQuery(antiHeroesQueryOptions());
   const { mutate: removeAntiHero } = useRemoveAntiHero();
   const { mutate: addAntiHero } = useAddAntiHero();
   /* local state*/
@@ -35,47 +40,43 @@ const AntiHeroesPage = () => {
       <TitleBar title={'Anti-Heroes Page'} />
       <FormSubmission handleMutate={addAntiHero} />
       <UpdateUiLabel />
-      {status === 'pending' ? (
-        <h2>Loading.. Please wait..</h2>
-      ) : (
-        response?.data?.map(ah => {
-          return (
-            <div key={ah.id} className={'flex items-center justify-between'}>
-              <h1>
-                <span>{`${ah.firstName} ${ah.lastName} is ${ah.knownAs}`}</span>
-                {counter === ah.id && <span> - marked</span>}
-              </h1>
-              <div>
-                <Button
-                  color={'primary'}
-                  onClick={() => {
-                    setCounter(ah.id);
-                  }}
-                >
-                  Mark
-                </Button>
-                <Button
-                  onClick={() => {
-                    handleSoftDelete(ah.id);
-                  }}
-                >
-                  Remove
-                </Button>
-                <Button
-                  color="secondary"
-                  onClick={() => {
-                    removeAntiHero(ah.id);
-                  }}
-                >
-                  DELETE in DB
-                </Button>
-              </div>
+      {response?.data?.map(ah => {
+        return (
+          <div key={ah.id} className={'flex items-center justify-between'}>
+            <h1>
+              <span>{`${ah.firstName} ${ah.lastName} is ${ah.knownAs}`}</span>
+              {counter === ah.id && <span> - marked</span>}
+            </h1>
+            <div>
+              <Button
+                color={'primary'}
+                onClick={() => {
+                  setCounter(ah.id);
+                }}
+              >
+                Mark
+              </Button>
+              <Button
+                onClick={() => {
+                  handleSoftDelete(ah.id);
+                }}
+              >
+                Remove
+              </Button>
+              <Button
+                color="secondary"
+                onClick={() => {
+                  removeAntiHero(ah.id);
+                }}
+              >
+                DELETE in DB
+              </Button>
             </div>
-          );
-        })
-      )}
+          </div>
+        );
+      })}
 
-      {response?.data?.length === 0 && status !== 'pending' && (
+      {response?.data?.length === 0 && (
         <Button
           color="primary"
           onClick={() => {
