@@ -21,10 +21,11 @@ export const pathNames = {
 
 export const queryClient = new QueryClient();
 
-// selecting pages that are lazy loaded or eagerly loaded
+// the comments below are purely for educational purposes
 const routes = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
+      {/* eager loading with loader*/}
       <Route index element={<Index />} />
       <Route
         path="/heroes"
@@ -33,6 +34,7 @@ const routes = createBrowserRouter(
         }}
         element={<HeroesPage />}
       />
+      {/* eager loading suspense wrapped with loader*/}
       <Route
         path="/villains"
         loader={() => {
@@ -44,6 +46,7 @@ const routes = createBrowserRouter(
           </Suspense>
         }
       />
+      {/*  lazy loading with loader*/}
       <Route
         path="/anti-heroes"
         loader={() => {
@@ -60,6 +63,7 @@ const routes = createBrowserRouter(
           };
         }}
       />
+      {/*  lazy loading, no loader*/}
       <Route
         path="/sign-in"
         lazy={async () => {
@@ -67,6 +71,7 @@ const routes = createBrowserRouter(
           return { element: <SignIn /> };
         }}
       />
+      {/*  lazy loading, no loader*/}
       <Route
         path="/sign-up"
         lazy={async () => {
@@ -74,6 +79,7 @@ const routes = createBrowserRouter(
           return { element: <SignUp /> };
         }}
       />
+      {/*  eager loading, no loader*/}
       <Route path="/table" element={<TablePage />} />
     </Route>,
   ),
