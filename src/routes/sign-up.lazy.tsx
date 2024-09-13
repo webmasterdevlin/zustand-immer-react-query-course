@@ -1,5 +1,9 @@
 import { Link, useNavigate, createLazyFileRoute } from '@tanstack/react-router'; // For SPA routing
-import React, { useState } from 'react';
+import { useState } from 'react';
+
+export const Route = createLazyFileRoute('/sign-up')({
+  component: SignUpPage,
+});
 
 function SignUpPage() {
   const navigate = useNavigate();
@@ -82,7 +86,3 @@ function SignUpPage() {
     </div>
   );
 }
-
-export const Route = createLazyFileRoute('/sign-up')({
-  component: SignUpPage,
-});

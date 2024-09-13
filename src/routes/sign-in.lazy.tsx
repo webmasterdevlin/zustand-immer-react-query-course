@@ -1,5 +1,9 @@
 import { Link, useNavigate, createLazyFileRoute } from '@tanstack/react-router'; // For SPA routing
-import React, { useState } from 'react';
+import { useState } from 'react';
+
+export const Route = createLazyFileRoute('/sign-in')({
+  component: SignInPage,
+});
 
 function SignInPage() {
   const navigate = useNavigate(); // React Router for navigation
@@ -57,7 +61,3 @@ function SignInPage() {
     </div>
   );
 }
-
-export const Route = createLazyFileRoute('/sign-in')({
-  component: SignInPage,
-});
