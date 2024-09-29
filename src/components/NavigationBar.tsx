@@ -1,13 +1,11 @@
 import { Link } from '@tanstack/react-router';
 import { Sun as SunIcon, Moon as MoonIcon } from 'react-feather';
-import { useThemeStore } from '../store/themeStore';
+import { useTheme, useThemeActions } from '../store/themeStore';
 import { root } from '../utils/routePaths';
 
 const NavigationBar = () => {
-  const { setDarkTheme, setLightTheme } = useThemeStore();
-  const theme = useThemeStore(state => {
-    return state.theme;
-  });
+  const { setDarkTheme, setLightTheme } = useThemeActions();
+  const theme = useTheme();
 
   return (
     <>

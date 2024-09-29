@@ -10,11 +10,13 @@ export type ThemeModel = {
 
 export type ThemeStoreType = {
   theme: ThemeModel;
-  setLightTheme: () => void;
-  setDarkTheme: () => void;
+  actions: {
+    setLightTheme: () => void;
+    setDarkTheme: () => void;
+  };
 };
 
-export const useThemeStore = create<ThemeStoreType>()(
+const useThemeStore = create<ThemeStoreType>()(
   devtools(
     persist(
       set => {
@@ -50,8 +52,7 @@ export const useThemeStore = create<ThemeStoreType>()(
         };
 
         return {
-          setDarkTheme,
-          setLightTheme,
+          actions: { setDarkTheme, setLightTheme },
           theme,
         };
       },
@@ -61,3 +62,15 @@ export const useThemeStore = create<ThemeStoreType>()(
     ),
   ),
 );
+
+export const useTheme = () => {
+  return useThemeStore(state => {
+    return state.theme;
+  });
+};
+
+export const useThemeActions = () => {
+  return useThemeStore(state => {
+    return state.actions;
+  });
+};

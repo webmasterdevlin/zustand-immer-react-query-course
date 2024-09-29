@@ -3,7 +3,7 @@ import { createRouter, ErrorComponent, RouterProvider } from '@tanstack/react-ro
 import { useEffect } from 'react';
 import Spinner from './components/Spinner';
 import { routeTree } from './routeTree.gen';
-import { useThemeStore } from './store/themeStore';
+import { useTheme } from './store/themeStore';
 
 export const queryClient = new QueryClient();
 
@@ -35,9 +35,7 @@ declare module '@tanstack/react-router' {
 }
 
 function App() {
-  const { isDark } = useThemeStore(state => {
-    return state.theme;
-  });
+  const { isDark } = useTheme();
 
   useEffect(() => {
     if (isDark) {
