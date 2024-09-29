@@ -1,6 +1,6 @@
 import { produce } from 'immer';
 import { create } from 'zustand';
-import { persist, devtools } from 'zustand/middleware';
+import { persist, devtools, createJSONStorage } from 'zustand/middleware';
 import type { Draft } from 'immer';
 
 export type ThemeModel = {
@@ -58,6 +58,12 @@ const useThemeStore = create<ThemeStoreType>()(
       },
       {
         name: 'themeStore',
+        partialize: ({ actions, ...rest }) => {
+          return rest;
+        },
+        storage: createJSONStorage(() => {
+          return localStorage;
+        }),
       },
     ),
   ),
