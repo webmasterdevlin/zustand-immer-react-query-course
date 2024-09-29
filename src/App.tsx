@@ -1,13 +1,11 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import React, { useEffect } from 'react';
-import { useThemeStore } from './clientState/themeStore';
+import { useTheme } from './clientState/themeStore';
 import Routes, { queryClient } from './routes';
 
 function App() {
-  const { isDark } = useThemeStore(state => {
-    return state.theme;
-  });
+  const { isDark } = useTheme();
 
   useEffect(() => {
     if (isDark) {

@@ -1,15 +1,13 @@
 import React from 'react';
 import { Sun as SunIcon, Moon as MoonIcon } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
-import { useThemeStore } from '../clientState/themeStore';
+import { useTheme, useThemeActions } from '../clientState/themeStore';
 import { pathNames } from '../routes';
 import Button from './Button';
 
 const NavigationBar = () => {
-  const { setDarkTheme, setLightTheme } = useThemeStore();
-  const theme = useThemeStore(state => {
-    return state.theme;
-  });
+  const { setDarkTheme, setLightTheme } = useThemeActions();
+  const theme = useTheme();
 
   const navigate = useNavigate();
 
