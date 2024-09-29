@@ -42,7 +42,7 @@ function SignInPage() {
       </div>
       <button
         onClick={() => {
-          navigate('/');
+          navigate({ to: '/' });
         }}
         className="mt-10 flex h-12 w-11/12 items-center justify-center rounded-md bg-black text-white"
       >
@@ -52,7 +52,7 @@ function SignInPage() {
       <div className="mt-5 flex w-full flex-col items-center justify-start bg-white text-black">
         <p>Do not have an account?</p>
         <Link
-          to="/src/routes/sign-up.lazy"
+          to="/sign-up"
           className="mt-3.5 flex w-11/12 items-center justify-center rounded-md border border-black bg-white p-2.5"
         >
           <span className="font-bold text-black">Sign up</span>
