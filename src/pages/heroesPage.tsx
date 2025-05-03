@@ -12,9 +12,7 @@ import type { HeroModel } from '../features/heroes/hero';
 import type { LoaderFunction } from 'react-router-dom';
 
 export async function loader(queryClient: QueryClient) {
-  return function (request: LoaderFunction) {
-    return queryClient.ensureQueryData(heroesQueryOptions());
-  };
+  return queryClient.ensureQueryData(heroesQueryOptions());
 }
 
 const HeroesPage = () => {

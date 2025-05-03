@@ -12,9 +12,7 @@ import type { AntiHeroModel } from '../features/anti-heroes/antiHero';
 import type { LoaderFunction } from 'react-router-dom';
 
 export async function loader(queryClient: QueryClient) {
-  return function (request: LoaderFunction) {
-    return queryClient.ensureQueryData(antiHeroesQueryOptions());
-  };
+  return queryClient.ensureQueryData(antiHeroesQueryOptions());
 }
 
 const AntiHeroesPage = () => {
