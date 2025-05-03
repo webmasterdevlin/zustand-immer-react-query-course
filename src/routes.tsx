@@ -40,10 +40,12 @@ const routes = createBrowserRouter(
       {/*  lazy loading with loader*/}
       <Route
         path="/anti-heroes"
-        // loader={antiHeroesLoader(queryClient)}
         lazy={async () => {
           const { default: AntiHeroesPage } = await import('./pages/antiHeroesPage');
           return {
+            // loader: () => {
+            //   return antiHeroesLoader(queryClient);
+            // },
             element: (
               <Suspense fallback={<h1>Fallback component from the AntiHeroesPage suspense</h1>}>
                 <AntiHeroesPage />
