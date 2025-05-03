@@ -1,4 +1,4 @@
-import { type QueryClient, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
+import { useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import Button from '../components/Button';
 import FormSubmission from '../components/FormSubmission';
@@ -9,11 +9,6 @@ import useAddHero from '../features/heroes/serverState/useAddHero';
 import useRemoveHero from '../features/heroes/serverState/useRemoveHero';
 import { keys } from '../features/keyNames';
 import type { HeroModel } from '../features/heroes/hero';
-import type { LoaderFunction } from 'react-router-dom';
-
-export async function loader(queryClient: QueryClient) {
-  return queryClient.ensureQueryData(heroesQueryOptions());
-}
 
 const HeroesPage = () => {
   const queryClient = useQueryClient();

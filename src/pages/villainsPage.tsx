@@ -9,12 +9,6 @@ import useAddVillain from '../features/villains/serverState/useAddVillain';
 import useRemoveVillain from '../features/villains/serverState/useRemoveVillain';
 import villainsQueryOptions from '../features/villains/serverState/villainsQueryOptions';
 import type { VillainModel } from '../features/villains/villain';
-import type { QueryClient } from '@tanstack/react-query';
-import type { LoaderFunction } from 'react-router-dom';
-
-export async function loader(queryClient: QueryClient) {
-  return queryClient?.ensureQueryData(villainsQueryOptions());
-}
 
 const VillainsPage = () => {
   const queryClient = useQueryClient();

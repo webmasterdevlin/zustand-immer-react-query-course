@@ -9,10 +9,12 @@ import useAddAntiHero from '../features/anti-heroes/serverState/useAddAntiHero';
 import useRemoveAntiHero from '../features/anti-heroes/serverState/useRemoveAntiHero';
 import { keys } from '../features/keyNames';
 import type { AntiHeroModel } from '../features/anti-heroes/antiHero';
-import type { LoaderFunction } from 'react-router-dom';
 
-export async function loader(queryClient: QueryClient) {
-  return queryClient.ensureQueryData(antiHeroesQueryOptions());
+export function loader(queryClient: QueryClient) {
+  return async function () {
+    await queryClient.ensureQueryData(antiHeroesQueryOptions());
+    return null;
+  };
 }
 
 const AntiHeroesPage = () => {

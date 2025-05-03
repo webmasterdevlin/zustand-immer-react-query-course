@@ -3,10 +3,10 @@ import { Suspense } from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Index from './pages';
 import { loader as antiHeroesLoader } from './pages/antiHeroesPage';
-import HeroesPage, { loader as heroesLoader } from './pages/heroesPage';
+import HeroesPage from './pages/heroesPage';
 import Root from './pages/root';
 import TablePage from './pages/tablePage';
-import VillainsPage, { loader as villainsLoader } from './pages/villainsPage';
+import VillainsPage from './pages/villainsPage';
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 export const pathNames = {
@@ -27,19 +27,10 @@ const routes = createBrowserRouter(
     <Route path="/" element={<Root />}>
       {/* eager loading with loader*/}
       <Route index element={<Index />} />
-      <Route
-        path="/heroes"
-        loader={() => {
-          return heroesLoader(queryClient);
-        }}
-        element={<HeroesPage />}
-      />
+      <Route path="/heroes" element={<HeroesPage />} />
       {/* eager loading suspense wrapped with loader*/}
       <Route
         path="/villains"
-        loader={() => {
-          return villainsLoader(queryClient);
-        }}
         element={
           <Suspense fallback={<h2>Fallback component from the VillainsPage suspense</h2>}>
             <VillainsPage />
@@ -49,9 +40,7 @@ const routes = createBrowserRouter(
       {/*  lazy loading with loader*/}
       <Route
         path="/anti-heroes"
-        loader={() => {
-          return antiHeroesLoader(queryClient);
-        }}
+        // loader={antiHeroesLoader(queryClient)}
         lazy={async () => {
           const { default: AntiHeroesPage } = await import('./pages/antiHeroesPage');
           return {
