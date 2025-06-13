@@ -1,6 +1,8 @@
 import { ErrorMessage } from '@hookform/error-message';
 import type { CharacterFormSchemaType } from '../validations/character';
 import type { FieldErrorsImpl, UseFormRegisterReturn } from 'react-hook-form';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
 
 type Props = {
   register: (val: any) => UseFormRegisterReturn<any>;
@@ -9,18 +11,18 @@ type Props = {
   errors: FieldErrorsImpl<CharacterFormSchemaType>;
 };
 
+/* Updated to use shadcn/ui Input and Label components */
+
 const InputBox = ({ register, name, label, errors, ...rest }: Props) => {
   return (
-    <div className={'mb-5 flex flex-col'}>
-      <label className="capitalize" htmlFor={name}>
-        {label}
-      </label>
-      <input className="text-black" id={name} {...register(name)} {...rest} />
+    <div className="grid w-full max-w-sm items-center gap-1.5">
+      <Label htmlFor={name}>{label}</Label>
+      <Input id={name} {...register(name)} {...rest} />
       <ErrorMessage
         errors={errors}
         name={name}
         render={e => {
-          return <pre className="text-xs text-red-500">{e.message}</pre>;
+          return <p className="text-sm text-destructive">{e.message}</p>;
         }}
       />
     </div>

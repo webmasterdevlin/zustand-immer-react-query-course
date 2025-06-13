@@ -1,9 +1,8 @@
 import { useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import Button from '../components/Button';
+import { Button } from '../components/ui/button';
 import FormSubmission from '../components/FormSubmission';
-import TitleBar from '../components/TitleBar';
-import UpdateUiLabel from '../components/UpdateUiLabel';
+import { Card, CardContent } from '../components/ui/card';
 import { keys } from '../features/keyNames';
 import useAddVillain from '../features/villains/serverState/useAddVillain';
 import useRemoveVillain from '../features/villains/serverState/useRemoveVillain';
@@ -33,55 +32,86 @@ const VillainsPage = () => {
   if (status === 'error') return <p>Error 😟</p>;
 
   return (
-    <div>
-      <TitleBar title={'Villains Page'} />
-      <FormSubmission handleMutate={addVillain} />
-      <UpdateUiLabel />
-      {response?.data?.map(v => {
-        return (
-          <div key={v.id} className={'flex items-center justify-between'}>
-            <h1>
-              <span>{`${v.firstName} ${v.lastName} is ${v.knownAs}`}</span>
-              {counter === v.id && <span> - marked</span>}
-            </h1>
-            <div>
-              <Button
-                color={'primary'}
-                onClick={() => {
-                  setCounter(v.id);
-                }}
-              >
-                Mark
-              </Button>
-              <Button
-                onClick={() => {
-                  handleSoftDelete(v.id);
-                }}
-              >
-                Remove
-              </Button>
-              <Button
-                color="secondary"
-                onClick={() => {
-                  removeVillain(v.id);
-                }}
-              >
-                DELETE in DB
-              </Button>
-            </div>
-          </div>
-        );
-      })}
+    <div className="container mx-auto py-10">
+      <div className="mb-8">
+        <div className={'mb-10'}>
+          <h1 data-testid="title-page" className="text-3xl font-bold tracking-tight">
+            Villains Page
+          </h1>
+        </div>
+      </div>
+
+      <div className="mb-8">
+        <FormSubmission handleMutate={addVillain} />
+      </div>
+
+      <div className="mb-6">
+        <div className={'mb-2 flex justify-end'}>
+          <div className="text-sm text-muted-foreground">local-state updates, non-async actions, async actions</div>
+        </div>
+      </div>
+
+      <div className="grid gap-4">
+        {response?.data?.map(v => {
+          return (
+            <Card key={v.id}>
+              <CardContent className="flex items-center justify-between p-6">
+                <div className="space-y-1">
+                  <h3 className="text-lg font-semibold leading-none tracking-tight">
+                    {`${v.firstName} ${v.lastName} is ${v.knownAs}`}
+                    {counter === v.id && <span className="text-primary"> - marked</span>}
+                  </h3>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Button
+                    variant="default"
+                    onClick={() => {
+                      setCounter(v.id);
+                    }}
+                    size="sm"
+                  >
+                    Mark
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      handleSoftDelete(v.id);
+                    }}
+                    size="sm"
+                  >
+                    Remove
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      removeVillain(v.id);
+                    }}
+                    size="sm"
+                  >
+                    DELETE in DB
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
 
       {response?.data?.length === 0 && (
-        <Button
-          color="primary"
-          onClick={() => {
-            return queryClient.invalidateQueries({ queryKey: [keys.villains] });
-          }}
-        >
-          Re-Fetch
-        </Button>
+        <div className="flex flex-col items-center justify-center space-y-4 py-16">
+          <div className="text-center">
+            <h3 className="text-lg font-semibold">No villains found</h3>
+            <p className="text-muted-foreground">Get started by creating your first villain.</p>
+          </div>
+          <Button
+            variant="default"
+            onClick={() => {
+              return queryClient.invalidateQueries({ queryKey: [keys.villains] });
+            }}
+          >
+            Re-Fetch
+          </Button>
+        </div>
       )}
     </div>
   );

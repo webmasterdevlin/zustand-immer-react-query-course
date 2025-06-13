@@ -1,9 +1,8 @@
 import { useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import Button from '../components/Button';
+import { Button } from '../components/ui/button';
 import FormSubmission from '../components/FormSubmission';
-import TitleBar from '../components/TitleBar';
-import UpdateUiLabel from '../components/UpdateUiLabel';
+import { Card, CardContent } from '../components/ui/card';
 import heroesQueryOptions from '../features/heroes/serverState/heroesQueryOptions';
 import useAddHero from '../features/heroes/serverState/useAddHero';
 import useRemoveHero from '../features/heroes/serverState/useRemoveHero';
@@ -34,55 +33,86 @@ const HeroesPage = () => {
   if (status === 'error') return <p>Error 😟</p>;
 
   return (
-    <div>
-      <TitleBar title={'Heroes Page'} />
-      <FormSubmission handleMutate={addHero} />
-      <UpdateUiLabel />
-      {response?.data?.map(h => {
-        return (
-          <div data-testid="hero-card" key={h.id} className={'flex items-center justify-between'}>
-            <h1>
-              <span>{`${h.firstName} ${h.lastName} is ${h.knownAs}`}</span>
-              {tracker === h.id && <span> - marked</span>}
-            </h1>
-            <div>
-              <Button
-                color={'primary'}
-                onClick={() => {
-                  setTracker(h.id);
-                }}
-              >
-                Mark
-              </Button>
-              <Button
-                onClick={() => {
-                  handleSoftDelete(h.id);
-                }}
-              >
-                Remove
-              </Button>
-              <Button
-                color="secondary"
-                onClick={() => {
-                  removeHero(h.id);
-                }}
-              >
-                DELETE in DB
-              </Button>
-            </div>
-          </div>
-        );
-      })}
+    <div className="container mx-auto py-10">
+      <div className="mb-8">
+        <div className={'mb-10'}>
+          <h1 data-testid="title-page" className="text-3xl font-bold tracking-tight">
+            Heroes Page
+          </h1>
+        </div>
+      </div>
+
+      <div className="mb-8">
+        <FormSubmission handleMutate={addHero} />
+      </div>
+
+      <div className="mb-6">
+        <div className={'mb-2 flex justify-end'}>
+          <div className="text-sm text-muted-foreground">local-state updates, non-async actions, async actions</div>
+        </div>
+      </div>
+
+      <div className="grid gap-4">
+        {response?.data?.map(h => {
+          return (
+            <Card key={h.id} data-testid="hero-card">
+              <CardContent className="flex items-center justify-between p-6">
+                <div className="space-y-1">
+                  <h3 className="text-lg font-semibold leading-none tracking-tight">
+                    {`${h.firstName} ${h.lastName} is ${h.knownAs}`}
+                    {tracker === h.id && <span className="text-primary"> - marked</span>}
+                  </h3>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Button
+                    variant="default"
+                    onClick={() => {
+                      setTracker(h.id);
+                    }}
+                    size="sm"
+                  >
+                    Mark
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      handleSoftDelete(h.id);
+                    }}
+                    size="sm"
+                  >
+                    Remove
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      removeHero(h.id);
+                    }}
+                    size="sm"
+                  >
+                    DELETE in DB
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
 
       {response?.data?.length === 0 && (
-        <Button
-          color="primary"
-          onClick={() => {
-            return queryClient.invalidateQueries({ queryKey: [keys.heroes] });
-          }}
-        >
-          Re-Fetch
-        </Button>
+        <div className="flex flex-col items-center justify-center space-y-4 py-16">
+          <div className="text-center">
+            <h3 className="text-lg font-semibold">No heroes found</h3>
+            <p className="text-muted-foreground">Get started by creating your first hero.</p>
+          </div>
+          <Button
+            variant="default"
+            onClick={() => {
+              return queryClient.invalidateQueries({ queryKey: [keys.heroes] });
+            }}
+          >
+            Re-Fetch
+          </Button>
+        </div>
       )}
     </div>
   );

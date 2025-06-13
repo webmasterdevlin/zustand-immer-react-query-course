@@ -1,3 +1,5 @@
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+
 type Props = {
   error: any;
   resetErrorBoundary?: (...args: any[]) => void;
@@ -5,9 +7,15 @@ type Props = {
 
 export default function FallbackRenderer({ error }: Props) {
   return (
-    <div role="alert" className="container prose mx-auto p-4">
-      <h1 className="dark:text-white">Something went wrong:</h1>
-      <h3 className="text-red-800 dark:text-orange-400">{error.message}</h3>
+    <div role="alert" className="container mx-auto p-4">
+      <Card className="border-destructive">
+        <CardHeader>
+          <CardTitle className="text-destructive">Something went wrong</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-destructive-foreground">{error.message}</p>
+        </CardContent>
+      </Card>
     </div>
   );
 }

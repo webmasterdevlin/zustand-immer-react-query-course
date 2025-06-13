@@ -1,9 +1,9 @@
 import React from 'react';
-import { Sun as SunIcon, Moon as MoonIcon } from 'react-feather';
+import { Sun, Moon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme, useThemeActions } from '../clientState/themeStore';
 import { pathNames } from '../routes';
-import Button from './Button';
+import { Button } from './ui/button';
 
 const NavigationBar = () => {
   const { setDarkTheme, setLightTheme } = useThemeActions();
@@ -12,33 +12,29 @@ const NavigationBar = () => {
   const navigate = useNavigate();
 
   return (
-    <>
-      <div className={'mih-50 flex flex-row flex-wrap items-center justify-between'}>
-        <div>
-          {Object.entries(pathNames)?.map(([key, value], index) => {
-            return (
-              <Button
-                key={index}
-                onClick={() => {
-                  navigate(value);
-                }}
-              >
-                {key}
-              </Button>
-            );
-          })}
-        </div>
-        <div>
-          <div className={'mih-50 flex flex-row flex-wrap items-center justify-between gap-10 pr-10'}>
-            {theme.isDark ? (
-              <SunIcon className={'cursor-pointer'} onClick={setLightTheme} />
-            ) : (
-              <MoonIcon className={'cursor-pointer'} onClick={setDarkTheme} />
-            )}
-          </div>
-        </div>
+    <nav className="flex items-center justify-between">
+      <div className="flex items-center space-x-2">
+        {Object.entries(pathNames)?.map(([key, value], index) => {
+          return (
+            <Button
+              key={index}
+              variant="ghost"
+              size="sm"
+              onClick={() => {
+                navigate(value);
+              }}
+            >
+              {key}
+            </Button>
+          );
+        })}
       </div>
-    </>
+      <div className="flex items-center">
+        <Button variant="ghost" size="icon" onClick={theme.isDark ? setLightTheme : setDarkTheme}>
+          {theme.isDark ? <Sun className={'h-4 w-4'} /> : <Moon className={'h-4 w-4'} />}
+        </Button>
+      </div>
+    </nav>
   );
 };
 

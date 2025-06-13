@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // For SPA routing
+import { Link, useNavigate } from 'react-router-dom';
+import { Button } from '../components/ui/button';
+import { Input } from '../components/ui/input';
+import { Label } from '../components/ui/label';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 
 export default function SignUpPage() {
   const navigate = useNavigate();
@@ -10,75 +14,95 @@ export default function SignUpPage() {
   const [code, setCode] = useState('');
 
   return (
-    <div className="flex h-screen flex-col items-center justify-start bg-white pt-5">
-      {!pendingVerification && (
-        <>
-          <div className="mb-5 w-11/12">
-            <button className="mt-3.5 flex w-full items-center justify-center rounded-md border-orange-500 bg-orange-600 p-2.5">
-              <span className="font-bold text-white">Forsett med Vipps</span>
-            </button>
-          </div>
-          <div className="mb-5 h-11 w-11/12 rounded-md">
-            <input
-              type="email"
-              value={emailAddress}
-              placeholder="Email..."
-              className="w-full rounded-md"
-              onChange={e => {
-                return setEmailAddress(e.target.value);
-              }}
-            />
-          </div>
-          <div className="mb-5 h-11 w-11/12 rounded-md">
-            <input
-              type="password"
-              value={password}
-              placeholder="Password..."
-              className="w-full rounded-md"
-              onChange={e => {
-                return setPassword(e.target.value);
-              }}
-            />
-          </div>
-          <button
-            onClick={() => {
-              navigate('/');
-            }}
-            className="mt-10 flex h-12 w-11/12 items-center justify-center rounded-md bg-black text-white"
-          >
-            <span className="font-bold text-white">Sign up</span>
-          </button>
+    <div className="flex h-screen flex-col items-center justify-center bg-background">
+      <Card className="w-full max-w-md">
+        <CardHeader className="text-center">
+          <CardTitle className="text-2xl">{!pendingVerification ? 'Sign Up' : 'Verify your email'}</CardTitle>
+          <CardDescription>
+            {!pendingVerification ? 'Create a new account to get started' : 'We sent a verification code to your email'}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {!pendingVerification ? (
+            <>
+              <Button className="w-full bg-orange-600 hover:bg-orange-700">Continue with Vipps</Button>
 
-          <div className="mt-5 flex w-full flex-col items-center justify-start bg-white text-black">
-            <p>Have an account?</p>
-            <Link to="/sign-in" className="mt-3.5 flex w-11/12 items-center justify-center rounded-md bg-white p-2.5">
-              <span className="font-bold text-black">Sign in</span>
-            </Link>
-          </div>
-        </>
-      )}
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <span className="w-full border-t" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+                </div>
+              </div>
 
-      {pendingVerification && (
-        <>
-          <input
-            type="text"
-            value={code}
-            placeholder="Code..."
-            className="mb-5 h-11 w-11/12 rounded-md border border-solid border-black p-2.5"
-            onChange={e => {
-              return setCode(e.target.value);
-            }}
-          />
-          <button
-            onClick={() => {
-              alert('verified');
-            }}
-            className="flex h-12 w-11/12 items-center justify-center rounded-md bg-black text-white"
-          >
-            <span className="font-bold text-white">Verify Email</span>
-          </button>
-        </>
-      )}
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={emailAddress}
+                  placeholder="Email..."
+                  onChange={e => setEmailAddress(e.target.value)}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  placeholder="Password..."
+                  onChange={e => setPassword(e.target.value)}
+                />
+              </div>
+
+              <Button onClick={() => setPendingVerification(true)} className="w-full" size="lg">
+                Sign Up
+              </Button>
+
+              <div className="text-center text-sm">
+                <p className="text-muted-foreground">
+                  Already have an account?{' '}
+                  <Button variant="link" asChild className="h-auto p-0">
+                    <Link to="/sign-in">Sign in</Link>
+                  </Button>
+                </p>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="space-y-2">
+                <Label htmlFor="code">Verification Code</Label>
+                <Input
+                  id="code"
+                  value={code}
+                  placeholder="Enter verification code..."
+                  onChange={e => setCode(e.target.value)}
+                />
+              </div>
+
+              <Button
+                onClick={() => {
+                  alert('verified');
+                  navigate('/');
+                }}
+                className="w-full"
+                size="lg"
+              >
+                Verify Email
+              </Button>
+
+              <div className="text-center">
+                <Button variant="link" onClick={() => setPendingVerification(false)} className="text-sm">
+                  Back to sign up
+                </Button>
+              </div>
+            </>
+          )}
+        </CardContent>
+      </Card>
     </div>
   );
 }
