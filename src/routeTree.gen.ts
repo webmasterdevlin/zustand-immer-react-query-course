@@ -10,51 +10,121 @@
 
 import { createFileRoute } from '@tanstack/react-router'
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as TableRouteImport } from './routes/table'
-import { Route as HeroesRouteImport } from './routes/heroes'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as VillainsIndexRouteImport } from './routes/villains/index'
+// Import Routes
 
-const SignUpLazyRouteImport = createFileRoute('/sign-up')()
-const SignInLazyRouteImport = createFileRoute('/sign-in')()
-const AntiHeroesLazyRouteImport = createFileRoute('/anti-heroes')()
+import { Route as rootRoute } from './routes/__root'
+import { Route as TableImport } from './routes/table'
+import { Route as HeroesImport } from './routes/heroes'
+import { Route as IndexImport } from './routes/index'
+import { Route as VillainsIndexImport } from './routes/villains/index'
 
-const SignUpLazyRoute = SignUpLazyRouteImport.update({
+// Create Virtual Routes
+
+const SignUpLazyImport = createFileRoute('/sign-up')()
+const SignInLazyImport = createFileRoute('/sign-in')()
+const AntiHeroesLazyImport = createFileRoute('/anti-heroes')()
+
+// Create/Update Routes
+
+const SignUpLazyRoute = SignUpLazyImport.update({
   id: '/sign-up',
   path: '/sign-up',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/sign-up.lazy').then((d) => d.Route))
-const SignInLazyRoute = SignInLazyRouteImport.update({
+
+const SignInLazyRoute = SignInLazyImport.update({
   id: '/sign-in',
   path: '/sign-in',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/sign-in.lazy').then((d) => d.Route))
-const AntiHeroesLazyRoute = AntiHeroesLazyRouteImport.update({
+
+const AntiHeroesLazyRoute = AntiHeroesLazyImport.update({
   id: '/anti-heroes',
   path: '/anti-heroes',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/anti-heroes.lazy').then((d) => d.Route))
-const TableRoute = TableRouteImport.update({
+
+const TableRoute = TableImport.update({
   id: '/table',
   path: '/table',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => rootRoute,
 } as any)
-const HeroesRoute = HeroesRouteImport.update({
+
+const HeroesRoute = HeroesImport.update({
   id: '/heroes',
   path: '/heroes',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => rootRoute,
 } as any)
-const IndexRoute = IndexRouteImport.update({
+
+const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => rootRoute,
 } as any)
-const VillainsIndexRoute = VillainsIndexRouteImport.update({
+
+const VillainsIndexRoute = VillainsIndexImport.update({
   id: '/villains/',
   path: '/villains/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => rootRoute,
 } as any)
+
+// Populate the FileRoutesByPath interface
+
+declare module '@tanstack/react-router' {
+  interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/heroes': {
+      id: '/heroes'
+      path: '/heroes'
+      fullPath: '/heroes'
+      preLoaderRoute: typeof HeroesImport
+      parentRoute: typeof rootRoute
+    }
+    '/table': {
+      id: '/table'
+      path: '/table'
+      fullPath: '/table'
+      preLoaderRoute: typeof TableImport
+      parentRoute: typeof rootRoute
+    }
+    '/anti-heroes': {
+      id: '/anti-heroes'
+      path: '/anti-heroes'
+      fullPath: '/anti-heroes'
+      preLoaderRoute: typeof AntiHeroesLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/sign-in': {
+      id: '/sign-in'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof SignInLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/sign-up': {
+      id: '/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof SignUpLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/villains/': {
+      id: '/villains/'
+      path: '/villains'
+      fullPath: '/villains'
+      preLoaderRoute: typeof VillainsIndexImport
+      parentRoute: typeof rootRoute
+    }
+  }
+}
+
+// Create and export the route tree
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -65,6 +135,7 @@ export interface FileRoutesByFullPath {
   '/sign-up': typeof SignUpLazyRoute
   '/villains': typeof VillainsIndexRoute
 }
+
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/heroes': typeof HeroesRoute
@@ -74,8 +145,9 @@ export interface FileRoutesByTo {
   '/sign-up': typeof SignUpLazyRoute
   '/villains': typeof VillainsIndexRoute
 }
+
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
+  __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/heroes': typeof HeroesRoute
   '/table': typeof TableRoute
@@ -84,6 +156,7 @@ export interface FileRoutesById {
   '/sign-up': typeof SignUpLazyRoute
   '/villains/': typeof VillainsIndexRoute
 }
+
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
@@ -114,6 +187,7 @@ export interface FileRouteTypes {
     | '/villains/'
   fileRoutesById: FileRoutesById
 }
+
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HeroesRoute: typeof HeroesRoute
@@ -122,60 +196,6 @@ export interface RootRouteChildren {
   SignInLazyRoute: typeof SignInLazyRoute
   SignUpLazyRoute: typeof SignUpLazyRoute
   VillainsIndexRoute: typeof VillainsIndexRoute
-}
-
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/sign-up': {
-      id: '/sign-up'
-      path: '/sign-up'
-      fullPath: '/sign-up'
-      preLoaderRoute: typeof SignUpLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sign-in': {
-      id: '/sign-in'
-      path: '/sign-in'
-      fullPath: '/sign-in'
-      preLoaderRoute: typeof SignInLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/anti-heroes': {
-      id: '/anti-heroes'
-      path: '/anti-heroes'
-      fullPath: '/anti-heroes'
-      preLoaderRoute: typeof AntiHeroesLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/table': {
-      id: '/table'
-      path: '/table'
-      fullPath: '/table'
-      preLoaderRoute: typeof TableRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/heroes': {
-      id: '/heroes'
-      path: '/heroes'
-      fullPath: '/heroes'
-      preLoaderRoute: typeof HeroesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/villains/': {
-      id: '/villains/'
-      path: '/villains'
-      fullPath: '/villains'
-      preLoaderRoute: typeof VillainsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-  }
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -187,6 +207,47 @@ const rootRouteChildren: RootRouteChildren = {
   SignUpLazyRoute: SignUpLazyRoute,
   VillainsIndexRoute: VillainsIndexRoute,
 }
-export const routeTree = rootRouteImport
+
+export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+/* ROUTE_MANIFEST_START
+{
+  "routes": {
+    "__root__": {
+      "filePath": "__root.tsx",
+      "children": [
+        "/",
+        "/heroes",
+        "/table",
+        "/anti-heroes",
+        "/sign-in",
+        "/sign-up",
+        "/villains/"
+      ]
+    },
+    "/": {
+      "filePath": "index.tsx"
+    },
+    "/heroes": {
+      "filePath": "heroes.tsx"
+    },
+    "/table": {
+      "filePath": "table.tsx"
+    },
+    "/anti-heroes": {
+      "filePath": "anti-heroes.lazy.tsx"
+    },
+    "/sign-in": {
+      "filePath": "sign-in.lazy.tsx"
+    },
+    "/sign-up": {
+      "filePath": "sign-up.lazy.tsx"
+    },
+    "/villains/": {
+      "filePath": "villains/index.tsx"
+    }
+  }
+}
+ROUTE_MANIFEST_END */
