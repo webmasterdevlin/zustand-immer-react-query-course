@@ -24,6 +24,8 @@
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^5.0.1",
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
     "@tanstack/react-query": "^5.71.3",
     "@tanstack/react-query-devtools": "^5.71.3",
     "@tanstack/react-router": "^1.114.32",
@@ -31,6 +33,7 @@
     "@tanstack/router-devtools": "^1.114.32",
     "@tanstack/router-vite-plugin": "^1.114.32",
     "axios": "^1.8.4",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "immer": "^10.1.1",
     "react": "^18.3.1",

@@ -1,7 +1,7 @@
 import { useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
-import Button from '../../components/Button';
+import { Button } from '../../components/ui/button';
 import FormSubmission from '../../components/FormSubmission';
 import TitleBar from '../../components/TitleBar';
 import UpdateUiLabel from '../../components/UpdateUiLabel';
@@ -57,7 +57,7 @@ function Villains() {
             </h1>
             <div>
               <Button
-                color={'primary'}
+                variant={'primary'}
                 onClick={() => {
                   setCounter(v.id);
                 }}
@@ -65,6 +65,7 @@ function Villains() {
                 Mark
               </Button>
               <Button
+                variant="outline"
                 onClick={() => {
                   handleSoftDelete(v.id);
                 }}
@@ -72,7 +73,7 @@ function Villains() {
                 Remove
               </Button>
               <Button
-                color="secondary"
+                variant="secondary"
                 onClick={() => {
                   removeVillain(v.id);
                 }}
@@ -86,7 +87,7 @@ function Villains() {
 
       {response?.data?.length === 0 && (
         <Button
-          color="primary"
+          variant="primary"
           onClick={() => {
             return queryClient.invalidateQueries({ queryKey: [keys.villains] });
           }}

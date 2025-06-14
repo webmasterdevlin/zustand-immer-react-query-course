@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
-import Button from '../components/Button';
+import { Button } from '../components/ui/button';
 import Dedupe from '../components/Dedupe';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
@@ -63,7 +63,7 @@ function Heroes() {
               </h1>
               <div>
                 <Button
-                  color={'primary'}
+                  variant={'primary'}
                   onClick={() => {
                     setTracker(h.id);
                   }}
@@ -71,6 +71,7 @@ function Heroes() {
                   Mark
                 </Button>
                 <Button
+                  variant="outline"
                   onClick={() => {
                     handleSoftDelete(h.id);
                   }}
@@ -78,7 +79,7 @@ function Heroes() {
                   Remove
                 </Button>
                 <Button
-                  color="secondary"
+                  variant="secondary"
                   onClick={() => {
                     removeHero(h.id);
                   }}
@@ -93,7 +94,7 @@ function Heroes() {
 
       {response?.data?.length === 0 && status !== 'pending' && (
         <Button
-          color="primary"
+          variant="primary"
           onClick={() => {
             return queryClient.invalidateQueries({ queryKey: [keys.heroes] });
           }}
