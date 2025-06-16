@@ -1,5 +1,5 @@
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { Outlet, useRouterState, createRootRoute, createRootRouteWithContext } from '@tanstack/react-router';
+import { Outlet, useRouterState, createRootRouteWithContext } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 import NavigationBar from '../components/NavigationBar';
 import Spinner from '../components/Spinner';
@@ -28,7 +28,7 @@ export const Route = createRootRouteWithContext<RouterContextType>()({
 
 function RootComponent() {
   return (
-    <>
+    <div className="container mx-auto">
       <NavigationBar />
       <div className={'bg-white px-6 py-8 shadow-xl ring-1 ring-slate-900/5 dark:bg-slate-800 dark:text-white'}>
         <RouterSpinner />
@@ -36,6 +36,6 @@ function RootComponent() {
       </div>
       <ReactQueryDevtools buttonPosition="bottom-left" initialIsOpen={false} />
       <TanStackRouterDevtools position="bottom-right" />
-    </>
+    </div>
   );
 }

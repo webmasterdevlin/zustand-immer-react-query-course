@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { createLazyFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
-import Button from '../components/Button';
+import { Button } from '../components/ui/button';
 import FormSubmission from '../components/FormSubmission';
 import TitleBar from '../components/TitleBar';
 import UpdateUiLabel from '../components/UpdateUiLabel';
@@ -62,7 +62,7 @@ function AntiHeroes() {
               </h1>
               <div>
                 <Button
-                  color={'primary'}
+                  variant={'primary'}
                   onClick={() => {
                     setCounter(ah.id);
                   }}
@@ -70,6 +70,7 @@ function AntiHeroes() {
                   Mark
                 </Button>
                 <Button
+                  variant="outline"
                   onClick={() => {
                     handleSoftDelete(ah.id);
                   }}
@@ -77,7 +78,7 @@ function AntiHeroes() {
                   Remove
                 </Button>
                 <Button
-                  color="secondary"
+                  variant="secondary"
                   onClick={() => {
                     removeAntiHero(ah.id);
                   }}
@@ -92,7 +93,7 @@ function AntiHeroes() {
 
       {response?.data?.length === 0 && status !== 'pending' && (
         <Button
-          color="primary"
+          variant="primary"
           onClick={() => {
             return queryClient.invalidateQueries({ queryKey: [keys.antiHeroes] });
           }}

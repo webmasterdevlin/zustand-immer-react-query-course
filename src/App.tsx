@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createRouter, ErrorComponent, RouterProvider } from '@tanstack/react-router';
 import { useEffect } from 'react';
 import Spinner from './components/Spinner';
+import { Toaster } from './components/toaster';
 import { routeTree } from './routeTree.gen';
 import { useTheme } from './store/themeStore';
 
@@ -48,6 +49,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
+      <Toaster />
     </QueryClientProvider>
   );
 }
